@@ -15,6 +15,7 @@
 		B9404B751B23A07E00A04E0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9404B741B23A07E00A04E0E /* Images.xcassets */; };
 		B9404B781B23A07E00A04E0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9404B761B23A07E00A04E0E /* LaunchScreen.xib */; };
 		B9404B841B23A07E00A04E0E /* WATjobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B831B23A07E00A04E0E /* WATjobTests.swift */; };
+		B9A61E671B23A8720035B28E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A61E661B23A8720035B28E /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B9404B7D1B23A07E00A04E0E /* WATjobTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WATjobTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9404B821B23A07E00A04E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9404B831B23A07E00A04E0E /* WATjobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WATjobTests.swift; sourceTree = "<group>"; };
+		B9A61E661B23A8720035B28E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A61E671B23A8720035B28E /* RealmSwift.framework in Frameworks */,
 				9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +69,7 @@
 		5DC76B6B401777A8C53A865A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9A61E661B23A8720035B28E /* RealmSwift.framework */,
 				469CE1A0B1CE1922F6879C38 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -420,6 +424,10 @@
 			baseConfigurationReference = 6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WATjob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +439,10 @@
 			baseConfigurationReference = 32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WATjob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
