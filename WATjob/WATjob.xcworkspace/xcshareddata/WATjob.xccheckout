@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>40424199-9872-422C-BDDC-C87730B0C9FC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WATjob</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E471E5E4B24611461ADD9AE227E09010FDDDFEF4</key>
+		<string>https://github.com/dkim616/WATjobiOS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WATjob/WATjob.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E471E5E4B24611461ADD9AE227E09010FDDDFEF4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dkim616/WATjobiOS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E471E5E4B24611461ADD9AE227E09010FDDDFEF4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E471E5E4B24611461ADD9AE227E09010FDDDFEF4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WATjobiOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

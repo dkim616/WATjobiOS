@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469CE1A0B1CE1922F6879C38 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */; };
+		B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */; };
+		B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */; };
+		B9404B731B23A07E00A04E0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9404B711B23A07E00A04E0E /* Main.storyboard */; };
+		B9404B751B23A07E00A04E0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9404B741B23A07E00A04E0E /* Images.xcassets */; };
+		B9404B781B23A07E00A04E0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9404B761B23A07E00A04E0E /* LaunchScreen.xib */; };
+		B9404B841B23A07E00A04E0E /* WATjobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B831B23A07E00A04E0E /* WATjobTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B9404B7E1B23A07E00A04E0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9404B5E1B23A07D00A04E0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9404B651B23A07D00A04E0E;
+			remoteInfo = WATjob;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		469CE1A0B1CE1922F6879C38 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B9404B661B23A07D00A04E0E /* WATjob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WATjob.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9404B6A1B23A07D00A04E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSessionListViewController.swift; sourceTree = "<group>"; };
+		B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		B9404B721B23A07E00A04E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B9404B741B23A07E00A04E0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B9404B771B23A07E00A04E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B9404B7D1B23A07E00A04E0E /* WATjobTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WATjobTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9404B821B23A07E00A04E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9404B831B23A07E00A04E0E /* WATjobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WATjobTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9404B631B23A07D00A04E0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9404B7A1B23A07E00A04E0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5DC76B6B401777A8C53A865A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				469CE1A0B1CE1922F6879C38 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		64EE3EA345C41A0A1E3AA527 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */,
+				32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9404B5D1B23A07D00A04E0E = {
+			isa = PBXGroup;
+			children = (
+				B9404B681B23A07D00A04E0E /* WATjob */,
+				B9404B801B23A07E00A04E0E /* WATjobTests */,
+				B9404B671B23A07D00A04E0E /* Products */,
+				64EE3EA345C41A0A1E3AA527 /* Pods */,
+				5DC76B6B401777A8C53A865A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B9404B671B23A07D00A04E0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9404B661B23A07D00A04E0E /* WATjob.app */,
+				B9404B7D1B23A07E00A04E0E /* WATjobTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9404B681B23A07D00A04E0E /* WATjob */ = {
+			isa = PBXGroup;
+			children = (
+				B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */,
+				B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */,
+				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
+				B9404B711B23A07E00A04E0E /* Main.storyboard */,
+				B9404B741B23A07E00A04E0E /* Images.xcassets */,
+				B9404B761B23A07E00A04E0E /* LaunchScreen.xib */,
+				B9404B691B23A07D00A04E0E /* Supporting Files */,
+			);
+			path = WATjob;
+			sourceTree = "<group>";
+		};
+		B9404B691B23A07D00A04E0E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9404B6A1B23A07D00A04E0E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9404B801B23A07E00A04E0E /* WATjobTests */ = {
+			isa = PBXGroup;
+			children = (
+				B9404B831B23A07E00A04E0E /* WATjobTests.swift */,
+				B9404B811B23A07E00A04E0E /* Supporting Files */,
+			);
+			path = WATjobTests;
+			sourceTree = "<group>";
+		};
+		B9404B811B23A07E00A04E0E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9404B821B23A07E00A04E0E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9404B651B23A07D00A04E0E /* WATjob */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9404B871B23A07E00A04E0E /* Build configuration list for PBXNativeTarget "WATjob" */;
+			buildPhases = (
+				D5603027346AFDA65B1BF321 /* Check Pods Manifest.lock */,
+				B9404B621B23A07D00A04E0E /* Sources */,
+				B9404B631B23A07D00A04E0E /* Frameworks */,
+				B9404B641B23A07D00A04E0E /* Resources */,
+				D4B8100005B6BB3E4E3645D7 /* Embed Pods Frameworks */,
+				F19E0DD49A1148EA64918F86 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WATjob;
+			productName = WATjob;
+			productReference = B9404B661B23A07D00A04E0E /* WATjob.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B9404B7C1B23A07E00A04E0E /* WATjobTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9404B8A1B23A07E00A04E0E /* Build configuration list for PBXNativeTarget "WATjobTests" */;
+			buildPhases = (
+				B9404B791B23A07E00A04E0E /* Sources */,
+				B9404B7A1B23A07E00A04E0E /* Frameworks */,
+				B9404B7B1B23A07E00A04E0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9404B7F1B23A07E00A04E0E /* PBXTargetDependency */,
+			);
+			name = WATjobTests;
+			productName = WATjobTests;
+			productReference = B9404B7D1B23A07E00A04E0E /* WATjobTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9404B5E1B23A07D00A04E0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Strawberry;
+				TargetAttributes = {
+					B9404B651B23A07D00A04E0E = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					B9404B7C1B23A07E00A04E0E = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = B9404B651B23A07D00A04E0E;
+					};
+				};
+			};
+			buildConfigurationList = B9404B611B23A07D00A04E0E /* Build configuration list for PBXProject "WATjob" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B9404B5D1B23A07D00A04E0E;
+			productRefGroup = B9404B671B23A07D00A04E0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9404B651B23A07D00A04E0E /* WATjob */,
+				B9404B7C1B23A07E00A04E0E /* WATjobTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9404B641B23A07D00A04E0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9404B731B23A07E00A04E0E /* Main.storyboard in Resources */,
+				B9404B781B23A07E00A04E0E /* LaunchScreen.xib in Resources */,
+				B9404B751B23A07E00A04E0E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9404B7B1B23A07E00A04E0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D4B8100005B6BB3E4E3645D7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5603027346AFDA65B1BF321 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F19E0DD49A1148EA64918F86 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9404B621B23A07D00A04E0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */,
+				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
+				B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9404B791B23A07E00A04E0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9404B841B23A07E00A04E0E /* WATjobTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9404B7F1B23A07E00A04E0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9404B651B23A07D00A04E0E /* WATjob */;
+			targetProxy = B9404B7E1B23A07E00A04E0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B9404B711B23A07E00A04E0E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9404B721B23A07E00A04E0E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B9404B761B23A07E00A04E0E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9404B771B23A07E00A04E0E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B9404B851B23A07E00A04E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B9404B861B23A07E00A04E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9404B881B23A07E00A04E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WATjob/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B9404B891B23A07E00A04E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WATjob/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B9404B8B1B23A07E00A04E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WATjobTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WATjob.app/WATjob";
+			};
+			name = Debug;
+		};
+		B9404B8C1B23A07E00A04E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WATjobTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WATjob.app/WATjob";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9404B611B23A07D00A04E0E /* Build configuration list for PBXProject "WATjob" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9404B851B23A07E00A04E0E /* Debug */,
+				B9404B861B23A07E00A04E0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9404B871B23A07E00A04E0E /* Build configuration list for PBXNativeTarget "WATjob" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9404B881B23A07E00A04E0E /* Debug */,
+				B9404B891B23A07E00A04E0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9404B8A1B23A07E00A04E0E /* Build configuration list for PBXNativeTarget "WATjobTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9404B8B1B23A07E00A04E0E /* Debug */,
+				B9404B8C1B23A07E00A04E0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9404B5E1B23A07D00A04E0E /* Project object */;
+}
