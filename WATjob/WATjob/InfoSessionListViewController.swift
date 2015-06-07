@@ -27,8 +27,10 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             }
         
             self.tableView.reloadData();
-            
         }
+      
+        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
     }
 
     override func didReceiveMemoryWarning() {
