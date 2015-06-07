@@ -16,4 +16,6 @@ class InfoSessionDetailViewController: UIViewController {
     
     self.title = "Info Session Details"
   }
+  
+  
 }
