@@ -15,6 +15,9 @@
 		B9404B751B23A07E00A04E0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9404B741B23A07E00A04E0E /* Images.xcassets */; };
 		B9404B781B23A07E00A04E0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9404B761B23A07E00A04E0E /* LaunchScreen.xib */; };
 		B9404B841B23A07E00A04E0E /* WATjobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B831B23A07E00A04E0E /* WATjobTests.swift */; };
+		B9DC87E01B24C34F00BF9546 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */; };
+		B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */; };
+		B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,10 @@
 		B9404B7D1B23A07E00A04E0E /* WATjobTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WATjobTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9404B821B23A07E00A04E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9404B831B23A07E00A04E0E /* WATjobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WATjobTests.swift; sourceTree = "<group>"; };
+		B9DC87DD1B24C18F00BF9546 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
+		B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
+		B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectUnpacker.swift; sourceTree = "<group>"; };
+		B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +73,7 @@
 		5DC76B6B401777A8C53A865A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B9DC87DD1B24C18F00BF9546 /* Alamofire.framework */,
 				469CE1A0B1CE1922F6879C38 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -103,9 +111,10 @@
 		B9404B681B23A07D00A04E0E /* WATjob */ = {
 			isa = PBXGroup;
 			children = (
+				B9FA86FB1B24BBA6007E4081 /* REST */,
+				B9FA86FA1B24BB9E007E4081 /* Model */,
+				B9FA86F91B24BB92007E4081 /* ViewController */,
 				B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */,
-				B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */,
-				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
 				B9404B711B23A07E00A04E0E /* Main.storyboard */,
 				B9404B741B23A07E00A04E0E /* Images.xcassets */,
 				B9404B761B23A07E00A04E0E /* LaunchScreen.xib */,
@@ -137,6 +146,32 @@
 				B9404B821B23A07E00A04E0E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9FA86F91B24BB92007E4081 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */,
+				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		B9FA86FA1B24BB9E007E4081 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B9FA86FB1B24BBA6007E4081 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */,
+				B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */,
+			);
+			name = REST;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,8 +326,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */,
+				B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */,
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
+				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
 				B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */,
+				B9DC87E01B24C34F00BF9546 /* InfoSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +461,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
 				);
 				INFOPLIST_FILE = WATjob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -438,6 +477,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
 				);
 				INFOPLIST_FILE = WATjob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
