@@ -9,8 +9,9 @@
 import Foundation
 import Alamofire
 
-var sampleUrl: String = "https://api.uwaterloo.ca/v2/resources/infosessions.json?key=8b0caec7cca16061c9f43046ff68ef93";
-var waterlooOpenData = "https://api.uwaterloo.ca/v2/resources/infosessions.json";
+var waterlooOpenDataBaseUrl = "https://api.uwaterloo.ca/v2/resources/"
+
+let WaterlooAPIKey = "8b0caec7cca16061c9f43046ff68ef93";
 
 class WJHTTPClient {
     static let sharedHTTPClient = WJHTTPClient()
@@ -20,7 +21,7 @@ class WJHTTPClient {
     }
     
     func getLatestInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
-        Alamofire.request(.GET, waterlooOpenData, parameters: ["key": "8b0caec7cca16061c9f43046ff68ef93"], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+        Alamofire.request(.GET, waterlooOpenDataBaseUrl+"infosessions.json", parameters: ["key": "8b0caec7cca16061c9f43046ff68ef93"], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
             completionHandler(ObjectUnpacker.unpackInfoSessionListDictionary(JSON));
         }
     }

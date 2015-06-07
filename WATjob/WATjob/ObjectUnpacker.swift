@@ -22,16 +22,18 @@ class ObjectUnpacker {
             if let infoSessonDictionaryList = json["data"].array {
 
                 for infoSessionDictionary in infoSessonDictionaryList {
-                    var infoSession = InfoSession(
-                        id: infoSessionDictionary["id"].stringValue,
-                        employer: infoSessionDictionary["employer"].stringValue,
-                        date: NSDate(),
-                        day: infoSessionDictionary["day"].stringValue,
-                        startTime: infoSessionDictionary["start_time"].stringValue,
-                        endTime: infoSessionDictionary["end_time"].stringValue,
-                        location: infoSessionDictionary["location"].stringValue,
-                        website: infoSessionDictionary["website"].stringValue);
-                    infoSessionList.append(infoSession);
+                    if (infoSessionDictionary["id"] != "2918") {
+                        var infoSession = InfoSession(
+                            id: infoSessionDictionary["id"].stringValue,
+                            employer: infoSessionDictionary["employer"].stringValue,
+                            date: NSDate(),
+                            day: infoSessionDictionary["day"].stringValue,
+                            startTime: infoSessionDictionary["start_time"].stringValue,
+                            endTime: infoSessionDictionary["end_time"].stringValue,
+                            location: infoSessionDictionary["location"].stringValue,
+                            website: infoSessionDictionary["website"].stringValue);
+                        infoSessionList.append(infoSession);
+                    }
                 }
             }
             

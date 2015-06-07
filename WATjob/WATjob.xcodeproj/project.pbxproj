@@ -17,6 +17,7 @@
 		B9404B841B23A07E00A04E0E /* WATjobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B831B23A07E00A04E0E /* WATjobTests.swift */; };
 		B9DC87E01B24C34F00BF9546 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */; };
 		B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */; };
+		B9DC87E41B24CDBC00BF9546 /* InfoSessionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */; };
 		B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		B9DC87DD1B24C18F00BF9546 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
 		B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
 		B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectUnpacker.swift; sourceTree = "<group>"; };
+		B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionListCell.swift; sourceTree = "<group>"; };
 		B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +155,7 @@
 			children = (
 				B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */,
 				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
+				B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
 				B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */,
+				B9DC87E41B24CDBC00BF9546 /* InfoSessionListCell.swift in Sources */,
 				B9DC87E01B24C34F00BF9546 /* InfoSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
