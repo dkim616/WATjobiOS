@@ -24,11 +24,12 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList { (result) -> () in
             if let infoSessionList = result {
                 self.infoSessionList = infoSessionList;
+                self.tableView.reloadData();
             }
-        
-            self.tableView.reloadData();
-            
         }
+      
+        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +58,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // when selected do something
+      
     }
 
 
