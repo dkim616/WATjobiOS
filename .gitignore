@@ -17,6 +17,7 @@ xcuserdata
 *.xccheckout
 *.moved-aside
 *.xcuserstate
+WATjob/WATjob.xcworkspace/xcuserdata/*
 
 ## Obj-C/Swift specific
 *.hmap
