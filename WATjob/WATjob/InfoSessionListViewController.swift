@@ -58,7 +58,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        println("didSelectRowAtIndexPath")
     }
     
     
