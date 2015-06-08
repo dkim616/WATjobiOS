@@ -57,6 +57,7 @@
                                             <outlet property="endTimeLabel" destination="5T4-XF-Eeu" id="AAZ-Ss-Egb"/>
                                             <outlet property="locationLabel" destination="4bF-Lk-UED" id="PWV-Lf-Fgd"/>
                                             <outlet property="startTimeLabel" destination="q6e-EN-Wew" id="Dfz-Q3-yxH"/>
+                                            <segue destination="gaf-23-xg2" kind="show" id="YyH-UV-elU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -79,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1222.5" y="-396.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Info Session Detail View Controller-->
         <scene sceneID="9ke-8x-ivZ">
             <objects>
-                <viewController id="gaf-23-xg2" sceneMemberID="viewController">
+                <viewController id="gaf-23-xg2" userLabel="Info Session Detail View Controller" customClass="InfoSessionDetailViewController" customModule="WATjob" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7rk-hB-fyk"/>
                         <viewControllerLayoutGuide type="bottom" id="RCp-jO-6eh"/>
@@ -96,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vuh-kh-P2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1689.5" y="-396.5"/>
+            <point key="canvasLocation" x="1785.5" y="-396.5"/>
         </scene>
         <!--Info Session-->
         <scene sceneID="bj7-ud-TDf">
