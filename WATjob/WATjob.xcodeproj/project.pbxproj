@@ -157,11 +157,11 @@
 		B9FA86F91B24BB92007E4081 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				42509FC91B25435D00562B05 /* InfoSessionDetailView.swift */,
+				42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */,
+				B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */,
 				B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */,
 				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
-				B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */,
-				42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */,
-				42509FC91B25435D00562B05 /* InfoSessionDetailView.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
