@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */; };
+		42509FCA1B25435D00562B05 /* InfoSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FC91B25435D00562B05 /* InfoSessionDetailView.swift */; };
 		9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469CE1A0B1CE1922F6879C38 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */; };
 		B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionDetailViewController.swift; sourceTree = "<group>"; };
+		42509FC91B25435D00562B05 /* InfoSessionDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionDetailView.swift; sourceTree = "<group>"; };
 		469CE1A0B1CE1922F6879C38 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B9404B661B23A07D00A04E0E /* WATjob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WATjob.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +161,7 @@
 				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
 				B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */,
 				42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */,
+				42509FC91B25435D00562B05 /* InfoSessionDetailView.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */,
 				42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */,
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
+				42509FCA1B25435D00562B05 /* InfoSessionDetailView.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
 				B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */,
 				B9DC87E41B24CDBC00BF9546 /* InfoSessionListCell.swift in Sources */,

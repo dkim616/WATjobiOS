@@ -1,5 +1,5 @@
 //
-//  InfoSessionDetailViewController.swift
+//  InfoSessionDetaiViewswift
 //  WATjob
 //
 //  Created by Daniel Kim on 2015-06-07.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class InfoSessionDetailViewController: UIViewController {
+class InfoSessionDetailView: UIView {
     
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -17,11 +17,16 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Info Session Details"
+        // Do any additional setup after loading the view.
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 }

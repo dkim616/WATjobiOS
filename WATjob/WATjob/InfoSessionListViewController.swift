@@ -17,7 +17,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         self.infoSessionList = [];
         super.init(coder: aDecoder);
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,11 +27,11 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
                 self.tableView.reloadData();
             }
         }
-      
+        
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,15 +52,15 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         cell.startTimeLabel.text = infoSession.startTime;
         cell.endTimeLabel.text = infoSession.endTime;
         cell.locationLabel.text = infoSession.location;
-            
+        
         return cell;
-
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      
+        
     }
-
-
+    
+    
 }
 
