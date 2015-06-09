@@ -12,9 +12,11 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     
     @IBOutlet weak var tableView: UITableView!
     var infoSessionList: Array<InfoSession>;
+    var infoSessionListIndexToPass: Int
     
     required init(coder aDecoder: NSCoder) {
         self.infoSessionList = [];
+        self.infoSessionListIndexToPass = -1
         super.init(coder: aDecoder);
     }
     
@@ -35,6 +37,13 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "sessionToSessionDetail") {
+            var detailVC = segue.destinationViewController as! InfoSessionDetailViewController
+            detailVC.toPass = self.tableView.indexPathForSelectedRow()!.row //self.infoSessionListIndexToPass
+        }
     }
     
     // MARK: TableView Stuff
@@ -58,9 +67,11 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("didSelectRowAtIndexPath")
+        self.infoSessionListIndexToPass = indexPath.row
+//        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("InfoSessionDetailView") as! InfoSessionDetailViewController
+//        detailVC.toPass = indexPath.row
+//        self.presentViewController(detailVC, animated: true, completion: nil)
+//        performSegueWithIdentifier("sessionToSessionDetail", sender: self)
     }
-    
-    
 }
 
