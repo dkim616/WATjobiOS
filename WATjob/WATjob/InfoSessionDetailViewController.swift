@@ -10,7 +10,14 @@ import UIKit
 
 class InfoSessionDetailViewController: UIViewController {
     
+    @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    
     var infoSessionList: Array<InfoSession>;
+    var toPass:Int!
     
     required init(coder aDecoder: NSCoder) {
         self.infoSessionList = [];
@@ -20,13 +27,17 @@ class InfoSessionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        println(toPass)
+        
         self.title = "Info Session Details"
         
-        WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList { (result) -> () in
-            if let infoSessionList = result {
-                self.infoSessionList = infoSessionList;
-            }
-        }
+        self.companyNameLabel.text = "\(toPass)"
+        
+//        WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList { (result) -> () in
+//            if let infoSessionList = result {
+//                self.infoSessionList = infoSessionList;
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {

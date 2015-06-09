@@ -57,7 +57,7 @@
                                             <outlet property="endTimeLabel" destination="5T4-XF-Eeu" id="AAZ-Ss-Egb"/>
                                             <outlet property="locationLabel" destination="4bF-Lk-UED" id="PWV-Lf-Fgd"/>
                                             <outlet property="startTimeLabel" destination="q6e-EN-Wew" id="Dfz-Q3-yxH"/>
-                                            <segue destination="gaf-23-xg2" kind="show" id="YyH-UV-elU"/>
+                                            <segue destination="gaf-23-xg2" kind="show" identifier="sessionToSessionDetail" id="YyH-UV-elU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -88,7 +88,7 @@
                         <viewControllerLayoutGuide type="top" id="7rk-hB-fyk"/>
                         <viewControllerLayoutGuide type="bottom" id="RCp-jO-6eh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="weh-b8-3O2" customClass="InfoSessionDetailView" customModule="WATjob" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="weh-b8-3O2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -151,15 +151,15 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="companyNameLabel" destination="3Xu-nY-u7O" id="Qob-k2-VA8"/>
-                            <outlet property="dateLabel" destination="SNr-4K-LKN" id="rVV-WC-cXg"/>
-                            <outlet property="endTimeLabel" destination="66i-aZ-b3F" id="cKk-Bf-uAT"/>
-                            <outlet property="locationLabel" destination="YoO-UQ-efm" id="HJ0-1H-AZ3"/>
-                            <outlet property="startTimeLabel" destination="7vf-Ch-aC8" id="Zm0-Lb-6YY"/>
-                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="companyNameLabel" destination="3Xu-nY-u7O" id="4w2-Ty-ykW"/>
+                        <outlet property="dateLabel" destination="SNr-4K-LKN" id="Wku-w7-ZTC"/>
+                        <outlet property="endTimeLabel" destination="66i-aZ-b3F" id="Tft-nc-Ys3"/>
+                        <outlet property="locationLabel" destination="YoO-UQ-efm" id="UJz-AP-wnG"/>
+                        <outlet property="startTimeLabel" destination="7vf-Ch-aC8" id="mss-a7-ftT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vuh-kh-P2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
