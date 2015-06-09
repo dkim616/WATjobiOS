@@ -10,7 +10,7 @@ import UIKit
 
 class ReviewViewController: UIViewController {
 
-
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var headlineLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
@@ -26,6 +26,7 @@ class ReviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.scrollView!.contentSize = CGSizeMake(320, 1500);
         self.companyLabel.text = "Test"
         self.headlineLabel.text = reviewInfo.headline
         self.positionLabel.text = reviewInfo.jobTitle
