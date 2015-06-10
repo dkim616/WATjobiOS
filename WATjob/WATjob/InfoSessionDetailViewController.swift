@@ -16,11 +16,11 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    var infoSessionList: Array<EmployerInfo>;
+    var employerInfoList: Array<EmployerInfo>;
     var toPass:Int!
     
     required init(coder aDecoder: NSCoder) {
-        self.infoSessionList = [];
+        self.employerInfoList = [];
         super.init(coder: aDecoder);
     }
     
@@ -34,8 +34,9 @@ class InfoSessionDetailViewController: UIViewController {
         self.companyNameLabel.text = "\(toPass)"
         
         WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
-            if let infoSessionList = result {
-                self.infoSessionList = infoSessionList;
+            if let result = result {
+                self.employerInfoList = result;
+                println(self.employerInfoList[0].name)
             }
         }
     }
