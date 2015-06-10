@@ -11,6 +11,7 @@
 		9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469CE1A0B1CE1922F6879C38 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C361B2790F4007773A0 /* InfoSession.swift */; };
 		B90D4C391B279566007773A0 /* WJDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C381B279566007773A0 /* WJDataCenter.swift */; };
+		B90D4C3B1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C3A1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift */; };
 		B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */; };
 		B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */; };
 		B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */; };
@@ -40,6 +41,7 @@
 		6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B90D4C361B2790F4007773A0 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
 		B90D4C381B279566007773A0 /* WJDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJDataCenter.swift; sourceTree = "<group>"; };
+		B90D4C3A1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteInfoSessionListViewController.swift; sourceTree = "<group>"; };
 		B9404B661B23A07D00A04E0E /* WATjob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WATjob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9404B6A1B23A07D00A04E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */,
 				B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */,
 				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
+				B90D4C3A1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */,
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
+				B90D4C3B1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift in Sources */,
 				B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */,
 				B90D4C391B279566007773A0 /* WJDataCenter.swift in Sources */,
 				B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */,

@@ -27,7 +27,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Employer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vt1-VQ-Awq">
-                                                    <rect key="frame" x="8" y="8" width="182" height="31"/>
+                                                    <rect key="frame" x="8" y="8" width="160" height="31"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -39,22 +39,29 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="end time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5T4-XF-Eeu">
-                                                    <rect key="frame" x="283" y="19" width="75" height="21"/>
+                                                    <rect key="frame" x="259" y="18" width="75" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6e-EN-Wew">
-                                                    <rect key="frame" x="190" y="19" width="75" height="21"/>
+                                                    <rect key="frame" x="176" y="18" width="75" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhM-7T-G0M">
+                                                    <rect key="frame" x="337" y="15" width="30" height="30"/>
+                                                    <state key="normal" title="F">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="employerLabel" destination="Vt1-VQ-Awq" id="RdX-4s-tM7"/>
                                             <outlet property="endTimeLabel" destination="5T4-XF-Eeu" id="AAZ-Ss-Egb"/>
+                                            <outlet property="favouriteButton" destination="xhM-7T-G0M" id="vF2-Pw-t7x"/>
                                             <outlet property="locationLabel" destination="4bF-Lk-UED" id="PWV-Lf-Fgd"/>
                                             <outlet property="startTimeLabel" destination="q6e-EN-Wew" id="Dfz-Q3-yxH"/>
                                             <segue destination="gaf-23-xg2" kind="show" identifier="sessionToSessionDetail" id="YyH-UV-elU"/>

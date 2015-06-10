@@ -14,4 +14,5 @@ class InfoSessionListCell: UITableViewCell {
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var employerLabel: UILabel!
+    @IBOutlet weak var favouriteButton: UIButton!
 }
