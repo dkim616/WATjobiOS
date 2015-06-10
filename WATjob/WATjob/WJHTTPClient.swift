@@ -10,8 +10,12 @@ import Foundation
 import Alamofire
 
 var waterlooOpenDataBaseUrl = "https://api.uwaterloo.ca/v2/resources/"
+let waterlooAPIKey = "8b0caec7cca16061c9f43046ff68ef93"
 
-let WaterlooAPIKey = "8b0caec7cca16061c9f43046ff68ef93";
+var glassdoorAPIBaseUrl = "http://api.glassdoor.com/api/"
+let glassdoorAPIPort = "36943"
+let glassdoorAPIKey = "dnJJ5zpvHW7"
+let userIP = "0.0.0.0"
 
 class WJHTTPClient {
     static let sharedHTTPClient = WJHTTPClient()
@@ -21,8 +25,37 @@ class WJHTTPClient {
     }
     
     func getLatestInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
-        Alamofire.request(.GET, waterlooOpenDataBaseUrl+"infosessions.json", parameters: ["key": WaterlooAPIKey], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+        Alamofire.request(.GET, waterlooOpenDataBaseUrl + "infosessions.json", parameters: ["key": waterlooAPIKey], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
             completionHandler(ObjectUnpacker.unpackInfoSessionListDictionary(JSON));
+        }
+    }
+    
+    func getLatestEmployerInfoList(completetionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
+            "t.p": glassdoorAPIPort,
+            "t.k": glassdoorAPIKey,
+            "userip": userIP,
+            "useragent": "",
+            "format": "json",
+            "v": "1",
+            "action": "employers"
+        ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+            completetionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
+        }
+    }
+    
+    func getLatestEmployerInfoListByCompanyName(companyName: String, completetionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
+            "t.p": glassdoorAPIPort,
+            "t.k": glassdoorAPIKey,
+            "userip": userIP,
+            "useragent": "",
+            "format": "json",
+            "v": "1",
+            "action": "employers",
+            "e": companyName
+            ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+                completetionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
         }
     }
     

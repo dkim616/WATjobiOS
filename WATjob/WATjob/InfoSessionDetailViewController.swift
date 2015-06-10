@@ -16,7 +16,7 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    var infoSessionList: Array<InfoSession>;
+    var infoSessionList: Array<EmployerInfo>;
     var toPass:Int!
     
     required init(coder aDecoder: NSCoder) {
@@ -33,11 +33,11 @@ class InfoSessionDetailViewController: UIViewController {
         
         self.companyNameLabel.text = "\(toPass)"
         
-//        WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList { (result) -> () in
-//            if let infoSessionList = result {
-//                self.infoSessionList = infoSessionList;
-//            }
-//        }
+        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
+            if let infoSessionList = result {
+                self.infoSessionList = infoSessionList;
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

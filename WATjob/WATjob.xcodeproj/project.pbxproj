@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */; };
+		42509FD41B26A0F600562B05 /* EmployerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD31B26A0F600562B05 /* EmployerInfo.swift */; };
+		42509FD61B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD51B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift */; };
+		42509FD81B26A21D00562B05 /* EmployerInfoCEO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD71B26A21D00562B05 /* EmployerInfoCEO.swift */; };
 		9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469CE1A0B1CE1922F6879C38 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C361B2790F4007773A0 /* InfoSession.swift */; };
 		B90D4C391B279566007773A0 /* WJDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C381B279566007773A0 /* WJDataCenter.swift */; };
@@ -37,6 +40,9 @@
 /* Begin PBXFileReference section */
 		32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionDetailViewController.swift; sourceTree = "<group>"; };
+		42509FD31B26A0F600562B05 /* EmployerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerInfo.swift; sourceTree = "<group>"; };
+		42509FD51B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerInfoFeaturedReview.swift; sourceTree = "<group>"; };
+		42509FD71B26A21D00562B05 /* EmployerInfoCEO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerInfoCEO.swift; sourceTree = "<group>"; };
 		469CE1A0B1CE1922F6879C38 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B90D4C361B2790F4007773A0 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
@@ -172,6 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				B90D4C361B2790F4007773A0 /* InfoSession.swift */,
+				B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */,
+				42509FD31B26A0F600562B05 /* EmployerInfo.swift */,
+				42509FD51B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift */,
+				42509FD71B26A21D00562B05 /* EmployerInfoCEO.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,8 +347,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42509FD61B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift in Sources */,
+				42509FD41B26A0F600562B05 /* EmployerInfo.swift in Sources */,
 				B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */,
 				B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */,
+				42509FD81B26A21D00562B05 /* EmployerInfoCEO.swift in Sources */,
 				42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */,
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
