@@ -204,6 +204,70 @@
             </objects>
             <point key="canvasLocation" x="619.5" y="359.5"/>
         </scene>
+        <!--Review-->
+        <scene sceneID="lll-X1-ydY">
+            <objects>
+                <navigationController id="9bt-e5-YJY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Review" id="EIY-wH-6XT"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y7S-pJ-Pxl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zYI-ga-z0s" kind="relationship" relationship="rootViewController" id="nQp-FE-bfm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KtK-2e-Y4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-624.5" y="785.5"/>
+        </scene>
+        <!--Review View Controller-->
+        <scene sceneID="szw-Kc-YS6">
+            <objects>
+                <viewController id="zYI-ga-z0s" userLabel="Review View Controller" customClass="ReviewListViewController" customModule="WATjob" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tTb-QJ-lXy"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Gj-b6-FHV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ThE-hx-F64">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-F0-bmC">
+                                <rect key="frame" x="16" y="72" width="343" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q1D-kb-tFZ">
+                                <rect key="frame" x="137" y="140" width="100" height="100"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztW-mb-sNY">
+                                <rect key="frame" x="107" y="274" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nz-wb-QBk">
+                                <rect key="frame" x="107" y="303" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="i9X-eV-lRV"/>
+                    <connections>
+                        <outlet property="employerLabel" destination="GeW-F0-bmC" id="EI0-Nu-jkg"/>
+                        <outlet property="ratingLabel" destination="0nz-wb-QBk" id="nN8-VL-Rgr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPU-M2-poB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7" y="850"/>
+        </scene>
         <!--Favourite Info Session List View Controller-->
         <scene sceneID="SFN-UI-oeC">
             <objects>
@@ -259,6 +323,7 @@
                     <connections>
                         <segue destination="4YM-qU-r7k" kind="relationship" relationship="viewControllers" id="khK-bZ-xuX"/>
                         <segue destination="iBG-Se-bYk" kind="relationship" relationship="viewControllers" id="ELB-Z1-zNr"/>
+                        <segue destination="9bt-e5-YJY" kind="relationship" relationship="viewControllers" id="d3L-8s-frc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
