@@ -21,13 +21,11 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DataCenter.getFavouritedInfoSessionList { (results) -> () in
-            if let results = results {
-                self.infoSessionList = results
-                self.tableView.reloadData()
-            }
-        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateFavouriteList()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,5 +48,16 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+    // MARK: Helpers
+    
+    func updateFavouriteList() -> Void {
+        DataCenter.getFavouritedInfoSessionList { (results) -> () in
+            if let results = results {
+                self.infoSessionList = results
+                self.tableView.reloadData()
+            }
+        }
     }
 }
