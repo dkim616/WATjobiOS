@@ -187,11 +187,11 @@
             </objects>
             <point key="canvasLocation" x="619.5" y="-396.5"/>
         </scene>
-        <!--Employer-->
+        <!--Favourites-->
         <scene sceneID="hla-nm-MqT">
             <objects>
                 <navigationController id="iBG-Se-bYk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Employer" id="4T7-U9-Vmb"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" id="4T7-U9-Vmb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KjX-dW-AHq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="619.5" y="359.5"/>
         </scene>
-        <!--Favourite Info Session List View Controller-->
+        <!--Favourites-->
         <scene sceneID="SFN-UI-oeC">
             <objects>
-                <viewController id="o6U-Zf-uhO" customClass="FavouriteInfoSessionListViewController" customModule="WATjob" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Favourites" id="o6U-Zf-uhO" customClass="FavouriteInfoSessionListViewController" customModule="WATjob" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HTk-3f-Ajq"/>
                         <viewControllerLayoutGuide type="bottom" id="3Er-53-qRe"/>
@@ -220,23 +220,62 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nmW-sM-6Q5">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="FavouriteInfoSessionListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteInfoSessionListCell" rowHeight="60" id="xNS-lu-IqU" customClass="InfoSessionListCell" customModule="WATjob" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nmW-sM-6Q5" id="Hom-wQ-6lb">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xNS-lu-IqU" id="K2T-DB-zGc">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Employer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljf-iX-3v2">
+                                                    <rect key="frame" x="8" y="8" width="160" height="31"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w99-fj-Lpg">
+                                                    <rect key="frame" x="8" y="37" width="90" height="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="end time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLf-Xc-2lm">
+                                                    <rect key="frame" x="259" y="18" width="75" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54h-PO-hK0">
+                                                    <rect key="frame" x="176" y="18" width="75" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2x5-oQ-qrZ">
+                                                    <rect key="frame" x="337" y="15" width="30" height="30"/>
+                                                    <state key="normal" title="F">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="employerLabel" destination="ljf-iX-3v2" id="rC6-Or-OdS"/>
+                                            <outlet property="endTimeLabel" destination="fLf-Xc-2lm" id="zSD-oq-t9G"/>
+                                            <outlet property="favouriteButton" destination="2x5-oQ-qrZ" id="kr4-vo-56W"/>
+                                            <outlet property="locationLabel" destination="w99-fj-Lpg" id="Zf5-Lq-yHq"/>
+                                            <outlet property="startTimeLabel" destination="54h-PO-hK0" id="VwM-V6-f5l"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="o6U-Zf-uhO" id="QET-40-mM9"/>
-                                    <outlet property="delegate" destination="o6U-Zf-uhO" id="uUV-0s-D8o"/>
+                                    <outlet property="dataSource" destination="o6U-Zf-uhO" id="Vqe-cg-xsJ"/>
+                                    <outlet property="delegate" destination="o6U-Zf-uhO" id="PtS-o8-wsQ"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yTV-yk-J2K"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="yTV-yk-J2K"/>
                     <connections>
                         <outlet property="tableView" destination="PbU-io-JxL" id="AaS-sk-u9R"/>
                     </connections>

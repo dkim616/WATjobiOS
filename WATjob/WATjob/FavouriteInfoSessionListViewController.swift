@@ -23,8 +23,10 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
         super.viewDidLoad()
         
         DataCenter.getFavouritedInfoSessionList { (results) -> () in
-            self.infoSessionList = DataCenter.arrayFromResults(results!)
-            self.tableView.reloadData()
+            if let results = results {
+                self.infoSessionList = results
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -33,7 +35,7 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("InfoSessionListCell", forIndexPath: indexPath) as! InfoSessionListCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("FavouriteInfoSessionListCell", forIndexPath: indexPath) as! InfoSessionListCell;
         
         var infoSession = infoSessionList[indexPath.row];
         cell.employerLabel.text = infoSession.employer;
