@@ -44,4 +44,19 @@ class WJHTTPClient {
         }
     }
     
+    func getLatestEmployerInfoListByCompanyName(companyName: String, completetionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
+            "t.p": glassdoorAPIPort,
+            "t.k": glassdoorAPIKey,
+            "userip": userIP,
+            "useragent": "",
+            "format": "json",
+            "v": "1",
+            "action": "employers",
+            "e": companyName
+            ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+                completetionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
+        }
+    }
+    
 }
