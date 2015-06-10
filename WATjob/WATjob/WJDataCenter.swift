@@ -35,7 +35,7 @@ class DataCenter {
     
     class func getFavouritedInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
         let realm = Realm()
-        let result = realm.objects(InfoSession).filter("isFavourited == false").sorted("date");
+        let result = realm.objects(InfoSession).filter("isFavourited == true").sorted("date");
         completionHandler(DataCenter.arrayFromResults(result));
     }
 
@@ -46,5 +46,16 @@ class DataCenter {
         }
         
         return infoSessionList
+    }
+    
+    class func markFavouriteWithInfoSessionId(id: String) -> Void {
+        let realm = Realm()
+        var infoSession = realm.objectForPrimaryKey(InfoSession.self, key: id)
+        
+        if let infoSession = infoSession {
+            realm.write({ () -> Void in
+                infoSession.isFavourited = true;
+            })
+        }
     }
 }

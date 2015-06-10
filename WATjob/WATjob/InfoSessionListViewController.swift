@@ -76,7 +76,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     }
     
     func favouriteClicked(sender: UIButton) -> Void {
-        // use the tag to mark the database.
+        let infoSession = self.infoSessionList[sender.tag]
+        DataCenter.markFavouriteWithInfoSessionId(infoSession.id)
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

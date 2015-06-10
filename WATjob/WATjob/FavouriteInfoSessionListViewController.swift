@@ -42,14 +42,10 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
         cell.startTimeLabel.text = infoSession.startTime;
         cell.endTimeLabel.text = infoSession.endTime;
         cell.locationLabel.text = infoSession.location;
-        cell.favouriteButton.tag = indexPath.row
-        cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        cell.favouriteButton.enabled = false;
+        cell.favouriteButton.userInteractionEnabled = false;
         
         return cell;
-    }
-    
-    func favouriteClicked(sender: UIButton) -> Void {
-        // use the tag to mark the database.
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
