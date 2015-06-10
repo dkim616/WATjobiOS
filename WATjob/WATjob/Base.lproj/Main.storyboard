@@ -71,7 +71,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Info Session" image="first" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="Info Session" id="Gwe-KM-hzA"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="Gvv-uc-kOn" id="7aj-cx-2zL"/>
                     </connections>
@@ -152,7 +151,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="companyNameLabel" destination="3Xu-nY-u7O" id="4w2-Ty-ykW"/>
                         <outlet property="dateLabel" destination="SNr-4K-LKN" id="Wku-w7-ZTC"/>
@@ -170,7 +168,6 @@
             <objects>
                 <navigationController id="4YM-qU-r7k" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Info Session" id="lOZ-yV-Q8Y"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ILG-ks-RpG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -188,7 +185,6 @@
             <objects>
                 <navigationController id="iBG-Se-bYk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Employer" id="4T7-U9-Vmb"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KjX-dW-AHq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -230,7 +226,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yTV-yk-J2K"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="039-Bj-cb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
