@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="619.5" y="359.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Favourite Info Session List View Controller-->
         <scene sceneID="SFN-UI-oeC">
             <objects>
-                <viewController id="o6U-Zf-uhO" sceneMemberID="viewController">
+                <viewController id="o6U-Zf-uhO" customClass="FavouriteInfoSessionListViewController" customModule="WATjob" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HTk-3f-Ajq"/>
                         <viewControllerLayoutGuide type="bottom" id="3Er-53-qRe"/>
@@ -228,11 +228,18 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="o6U-Zf-uhO" id="QET-40-mM9"/>
+                                    <outlet property="delegate" destination="o6U-Zf-uhO" id="uUV-0s-D8o"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yTV-yk-J2K"/>
+                    <connections>
+                        <outlet property="tableView" destination="PbU-io-JxL" id="AaS-sk-u9R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="039-Bj-cb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
