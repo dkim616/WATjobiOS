@@ -23,15 +23,16 @@ class ObjectUnpacker {
 
                 for infoSessionDictionary in infoSessonDictionaryList {
                     if (infoSessionDictionary["id"] != "2918") {
-                        var infoSession = InfoSession(
-                            id: infoSessionDictionary["id"].stringValue,
-                            employer: infoSessionDictionary["employer"].stringValue,
-                            date: NSDate(),
-                            day: infoSessionDictionary["day"].stringValue,
-                            startTime: infoSessionDictionary["start_time"].stringValue,
-                            endTime: infoSessionDictionary["end_time"].stringValue,
-                            location: infoSessionDictionary["location"].stringValue,
-                            website: infoSessionDictionary["website"].stringValue);
+                        var infoSession = InfoSession();
+                        infoSession.id = infoSessionDictionary["id"].stringValue
+                        infoSession.employer = infoSessionDictionary["employer"].stringValue
+                        infoSession.date = NSDate()
+                        infoSession.day = infoSessionDictionary["day"].stringValue
+                        infoSession.startTime = infoSessionDictionary["start_time"].stringValue
+                        infoSession.endTime = infoSessionDictionary["end_time"].stringValue
+                        infoSession.location = infoSessionDictionary["location"].stringValue
+                        infoSession.website = infoSessionDictionary["website"].stringValue
+                        infoSession.infoSessionDescription = infoSessionDictionary["description"].stringValue;
                         infoSessionList.append(infoSession);
                     }
                 }

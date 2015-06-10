@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */; };
 		9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469CE1A0B1CE1922F6879C38 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C361B2790F4007773A0 /* InfoSession.swift */; };
+		B90D4C391B279566007773A0 /* WJDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C381B279566007773A0 /* WJDataCenter.swift */; };
 		B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */; };
 		B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */; };
 		B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */; };
@@ -16,7 +18,6 @@
 		B9404B751B23A07E00A04E0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9404B741B23A07E00A04E0E /* Images.xcassets */; };
 		B9404B781B23A07E00A04E0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9404B761B23A07E00A04E0E /* LaunchScreen.xib */; };
 		B9404B841B23A07E00A04E0E /* WATjobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9404B831B23A07E00A04E0E /* WATjobTests.swift */; };
-		B9DC87E01B24C34F00BF9546 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */; };
 		B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */; };
 		B9DC87E41B24CDBC00BF9546 /* InfoSessionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */; };
 		B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */; };
@@ -37,6 +38,8 @@
 		42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionDetailViewController.swift; sourceTree = "<group>"; };
 		469CE1A0B1CE1922F6879C38 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B90D4C361B2790F4007773A0 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
+		B90D4C381B279566007773A0 /* WJDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJDataCenter.swift; sourceTree = "<group>"; };
 		B9404B661B23A07D00A04E0E /* WATjob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WATjob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9404B6A1B23A07D00A04E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +52,6 @@
 		B9404B821B23A07E00A04E0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9404B831B23A07E00A04E0E /* WATjobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WATjobTests.swift; sourceTree = "<group>"; };
 		B9DC87DD1B24C18F00BF9546 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
-		B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
 		B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectUnpacker.swift; sourceTree = "<group>"; };
 		B9DC87E31B24CDBC00BF9546 /* InfoSessionListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionListCell.swift; sourceTree = "<group>"; };
 		B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJHTTPClient.swift; sourceTree = "<group>"; };
@@ -166,7 +168,7 @@
 		B9FA86FA1B24BB9E007E4081 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B9DC87DF1B24C34F00BF9546 /* InfoSession.swift */,
+				B90D4C361B2790F4007773A0 /* InfoSession.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -176,6 +178,7 @@
 			children = (
 				B9FA86FC1B24BBBC007E4081 /* WJHTTPClient.swift */,
 				B9DC87E11B24C53D00BF9546 /* ObjectUnpacker.swift */,
+				B90D4C381B279566007773A0 /* WJDataCenter.swift */,
 			);
 			name = REST;
 			sourceTree = "<group>";
@@ -336,9 +339,10 @@
 				42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */,
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
+				B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */,
+				B90D4C391B279566007773A0 /* WJDataCenter.swift in Sources */,
 				B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */,
 				B9DC87E41B24CDBC00BF9546 /* InfoSessionListCell.swift in Sources */,
-				B9DC87E01B24C34F00BF9546 /* InfoSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class InfoSessionListViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -15,18 +16,25 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     var infoSessionListIndexToPass: Int
     
     required init(coder aDecoder: NSCoder) {
-        self.infoSessionList = [];
         self.infoSessionListIndexToPass = -1
+        self.infoSessionList = [];
         super.init(coder: aDecoder);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList { (result) -> () in
-            if let infoSessionList = result {
-                self.infoSessionList = infoSessionList;
-                self.tableView.reloadData();
+//        WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList { (result) -> () in
+//            if let infoSessionList = result {
+//                self.infoSessionList = infoSessionList;
+//                self.tableView.reloadData();
+//            }
+//        }
+        
+        DataCenter.getInfoSessionList { (results) -> () in
+            if let results = results {
+                self.infoSessionList = results
+                self.tableView.reloadData()
             }
         }
         
@@ -63,7 +71,6 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         cell.locationLabel.text = infoSession.location;
         
         return cell;
-        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

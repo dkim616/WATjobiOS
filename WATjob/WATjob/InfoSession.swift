@@ -1,35 +1,29 @@
 //
-//  InfoSession.swift
+//  InfoSession2.swift
 //  WATjob
 //
-//  Created by Hyun Bin Kim on 2015-06-07.
+//  Created by Hyun Bin Kim on 2015-06-09.
 //  Copyright (c) 2015 Strawberry. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-class InfoSession {
-    var id: String
-    var employer: String
-    var date: NSDate
-    var day: String
-    var startTime: String
-    var endTime: String
-    var location: String
-    var website: String
-    var audience: String?
-    var programs: String?
-    var description: String?
-    var link: String?
+class InfoSession: Object {
+    dynamic var id = ""
+    dynamic var employer = ""
+    dynamic var date: NSDate?
+    dynamic var day = ""
+    dynamic var startTime = ""
+    dynamic var endTime = ""
+    dynamic var location = ""
+    dynamic var website = ""
+    dynamic var audience = ""
+    dynamic var programs = ""
+    dynamic var infoSessionDescription = ""
+    dynamic var link = ""
+    dynamic var isFavourited = false;
     
-    init(id: String, employer: String, date: NSDate, day: String, startTime: String, endTime:String, location: String, website: String) {
-        self.id = id;
-        self.employer = employer;
-        self.date = date;
-        self.day = day;
-        self.startTime = startTime;
-        self.endTime = endTime;
-        self.location = location;
-        self.website = website;
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
