@@ -13,11 +13,12 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     
     @IBOutlet weak var tableView: UITableView!
     var infoSessionList: Array<InfoSession>;
-    var infoSessionListIndexToPass: Int
+    
+    var employerInfoList: Array<EmployerInfo>;
     
     required init(coder aDecoder: NSCoder) {
-        self.infoSessionListIndexToPass = -1
         self.infoSessionList = [];
+        self.employerInfoList = [];
         super.init(coder: aDecoder);
     }
     
@@ -38,6 +39,12 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             }
         }
         
+        DataCenter.getEmployerInfoList() { (results) -> () in
+            if let results = results {
+                self.employerInfoList = results
+            }
+        }
+        
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
     }
@@ -50,7 +57,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "sessionToSessionDetail") {
             var detailVC = segue.destinationViewController as! InfoSessionDetailViewController
-            detailVC.toPass = self.tableView.indexPathForSelectedRow()!.row //self.infoSessionListIndexToPass
+            detailVC.employerInfo = employerInfoList[self.tableView.indexPathForSelectedRow()!.row]
         }
     }
     
@@ -81,7 +88,6 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.infoSessionListIndexToPass = indexPath.row
 //        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("InfoSessionDetailView") as! InfoSessionDetailViewController
 //        detailVC.toPass = indexPath.row
 //        self.presentViewController(detailVC, animated: true, completion: nil)

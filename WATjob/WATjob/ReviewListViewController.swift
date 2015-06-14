@@ -13,6 +13,8 @@ class ReviewListViewController: UIViewController {
     @IBOutlet weak var employerLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
+    var reviewInfo: EmployerInfoFeaturedReview!
+    
     var employerInfoList: Array<EmployerInfo>;
     var toPass:Int!
     
