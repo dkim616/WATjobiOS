@@ -13,7 +13,7 @@ class DataCenter {
     class func getInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdated") as? NSDate
        
-        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60*60*24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList({ (result) -> () in
                 completionHandler(result);
                 let realm = Realm()
@@ -36,8 +36,8 @@ class DataCenter {
     class func getEmployerInfoList(completionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedEmployerInfo") as? NSDate
         
-        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
-            WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoList({ (result) -> () in
+        if (true || lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+            WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoList(){ (result) -> () in
                 completionHandler(result)
                 
                 let realm = Realm()
@@ -49,7 +49,33 @@ class DataCenter {
                     }
                 }
                 realm.commitWrite()
-            })
+            }
+            NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdatedEmployerInfo")
+        } else {
+            let realm = Realm()
+            var results = realm.objects(EmployerInfo)
+            
+            completionHandler(arrayFromResultsForEmployerInfo(results))
+        }
+    }
+    
+    class func getEmployerInfoByCompanyName(companyName: String, completionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
+        let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedEmployerInfo") as? NSDate
+        
+        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+            WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName(companyName) { (result) -> () in
+                completionHandler(result)
+                
+                let realm = Realm()
+                realm.beginWrite()
+                
+                if let result = result {
+                    for employerInfo in result {
+                        realm.add(employerInfo, update: true)
+                    }
+                }
+                realm.commitWrite()
+            }
             NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdatedEmployerInfo")
         } else {
             let realm = Realm()

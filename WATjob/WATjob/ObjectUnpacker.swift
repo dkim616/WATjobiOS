@@ -18,7 +18,7 @@ class ObjectUnpacker {
         var infoSessionList = Array<InfoSession>();
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMM dd, yyyy"
-        if let data = data {
+        if let data: AnyObject = data {
             let json = JSON(data);
             
             if let infoSessonDictionaryList = json["data"].array {
@@ -48,7 +48,10 @@ class ObjectUnpacker {
     
     class func unpackEmployerInfoListDictionary(data: AnyObject?) -> Array<EmployerInfo> {
         var employerInfoList = Array<EmployerInfo>()
-        if let data = data {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSS"
+        
+        if let data: AnyObject = data {
             let json = JSON(data)
             
             if let employerInfoResponse = json["response"].dictionary {
@@ -61,7 +64,7 @@ class ObjectUnpacker {
                             review = EmployerInfoFeaturedReview()
                             review.id = employerInfoDictionaryReview["id"]!.intValue
                             review.currentJob = employerInfoDictionaryReview["currentJob"]!.boolValue
-                            review.reviewDateTime = NSDate()
+                            review.reviewDateTime = formatter.dateFromString(employerInfoDictionaryReview["reviewDateTime"]!.stringValue)
                             review.jobTitle = employerInfoDictionaryReview["jobTitle"]!.stringValue
                             review.location = employerInfoDictionaryReview["location"]!.stringValue
                             review.headline = employerInfoDictionaryReview["headline"]!.stringValue

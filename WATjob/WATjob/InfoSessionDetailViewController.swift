@@ -16,20 +16,35 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    var employerInfo: EmployerInfo!
+    @IBOutlet weak var companyImage: UIImageView!
+    
+    var infoSession: InfoSession!
+    var employerInfo: EmployerInfo?
+    
+    var dateFormatter: NSDateFormatter
     
     required init(coder aDecoder: NSCoder) {
+        dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
         super.init(coder: aDecoder);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //println(toPass)
+        self.companyNameLabel.text = infoSession.employer
         
-        self.title = "Info Session Details"
+//        if (infoSession.
+//        self.companyImage.image = (
         
-        self.companyNameLabel.text = employerInfo.name
+        self.locationLabel.text = infoSession.location
+        if (infoSession.date != nil) {
+            self.dateLabel.text = dateFormatter.stringFromDate(infoSession.date!)
+        } else {
+            self.dateLabel.text = "Location Not Available"
+        }
+        self.startTimeLabel.text = infoSession.startTime
+        self.endTimeLabel.text = infoSession.endTime
         
 //        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
 //            if let result = result {
@@ -49,7 +64,7 @@ class InfoSessionDetailViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "detailToReview") {
             var detailVC = segue.destinationViewController as! ReviewListViewController
-            detailVC.reviewInfo = employerInfo.featuredReview
+            detailVC.reviewInfo = employerInfo!.featuredReview
         }
     }
     

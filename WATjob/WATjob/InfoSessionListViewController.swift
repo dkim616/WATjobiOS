@@ -57,7 +57,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "sessionToSessionDetail") {
             var detailVC = segue.destinationViewController as! InfoSessionDetailViewController
-            detailVC.employerInfo = employerInfoList[self.tableView.indexPathForSelectedRow()!.row]
+            detailVC.infoSession = infoSessionList[self.tableView.indexPathForSelectedRow()!.row]
+            detailVC.employerInfo = employerInfoList[0]
         }
     }
     
