@@ -16,22 +16,20 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    var employerInfoList: Array<EmployerInfo>;
-    var toPass:Int!
+    var employerInfo: EmployerInfo!
     
     required init(coder aDecoder: NSCoder) {
-        self.employerInfoList = [];
         super.init(coder: aDecoder);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println(toPass)
+        //println(toPass)
         
         self.title = "Info Session Details"
         
-        self.companyNameLabel.text = "\(toPass)"
+        self.companyNameLabel.text = employerInfo.name
         
 //        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
 //            if let result = result {
@@ -39,12 +37,6 @@ class InfoSessionDetailViewController: UIViewController {
 //                println(self.employerInfoList[0].name)
 //            }
 //        }
-        
-        DataCenter.getEmployerInfoList() { (results) -> () in
-            if let results = results {
-                self.employerInfoList = results
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,14 +44,13 @@ class InfoSessionDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        if (segue.identifier == "detailToReview") {
+            var detailVC = segue.destinationViewController as! ReviewListViewController
+            detailVC.reviewInfo = employerInfo.featuredReview
+        }
     }
-    */
     
 }

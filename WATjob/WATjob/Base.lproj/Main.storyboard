@@ -99,14 +99,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xu-nY-u7O">
-                                <rect key="frame" x="16" y="72" width="343" height="60"/>
+                                <rect key="frame" x="16" y="64" width="343" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGV-JN-sCS">
-                                <rect key="frame" x="137" y="140" width="100" height="100"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhH-hb-EMg">
                                 <rect key="frame" x="16" y="274" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -161,12 +158,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zYI-ga-z0s" kind="show" id="YHT-Ag-7h1"/>
+                                    <segue destination="zYI-ga-z0s" kind="show" identifier="detailToReview" id="YHT-Ag-7h1"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cGV-JN-sCS">
+                                <rect key="frame" x="147" y="124" width="80" height="80"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Info Session Details" id="bTU-i5-Ghu"/>
                     <connections>
                         <outlet property="companyNameLabel" destination="3Xu-nY-u7O" id="4w2-Ty-ykW"/>
                         <outlet property="dateLabel" destination="SNr-4K-LKN" id="Wku-w7-ZTC"/>
@@ -249,7 +250,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i9X-eV-lRV"/>
+                    <navigationItem key="navigationItem" title="Feature Review" id="Qkr-AL-iUI"/>
                     <connections>
                         <outlet property="employerLabel" destination="GeW-F0-bmC" id="EI0-Nu-jkg"/>
                         <outlet property="ratingLabel" destination="0nz-wb-QBk" id="nN8-VL-Rgr"/>
