@@ -16,6 +16,8 @@ class ObjectUnpacker {
     
     class func unpackInfoSessionListDictionary(data: AnyObject?) -> Array<InfoSession> {
         var infoSessionList = Array<InfoSession>();
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy"
         if let data = data {
             let json = JSON(data);
             
@@ -26,7 +28,7 @@ class ObjectUnpacker {
                         var infoSession = InfoSession();
                         infoSession.id = infoSessionDictionary["id"].stringValue
                         infoSession.employer = infoSessionDictionary["employer"].stringValue
-                        infoSession.date = NSDate()
+                        infoSession.date = formatter.dateFromString(infoSessionDictionary["date"].stringValue)
                         infoSession.day = infoSessionDictionary["day"].stringValue
                         infoSession.startTime = infoSessionDictionary["start_time"].stringValue
                         infoSession.endTime = infoSessionDictionary["end_time"].stringValue
