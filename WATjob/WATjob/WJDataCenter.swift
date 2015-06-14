@@ -12,7 +12,7 @@ import RealmSwift
 class DataCenter {
     class func getInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdated") as? NSDate
-        
+       
         if (true || lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60*60*24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList({ (result) -> () in
                 completionHandler(result);
@@ -33,6 +33,32 @@ class DataCenter {
         }
     }
     
+    class func getEmployerInfoList(completionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
+        let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedEmployerInfo") as? NSDate
+        
+        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+            WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoList({ (result) -> () in
+                completionHandler(result)
+                
+                let realm = Realm()
+                realm.beginWrite()
+                
+                if let result = result {
+                    for employerInfo in result {
+                        realm.add(employerInfo, update: true)
+                    }
+                }
+                realm.commitWrite()
+            })
+            NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdatedEmployerInfo")
+        } else {
+            let realm = Realm()
+            var results = realm.objects(EmployerInfo)
+            
+            completionHandler(arrayFromResultsForEmployerInfo(results))
+        }
+    }
+    
     class func getFavouritedInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
         let realm = Realm()
         let result = realm.objects(InfoSession).filter("isFavourited == true").sorted("date");
@@ -46,6 +72,16 @@ class DataCenter {
         }
         
         return infoSessionList
+    }
+    
+    class func arrayFromResultsForEmployerInfo(results: Results<EmployerInfo>) -> Array<EmployerInfo> {
+        var employerInfoList = Array<EmployerInfo>()
+        
+        for employerInfo in results {
+            employerInfoList.append(employerInfo)
+        }
+        
+        return employerInfoList
     }
     
     class func markFavouriteWithInfoSessionId(id: String) -> Void {
