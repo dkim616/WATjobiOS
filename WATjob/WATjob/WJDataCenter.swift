@@ -15,7 +15,7 @@ class DataCenter {
        
         if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList({ (result) -> () in
-                completionHandler(result);
+                completionHandler(result)
                 let realm = Realm()
                 realm.beginWrite()
                 if let result = result {
@@ -24,6 +24,7 @@ class DataCenter {
                     }
                 }
                 realm.commitWrite()
+                
             })
             NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdated")
         } else {
@@ -89,6 +90,12 @@ class DataCenter {
         let realm = Realm()
         let result = realm.objects(InfoSession).filter("isFavourited == true").sorted("date");
         completionHandler(DataCenter.arrayFromResults(result));
+    }
+    
+    class func getInfoSessionForId(id: String) -> InfoSession? {
+        let realm = Realm()
+        let result = realm.objectForPrimaryKey(InfoSession.self, key: id);
+        return result;
     }
 
     class func arrayFromResults(results: Results<InfoSession>) -> Array<InfoSession> {

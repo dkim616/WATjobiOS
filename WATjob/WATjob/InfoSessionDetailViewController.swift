@@ -18,15 +18,24 @@ class InfoSessionDetailViewController: UIViewController {
     
     @IBOutlet weak var companyImage: UIImageView!
     
+    var infoSessionId: String
     var infoSession: InfoSession!
     var employerInfo: EmployerInfo?
     
-    var dateFormatter: NSDateFormatter
+    let dateFormatter: NSDateFormatter
     
     required init(coder aDecoder: NSCoder) {
         dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
+        
+        infoSessionId = ""
+
         super.init(coder: aDecoder);
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
     
     override func viewDidLoad() {
@@ -46,12 +55,11 @@ class InfoSessionDetailViewController: UIViewController {
         self.startTimeLabel.text = infoSession.startTime
         self.endTimeLabel.text = infoSession.endTime
         
-//        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
-//            if let result = result {
-//                self.employerInfoList = result;
-//                println(self.employerInfoList[0].name)
-//            }
-//        }
+        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
+            if let result = result {
+                self.employerInfo = result;
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
