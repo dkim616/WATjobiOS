@@ -16,11 +16,13 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
     
     required init(coder aDecoder: NSCoder) {
         self.infoSessionList = []
+        self
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableView.registerClass(InfoSessionListCell.self, forCellReuseIdentifier: "FavouriteInfoSessionListCell");
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,6 +44,7 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
         cell.locationLabel.text = infoSession.location;
         cell.favouriteButton.enabled = false;
         cell.favouriteButton.userInteractionEnabled = false;
+        cell.favouriteButton.hidden = true;
         
         return cell;
     }

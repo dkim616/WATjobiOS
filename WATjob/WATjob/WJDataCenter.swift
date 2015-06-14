@@ -12,8 +12,8 @@ import RealmSwift
 class DataCenter {
     class func getInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdated") as? NSDate
-        
-        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+       
+        if (true || lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60*60*24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList({ (result) -> () in
                 completionHandler(result);
                 let realm = Realm()
