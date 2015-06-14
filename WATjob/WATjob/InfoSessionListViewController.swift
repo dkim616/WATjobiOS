@@ -14,11 +14,14 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     @IBOutlet weak var tableView: UITableView!
     var infoSessionList: Array<InfoSession>;
     
+    var sections: Array<Array<InfoSession>>;
+    
     var employerInfoList: Array<EmployerInfo>;
     
     required init(coder aDecoder: NSCoder) {
         self.infoSessionList = [];
         self.employerInfoList = [];
+        self.sections = [];
         super.init(coder: aDecoder);
     }
     
@@ -35,7 +38,9 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         DataCenter.getInfoSessionList { (results) -> () in
             if let results = results {
                 self.infoSessionList = results
+                self.processSections()
                 self.tableView.reloadData()
+                
             }
         }
         
@@ -64,14 +69,19 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     // MARK: TableView Stuff
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return infoSessionList.count;
+        return self.sections[section].count
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return self.sections.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("InfoSessionListCell", forIndexPath: indexPath) as! InfoSessionListCell;
         
-        var infoSession = infoSessionList[indexPath.row];
+//        var infoSession = infoSessionList[indexPath.section];
+        var infoSession = self.sections[indexPath.section][indexPath.row]
         cell.employerLabel.text = infoSession.employer;
         cell.startTimeLabel.text = infoSession.startTime;
         cell.endTimeLabel.text = infoSession.endTime;
@@ -80,6 +90,18 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell;
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let infoSession = self.sections[section].first
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy";
+        if let date = infoSession?.date {
+            return formatter.stringFromDate(date)
+        } else {
+            //Error here
+            return ""
+        }
     }
     
     func favouriteClicked(sender: UIButton) -> Void {
@@ -92,6 +114,72 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
 //        detailVC.toPass = indexPath.row
 //        self.presentViewController(detailVC, animated: true, completion: nil)
 //        performSegueWithIdentifier("sessionToSessionDetail", sender: self)
+    }
+    
+    func processSections() {
+//        var map = NSMutableDictionary()
+//        var map2 = Dictionary<NSDate, Array<InfoSession>>()
+//        let formatter = NSDateFormatter()
+//        formatter.dateFormat = "MMM dd, yyyy";
+        
+//        for infoSession in self.infoSessionList {
+//            if let date = infoSession.date {
+//                let dateString = formatter.stringFromDate(date)
+//                if (map.valueForKey(dateString) != nil) {
+//                    var array = map[dateString] as? Array<InfoSession>
+//                    array?.append(infoSession)
+//                    map.setValue(array, forKey: dateString)
+//                } else {
+//                    var array = Array<InfoSession>()
+//                    array.append(infoSession)
+//                    map.setValue(array, forKey: dateString)
+//                }
+//            }
+//        }
+//        let final = map.allValues as? Array<Array<InfoSession>>
+//        final?.sort{ $0[0].date  < $1[0].date }
+//        println(final)
+//        for infoSession in self.infoSessionList {
+//            if let date = infoSession.date {
+//                println(date)
+//                if (map2[date] != nil) {
+//                    var array = map[date] as? Array<InfoSession>
+//                    array?.append(infoSession)
+//                } else {
+//                    var array = Array<InfoSession>()
+//                    array.append(infoSession)
+//                    map2[date] = array
+//                }
+//            }
+//        }
+//        var answer = Array<Array<InfoSession>>()
+//        for (key, value) in map2 {
+//            answer.append(value)
+//        }
+//        println(answer)
+        
+//        println(final)
+        var currentDate = NSDate()
+        var final = Array<Array<InfoSession>>()
+        var currentIndex = 0
+        for infoSession in self.infoSessionList {
+            if let date = infoSession.date {
+                println(date)
+                if currentDate != date {
+                    currentIndex++
+                    var newArray = Array<InfoSession>()
+                    newArray.append(infoSession)
+                    final.append(newArray)
+                    currentDate = date
+                } else {
+                    var currentArray = final.last
+                    currentArray?.append(infoSession)
+                    final.removeLast()
+                    final.append(currentArray!)
+                }
+            }
+        }
+        self.sections = final;
     }
 }
 
