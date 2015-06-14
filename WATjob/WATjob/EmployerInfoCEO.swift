@@ -6,20 +6,16 @@
 //  Copyright (c) 2015 Strawberry. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-class EmployerInfoCEO {
-    var name: String
-    var title: String
-    var numberOfRatings: Int
-    var pctApprove: Int
-    var pctDisapprove: Int
+class EmployerInfoCEO: Object {
+    dynamic var name = ""
+    dynamic var title = ""
+    dynamic var numberOfRatings = 0
+    dynamic var pctApprove = 0
+    dynamic var pctDisapprove = 0
     
-    init(name: String, title: String, numberOfRatings: Int, pctApprove: Int, pctDisapprove: Int) {
-        self.name = name
-        self.title = title
-        self.numberOfRatings = numberOfRatings
-        self.pctApprove = pctApprove
-        self.pctDisapprove = pctDisapprove
+    override static func primaryKey() -> String? {
+        return "name"
     }
 }

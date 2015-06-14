@@ -6,42 +6,22 @@
 //  Copyright (c) 2015 Strawberry. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-class EmployerInfoFeaturedReview {
-    var id: Int
-    var currentJob: Bool
-    var reviewDateTime: NSDate
-    var jobTitle: String
-    var location: String
-    var headline: String
-    var pros: String
-    var cons: String
-    var overall: Int
-    var overallNumeric: Int
+class EmployerInfoFeaturedReview: Object {
+    dynamic var id = 0
+    dynamic var currentJob = false
+    dynamic var reviewDateTime: NSDate?
+    dynamic var jobTitle = ""
+    dynamic var location = ""
+    dynamic var headline = ""
+    dynamic var pros = ""
+    dynamic var cons = ""
+    dynamic var overall = 0
+    dynamic var overallNumeric = 0
     
-    init(
-        id:Int,
-        currentJob: Bool,
-        reviewDateTime: NSDate,
-        jobTitle: String,
-        location: String,
-        headline: String,
-        pros: String,
-        cons: String,
-        overall: Int,
-        overallNumeric: Int
-        ) {
-            self.id = id
-            self.currentJob = currentJob
-            self.reviewDateTime = reviewDateTime
-            self.jobTitle = jobTitle
-            self.location = location
-            self.headline = headline
-            self.pros = pros
-            self.cons = cons
-            self.overall = overall
-            self.overallNumeric = overallNumeric
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
 }

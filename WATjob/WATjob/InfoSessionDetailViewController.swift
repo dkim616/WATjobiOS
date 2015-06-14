@@ -16,27 +16,39 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    var employerInfoList: Array<EmployerInfo>;
-    var toPass:Int!
+    var employerInfo: EmployerInfo!
+    var infoSessionId: String
+    var infoSession: InfoSession?
     
     required init(coder aDecoder: NSCoder) {
-        self.employerInfoList = [];
+        infoSessionId = ""
         super.init(coder: aDecoder);
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println(toPass)
+        self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
+
+        if let infoSession = self.infoSession {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "MMM, dd yyy"
+            self.companyNameLabel.text = ""
+            self.title = infoSession.employer
+            self.locationLabel.text = infoSession.location
+            self.dateLabel.text = formatter.stringFromDate(infoSession.date!)
+            self.startTimeLabel.text = infoSession.startTime
+            self.endTimeLabel.text = infoSession.endTime
+        }
         
-        self.title = "Info Session Details"
-        
-        self.companyNameLabel.text = "\(toPass)"
-        
-        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
+        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
             if let result = result {
-                self.employerInfoList = result;
-                println(self.employerInfoList[0].name)
+                self.employerInfo = result;
             }
         }
     }
@@ -46,14 +58,13 @@ class InfoSessionDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        if (segue.identifier == "detailToReview") {
+            var detailVC = segue.destinationViewController as! ReviewListViewController
+            detailVC.reviewInfo = employerInfo.featuredReview
+        }
     }
-    */
     
 }

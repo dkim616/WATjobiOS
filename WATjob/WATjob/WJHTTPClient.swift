@@ -13,7 +13,7 @@ var waterlooOpenDataBaseUrl = "https://api.uwaterloo.ca/v2/resources/"
 let waterlooAPIKey = "8b0caec7cca16061c9f43046ff68ef93"
 
 var glassdoorAPIBaseUrl = "http://api.glassdoor.com/api/"
-let glassdoorAPIPort = "36943"
+let glassdoorAPIID = "36943"
 let glassdoorAPIKey = "dnJJ5zpvHW7"
 let userIP = "0.0.0.0"
 
@@ -32,7 +32,7 @@ class WJHTTPClient {
     
     func getLatestEmployerInfoList(completetionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
         Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
-            "t.p": glassdoorAPIPort,
+            "t.p": glassdoorAPIID,
             "t.k": glassdoorAPIKey,
             "userip": userIP,
             "useragent": "",
@@ -44,9 +44,9 @@ class WJHTTPClient {
         }
     }
     
-    func getLatestEmployerInfoListByCompanyName(companyName: String, completetionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
+    func getLatestEmployerInfoListByCompanyName(companyName: String, completionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
         Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
-            "t.p": glassdoorAPIPort,
+            "t.p": glassdoorAPIID,
             "t.k": glassdoorAPIKey,
             "userip": userIP,
             "useragent": "",
@@ -55,8 +55,24 @@ class WJHTTPClient {
             "action": "employers",
             "e": companyName
             ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
-                completetionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
+                completionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
         }
     }
+    
+        func getLatestEmployerInfoByCompanyName(companyName: String, completionHandler:(EmployerInfo?) -> ()) -> Void {
+            Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
+                "t.p": glassdoorAPIID,
+                "t.k": glassdoorAPIKey,
+                "userip": userIP,
+                "useragent": "",
+                "format": "json",
+                "v": "1",
+                "action": "employers",
+                "e": companyName
+                ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+                    completionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON).last);
+        }
+    }
+    
     
 }
