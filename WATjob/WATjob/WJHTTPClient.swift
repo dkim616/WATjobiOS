@@ -13,7 +13,7 @@ var waterlooOpenDataBaseUrl = "https://api.uwaterloo.ca/v2/resources/"
 let waterlooAPIKey = "8b0caec7cca16061c9f43046ff68ef93"
 
 var glassdoorAPIBaseUrl = "http://api.glassdoor.com/api/"
-let glassdoorAPIPort = "36943"
+let glassdoorAPIID = "36943"
 let glassdoorAPIKey = "dnJJ5zpvHW7"
 let userIP = "0.0.0.0"
 
@@ -32,7 +32,7 @@ class WJHTTPClient {
     
     func getLatestEmployerInfoList(completetionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
         Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
-            "t.p": glassdoorAPIPort,
+            "t.p": glassdoorAPIID,
             "t.k": glassdoorAPIKey,
             "userip": userIP,
             "useragent": "",
@@ -46,7 +46,7 @@ class WJHTTPClient {
     
     func getLatestEmployerInfoListByCompanyName(companyName: String, completetionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
         Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
-            "t.p": glassdoorAPIPort,
+            "t.p": glassdoorAPIID,
             "t.k": glassdoorAPIKey,
             "userip": userIP,
             "useragent": "",

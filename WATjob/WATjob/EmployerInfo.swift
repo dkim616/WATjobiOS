@@ -6,65 +6,29 @@
 //  Copyright (c) 2015 Strawberry. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-class EmployerInfo {
-    var id: Int
-    var name: String
-    var website: String
-    var isEEP: Bool
-    var exactMatch: Bool
-    var industry: String
-    var numberOfRatings: Int
-    var squareLogo: String
-    var overallRating: Double
-    var ratingDescription: String
-    var cultureAndValuesRating: String
-    var seniorLeadershipRating: String
-    var compensationAndBenefitsRating: String
-    var careerOpportunitiesRating: String
-    var workLifeBalanceRating: String
-    var recommendToFriendRating: String
-    var featuredReview: EmployerInfoFeaturedReview
-    var ceo: EmployerInfoCEO
+class EmployerInfo: Object {
+    dynamic var id = 0
+    dynamic var name = ""
+    dynamic var website = ""
+    dynamic var isEEP = false
+    dynamic var exactMatch = false
+    dynamic var industry = ""
+    dynamic var numberOfRatings = 0
+    dynamic var squareLogo = ""
+    dynamic var overallRating = 0.0
+    dynamic var ratingDescription = ""
+    dynamic var cultureAndValuesRating = ""
+    dynamic var seniorLeadershipRating = ""
+    dynamic var compensationAndBenefitsRating = ""
+    dynamic var careerOpportunitiesRating = ""
+    dynamic var workLifeBalanceRating = ""
+    dynamic var recommendToFriendRating = ""
+    dynamic var featuredReview: EmployerInfoFeaturedReview?
+    dynamic var ceo: EmployerInfoCEO?
     
-    init(
-        id: Int,
-        name: String,
-        website: String,
-        isEEP: Bool,
-        exactMatch: Bool,
-        industry: String,
-        numberOfRatings: Int,
-        squareLogo: String,
-        overallRating: Double,
-        ratingDescription: String,
-        cultureAndValuesRating: String,
-        seniorLeadershipRating: String,
-        compensationAndBenefitsRating: String,
-        careerOpportunitiesRating: String,
-        workLifeBalanceRating: String,
-        recommendToFriendRating: String,
-        featuredReview: EmployerInfoFeaturedReview,
-        ceo: EmployerInfoCEO
-        ) {
-            self.id = id
-            self.name = name
-            self.website = website
-            self.isEEP = isEEP
-            self.exactMatch = exactMatch
-            self.industry = industry
-            self.numberOfRatings = numberOfRatings
-            self.squareLogo = squareLogo
-            self.overallRating = overallRating
-            self.ratingDescription = ratingDescription
-            self.cultureAndValuesRating = cultureAndValuesRating
-            self.seniorLeadershipRating = seniorLeadershipRating
-            self.compensationAndBenefitsRating = compensationAndBenefitsRating
-            self.careerOpportunitiesRating = careerOpportunitiesRating
-            self.workLifeBalanceRating = workLifeBalanceRating
-            self.recommendToFriendRating = recommendToFriendRating
-            self.featuredReview = featuredReview
-            self.ceo = ceo
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

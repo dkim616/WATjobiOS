@@ -52,53 +52,51 @@ class ObjectUnpacker {
             if let employerInfoResponse = json["response"].dictionary {
                 if let employerInfoDictionaryList = employerInfoResponse["employers"]?.arrayValue {
                     for employerInfoDictionary in employerInfoDictionaryList {
-                        var review: EmployerInfoFeaturedReview!
-                        var ceo: EmployerInfoCEO!
+                        var review = EmployerInfoFeaturedReview()
+                        var ceo = EmployerInfoCEO()
                         
                         if let employerInfoDictionaryReview = employerInfoDictionary["featuredReview"].dictionary {
-                            review = EmployerInfoFeaturedReview(
-                                id: employerInfoDictionaryReview["id"]!.intValue,
-                                currentJob: employerInfoDictionaryReview["currentJob"]!.boolValue,
-                                reviewDateTime: NSDate(),
-                                jobTitle: employerInfoDictionaryReview["jobTitle"]!.stringValue,
-                                location: employerInfoDictionaryReview["location"]!.stringValue,
-                                headline: employerInfoDictionaryReview["headline"]!.stringValue,
-                                pros: employerInfoDictionaryReview["pros"]!.stringValue,
-                                cons: employerInfoDictionaryReview["cons"]!.stringValue,
-                                overall: employerInfoDictionaryReview["overall"]!.intValue,
-                                overallNumeric: employerInfoDictionaryReview["overallNumeric"]!.intValue
-                            );
+                            review = EmployerInfoFeaturedReview()
+                            review.id = employerInfoDictionaryReview["id"]!.intValue
+                            review.currentJob = employerInfoDictionaryReview["currentJob"]!.boolValue
+                            review.reviewDateTime = NSDate()
+                            review.jobTitle = employerInfoDictionaryReview["jobTitle"]!.stringValue
+                            review.location = employerInfoDictionaryReview["location"]!.stringValue
+                            review.headline = employerInfoDictionaryReview["headline"]!.stringValue
+                            review.pros = employerInfoDictionaryReview["pros"]!.stringValue
+                            review.cons = employerInfoDictionaryReview["cons"]!.stringValue
+                            review.overall = employerInfoDictionaryReview["overall"]!.intValue
+                            review.overallNumeric = employerInfoDictionaryReview["overallNumeric"]!.intValue
                         }
                         if let employerInfoDictionaryCEO = employerInfoDictionary["ceo"].dictionary {
-                            ceo = EmployerInfoCEO(
-                                name: employerInfoDictionaryCEO["name"]!.stringValue,
-                                title: employerInfoDictionaryCEO["title"]!.stringValue,
-                                numberOfRatings: employerInfoDictionaryCEO["numberOfRatings"]!.intValue,
-                                pctApprove: employerInfoDictionaryCEO["pctApprove"]!.intValue,
-                                pctDisapprove: employerInfoDictionaryCEO["pctDisapprove"]!.intValue
-                            );
+                            ceo = EmployerInfoCEO()
+                            ceo.name = employerInfoDictionaryCEO["name"]!.stringValue
+                            ceo.title = employerInfoDictionaryCEO["title"]!.stringValue
+                            ceo.numberOfRatings = employerInfoDictionaryCEO["numberOfRatings"]!.intValue
+                            ceo.pctApprove = employerInfoDictionaryCEO["pctApprove"]!.intValue
+                            ceo.pctDisapprove = employerInfoDictionaryCEO["pctDisapprove"]!.intValue
                         }
                         
-                        var employerInfo = EmployerInfo(
-                            id: employerInfoDictionary["id"].intValue,
-                            name: employerInfoDictionary["name"].stringValue,
-                            website: employerInfoDictionary["website"].stringValue,
-                            isEEP: employerInfoDictionary["isEEP"].boolValue,
-                            exactMatch: employerInfoDictionary["exactMatch"].boolValue,
-                            industry: employerInfoDictionary["industry"].stringValue,
-                            numberOfRatings: employerInfoDictionary["numberOfRatings"].intValue,
-                            squareLogo: employerInfoDictionary["squareLogo"].stringValue,
-                            overallRating: employerInfoDictionary["overallRating"].doubleValue,
-                            ratingDescription: employerInfoDictionary["ratingDescription"].stringValue,
-                            cultureAndValuesRating: employerInfoDictionary["cultureAndValueRating"].stringValue,
-                            seniorLeadershipRating: employerInfoDictionary["seniorLeadershipRating"].stringValue,
-                            compensationAndBenefitsRating: employerInfoDictionary["compensationAndBenefitsRating"].stringValue,
-                            careerOpportunitiesRating: employerInfoDictionary["careerOpportunitiesRating"].stringValue,
-                            workLifeBalanceRating: employerInfoDictionary["workLifeBalanceRating"].stringValue,
-                            recommendToFriendRating: employerInfoDictionary["recommendToFriendRating"].stringValue,
-                            featuredReview: review,
-                            ceo: ceo
-                        );
+                        var employerInfo = EmployerInfo()
+                        employerInfo.id = employerInfoDictionary["id"].intValue
+                        employerInfo.name = employerInfoDictionary["name"].stringValue
+                        employerInfo.website = employerInfoDictionary["website"].stringValue
+                        employerInfo.isEEP = employerInfoDictionary["isEEP"].boolValue
+                        employerInfo.exactMatch = employerInfoDictionary["exactMatch"].boolValue
+                        employerInfo.industry = employerInfoDictionary["industry"].stringValue
+                        employerInfo.numberOfRatings = employerInfoDictionary["numberOfRatings"].intValue
+                        employerInfo.squareLogo = employerInfoDictionary["squareLogo"].stringValue
+                        employerInfo.overallRating = employerInfoDictionary["overallRating"].doubleValue
+                        employerInfo.ratingDescription = employerInfoDictionary["ratingDescription"].stringValue
+                        employerInfo.cultureAndValuesRating = employerInfoDictionary["cultureAndValueRating"].stringValue
+                        employerInfo.seniorLeadershipRating = employerInfoDictionary["seniorLeadershipRating"].stringValue
+                        employerInfo.compensationAndBenefitsRating = employerInfoDictionary["compensationAndBenefitsRating"].stringValue
+                        employerInfo.careerOpportunitiesRating = employerInfoDictionary["careerOpportunitiesRating"].stringValue
+                        employerInfo.workLifeBalanceRating = employerInfoDictionary["workLifeBalanceRating"].stringValue
+                        employerInfo.recommendToFriendRating = employerInfoDictionary["recommendToFriendRating"].stringValue
+                        employerInfo.featuredReview = review
+                        employerInfo.ceo = ceo
+                        
                         employerInfoList.append(employerInfo)
                     }
                 }
