@@ -33,10 +33,16 @@ class InfoSessionDetailViewController: UIViewController {
         
         self.companyNameLabel.text = "\(toPass)"
         
-        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
-            if let result = result {
-                self.employerInfoList = result;
-                println(self.employerInfoList[0].name)
+//        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
+//            if let result = result {
+//                self.employerInfoList = result;
+//                println(self.employerInfoList[0].name)
+//            }
+//        }
+        
+        DataCenter.getEmployerInfoList() { (results) -> () in
+            if let results = results {
+                self.employerInfoList = results
             }
         }
     }
