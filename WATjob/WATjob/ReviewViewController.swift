@@ -13,7 +13,10 @@ class ReviewViewController: UIViewController {
 
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var headlineLabel: UILabel!
+    @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var prosLabel: UILabel!
     @IBOutlet weak var consLabel: UILabel!
     
@@ -25,8 +28,15 @@ class ReviewViewController: UIViewController {
 
         self.companyLabel.text = "Test"
         self.headlineLabel.text = reviewInfo.headline
+        self.positionLabel.text = reviewInfo.jobTitle
         var stringFromInt:String = String(format:"%d", self.reviewInfo.overall);
         self.ratingLabel.text = stringFromInt
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        var dateString = dateFormatter.stringFromDate(self.reviewInfo.reviewDateTime!)
+        self.dateLabel.text = dateString
+        self.locationLabel.text = reviewInfo.location
         self.prosLabel.text = reviewInfo.pros
         self.consLabel.text = reviewInfo.cons
         // Do any additional setup after loading the view.
