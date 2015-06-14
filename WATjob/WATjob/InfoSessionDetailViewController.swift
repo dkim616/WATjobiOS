@@ -62,7 +62,7 @@ class InfoSessionDetailViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "detailToReview") {
-            var detailVC = segue.destinationViewController as! ReviewListViewController
+            var detailVC = segue.destinationViewController as! ReviewViewController
             detailVC.reviewInfo = employerInfo.featuredReview
         }
     }
