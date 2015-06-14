@@ -155,6 +155,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSh-0a-ryZ">
+                                <rect key="frame" x="162" y="417" width="50" height="30"/>
+                                <state key="normal" title="Review">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zYI-ga-z0s" kind="show" id="YHT-Ag-7h1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -204,24 +213,6 @@
             </objects>
             <point key="canvasLocation" x="619.5" y="359.5"/>
         </scene>
-        <!--Review-->
-        <scene sceneID="lll-X1-ydY">
-            <objects>
-                <navigationController id="9bt-e5-YJY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Review" id="EIY-wH-6XT"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y7S-pJ-Pxl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="zYI-ga-z0s" kind="relationship" relationship="rootViewController" id="nQp-FE-bfm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KtK-2e-Y4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-624.5" y="785.5"/>
-        </scene>
         <!--Review View Controller-->
         <scene sceneID="szw-Kc-YS6">
             <objects>
@@ -266,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPU-M2-poB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="850"/>
+            <point key="canvasLocation" x="2432" y="-430"/>
         </scene>
         <!--Favourite Info Session List View Controller-->
         <scene sceneID="SFN-UI-oeC">
@@ -323,7 +314,6 @@
                     <connections>
                         <segue destination="4YM-qU-r7k" kind="relationship" relationship="viewControllers" id="khK-bZ-xuX"/>
                         <segue destination="iBG-Se-bYk" kind="relationship" relationship="viewControllers" id="ELB-Z1-zNr"/>
-                        <segue destination="9bt-e5-YJY" kind="relationship" relationship="viewControllers" id="d3L-8s-frc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
