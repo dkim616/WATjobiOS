@@ -316,11 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPU-M2-poB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="2357.5" y="-396.5"/>
-=======
             <point key="canvasLocation" x="2431.5" y="-430.5"/>
->>>>>>> master
         </scene>
         <!--Favourites-->
         <scene sceneID="SFN-UI-oeC">
