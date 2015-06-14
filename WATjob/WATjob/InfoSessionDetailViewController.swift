@@ -17,26 +17,40 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var endTimeLabel: UILabel!
     
     var employerInfo: EmployerInfo!
+    var infoSessionId: String
+    var infoSession: InfoSession?
     
     required init(coder aDecoder: NSCoder) {
+        infoSessionId = ""
         super.init(coder: aDecoder);
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //println(toPass)
+        self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
+
+        if let infoSession = self.infoSession {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "MMM, dd yyy"
+            self.companyNameLabel.text = ""
+            self.title = infoSession.employer
+            self.locationLabel.text = infoSession.location
+            self.dateLabel.text = formatter.stringFromDate(infoSession.date!)
+            self.startTimeLabel.text = infoSession.startTime
+            self.endTimeLabel.text = infoSession.endTime
+        }
         
-        self.title = "Info Session Details"
-        
-        self.companyNameLabel.text = employerInfo.name
-        
-//        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName("Coursera") { (result) -> () in
-//            if let result = result {
-//                self.employerInfoList = result;
-//                println(self.employerInfoList[0].name)
-//            }
-//        }
+        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
+            if let result = result {
+                self.employerInfo = result;
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
