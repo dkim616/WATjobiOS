@@ -236,12 +236,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niB-pR-Mw9">
                                 <rect key="frame" x="147" y="124" width="80" height="80"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Pros:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fp-o4-IWR">
-                                <rect key="frame" x="16" y="383" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="pro" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-GI-o5A">
                                 <rect key="frame" x="16" y="412" width="343" height="21"/>
                                 <constraints>
@@ -314,10 +308,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Pros:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fp-o4-IWR">
+                                <rect key="frame" x="16" y="383" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ehq-GI-o5A" firstAttribute="leading" secondItem="ThE-hx-F64" secondAttribute="leadingMargin" id="0gA-BR-aBS"/>
+                            <constraint firstItem="2Fp-o4-IWR" firstAttribute="top" secondItem="coJ-2Y-KMF" secondAttribute="bottom" constant="22" id="0qo-qB-vCI"/>
                             <constraint firstItem="ffd-Fe-ffc" firstAttribute="top" secondItem="KQW-Bo-amQ" secondAttribute="bottom" constant="8" id="2Dq-ct-XAn"/>
                             <constraint firstItem="mef-Tp-vhr" firstAttribute="top" secondItem="niB-pR-Mw9" secondAttribute="bottom" constant="8" id="4U1-In-onX"/>
                             <constraint firstItem="ehq-GI-o5A" firstAttribute="top" secondItem="2Fp-o4-IWR" secondAttribute="bottom" constant="8" id="8WF-UO-Rdu"/>
