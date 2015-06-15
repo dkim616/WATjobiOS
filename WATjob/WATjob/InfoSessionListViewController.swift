@@ -64,7 +64,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             var detailVC = segue.destinationViewController as! InfoSessionDetailViewController
 
 //            detailVC.infoSession = infoSessionList[self.tableView.indexPathForSelectedRow()!.row]
-//            detailVC.employerInfo = employerInfoList[0]
+            detailVC.employerInfo = employerInfoList[0]
             var infoSession = self.sections[(self.tableView.indexPathForSelectedRow()?.section)!][(self.tableView.indexPathForSelectedRow()?.row)!]
             detailVC.infoSessionId = infoSession.id
         }

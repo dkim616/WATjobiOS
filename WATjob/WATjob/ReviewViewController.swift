@@ -40,6 +40,9 @@ class ReviewViewController: UIViewController {
         self.prosLabel.text = reviewInfo.pros
         self.consLabel.text = reviewInfo.cons
         // Do any additional setup after loading the view.
+        
+        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
     }
     
     override func didReceiveMemoryWarning() {

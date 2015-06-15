@@ -49,7 +49,7 @@ class ObjectUnpacker {
     class func unpackEmployerInfoListDictionary(data: AnyObject?) -> Array<EmployerInfo> {
         var employerInfoList = Array<EmployerInfo>()
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSS"
+        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss.S"
         
         if let data: AnyObject = data {
             let json = JSON(data)

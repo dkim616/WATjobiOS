@@ -41,6 +41,8 @@ class InfoSessionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
+        
         self.companyNameLabel.text = infoSession.employer
         
 //        if (infoSession.
