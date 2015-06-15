@@ -37,8 +37,8 @@ class ReviewViewController: UIViewController {
         var dateString = dateFormatter.stringFromDate(self.reviewInfo.reviewDateTime!)
         self.dateLabel.text = dateString
         self.locationLabel.text = reviewInfo.location
-        self.prosLabel.text = reviewInfo.pros
-        self.consLabel.text = reviewInfo.cons
+        self.prosLabel.text = "asdddjjsdkfjalsdfjkasdljflasdjfksjfkasjflasdjflasjdlfajsdkfjsadlkfjasdklfjasdkjfasdlkjfkasdjfkajsdlkfjaskdfjalksdjflkasjdfkljasdlkfjasdklfjadslkjfasdkljfadskljfsklajfklasdjkfladsjkflajsdklfjasdljf"
+        self.consLabel.text = "asdflaksdjfklajsdflkjasdfklfasdlkjsadflkaslkfaslfjasdlfjasdlfjasdkljasdlfjasljasdjfsdf"
         // Do any additional setup after loading the view.
     }
     
