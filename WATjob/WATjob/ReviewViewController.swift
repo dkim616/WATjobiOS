@@ -33,8 +33,7 @@ class ReviewViewController: UIViewController {
         var stringFromInt:String = String(format:"%d", self.reviewInfo.overall);
         self.ratingLabel.text = stringFromInt
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
         var dateString = dateFormatter.stringFromDate(self.reviewInfo.reviewDateTime!)
         self.dateLabel.text = dateString
         self.locationLabel.text = reviewInfo.location

@@ -18,7 +18,7 @@ class ObjectUnpacker {
         var infoSessionList = Array<InfoSession>();
         let formatter = NSDateFormatter()
         formatter.dateFormat = "MMM dd, yyyy"
-        if let data = data {
+        if let data: AnyObject = data {
             let json = JSON(data);
             
             if let infoSessonDictionaryList = json["data"].array {
@@ -48,7 +48,10 @@ class ObjectUnpacker {
     
     class func unpackEmployerInfoListDictionary(data: AnyObject?) -> Array<EmployerInfo> {
         var employerInfoList = Array<EmployerInfo>()
-        if let data = data {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss.S"
+        
+        if let data: AnyObject = data {
             let json = JSON(data)
             
             if let employerInfoResponse = json["response"].dictionary {
@@ -61,7 +64,7 @@ class ObjectUnpacker {
                             review = EmployerInfoFeaturedReview()
                             review.id = employerInfoDictionaryReview["id"]!.intValue
                             review.currentJob = employerInfoDictionaryReview["currentJob"]!.boolValue
-                            review.reviewDateTime = NSDate()
+                            review.reviewDateTime = NSDate() //formatter.dateFromString(employerInfoDictionaryReview["reviewDateTime"]!.stringValue)
                             review.jobTitle = employerInfoDictionaryReview["jobTitle"]!.stringValue
                             review.location = employerInfoDictionaryReview["location"]!.stringValue
                             review.headline = employerInfoDictionaryReview["headline"]!.stringValue
@@ -90,7 +93,7 @@ class ObjectUnpacker {
                         employerInfo.squareLogo = employerInfoDictionary["squareLogo"].stringValue
                         employerInfo.overallRating = employerInfoDictionary["overallRating"].doubleValue
                         employerInfo.ratingDescription = employerInfoDictionary["ratingDescription"].stringValue
-                        employerInfo.cultureAndValuesRating = employerInfoDictionary["cultureAndValueRating"].stringValue
+                        employerInfo.cultureAndValuesRating = employerInfoDictionary["cultureAndValuesRating"].stringValue
                         employerInfo.seniorLeadershipRating = employerInfoDictionary["seniorLeadershipRating"].stringValue
                         employerInfo.compensationAndBenefitsRating = employerInfoDictionary["compensationAndBenefitsRating"].stringValue
                         employerInfo.careerOpportunitiesRating = employerInfoDictionary["careerOpportunitiesRating"].stringValue
