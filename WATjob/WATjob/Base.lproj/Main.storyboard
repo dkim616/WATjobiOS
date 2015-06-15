@@ -51,7 +51,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhM-7T-G0M">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhM-7T-G0M" customClass="FavouriteButton" customModule="WATjob" customModuleProvider="target">
                                                     <rect key="frame" x="337" y="15" width="30" height="30"/>
                                                     <state key="normal" title="F">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vuh-kh-P2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785.5" y="-396.5"/>
+            <point key="canvasLocation" x="1822.5" y="-1.5"/>
         </scene>
         <!--Info Session-->
         <scene sceneID="bj7-ud-TDf">
@@ -237,12 +237,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niB-pR-Mw9">
                                 <rect key="frame" x="147" y="124" width="80" height="80"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Pros:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fp-o4-IWR">
-                                <rect key="frame" x="16" y="383" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="pro" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehq-GI-o5A">
                                 <rect key="frame" x="16" y="412" width="343" height="21"/>
                                 <constraints>
@@ -315,10 +309,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Pros:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fp-o4-IWR">
+                                <rect key="frame" x="16" y="383" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ehq-GI-o5A" firstAttribute="leading" secondItem="ThE-hx-F64" secondAttribute="leadingMargin" id="0gA-BR-aBS"/>
+                            <constraint firstItem="2Fp-o4-IWR" firstAttribute="top" secondItem="coJ-2Y-KMF" secondAttribute="bottom" constant="22" id="0qo-qB-vCI"/>
                             <constraint firstItem="ffd-Fe-ffc" firstAttribute="top" secondItem="KQW-Bo-amQ" secondAttribute="bottom" constant="8" id="2Dq-ct-XAn"/>
                             <constraint firstItem="mef-Tp-vhr" firstAttribute="top" secondItem="niB-pR-Mw9" secondAttribute="bottom" constant="8" id="4U1-In-onX"/>
                             <constraint firstItem="ehq-GI-o5A" firstAttribute="top" secondItem="2Fp-o4-IWR" secondAttribute="bottom" constant="8" id="8WF-UO-Rdu"/>
@@ -395,7 +396,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMm-fa-PHf">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMm-fa-PHf" customClass="FavouriteButton" customModule="WATjob" customModuleProvider="target">
                                                     <rect key="frame" x="337" y="15" width="30" height="30"/>
                                                     <state key="normal" title="F">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -409,6 +410,7 @@
                                             <outlet property="favouriteButton" destination="BMm-fa-PHf" id="Gb1-dO-C7f"/>
                                             <outlet property="locationLabel" destination="5e7-ew-bnW" id="hG3-0z-qMs"/>
                                             <outlet property="startTimeLabel" destination="agd-sf-ZIA" id="agx-zb-eX1"/>
+                                            <segue destination="gaf-23-xg2" kind="show" id="0yG-rH-cdB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -453,4 +455,7 @@
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0yG-rH-cdB"/>
+    </inferredMetricsTieBreakers>
 </document>
