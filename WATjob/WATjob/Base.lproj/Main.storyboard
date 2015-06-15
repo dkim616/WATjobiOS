@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vuh-kh-P2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785.5" y="-396.5"/>
+            <point key="canvasLocation" x="1822.5" y="-1.5"/>
         </scene>
         <!--Info Session-->
         <scene sceneID="bj7-ud-TDf">
@@ -347,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPU-M2-poB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2431.5" y="-430.5"/>
+            <point key="canvasLocation" x="2291.5" y="-1.5"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="SFN-UI-oeC">
@@ -409,6 +409,7 @@
                                             <outlet property="favouriteButton" destination="BMm-fa-PHf" id="Gb1-dO-C7f"/>
                                             <outlet property="locationLabel" destination="5e7-ew-bnW" id="hG3-0z-qMs"/>
                                             <outlet property="startTimeLabel" destination="agd-sf-ZIA" id="agx-zb-eX1"/>
+                                            <segue destination="gaf-23-xg2" kind="show" id="0yG-rH-cdB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -453,4 +454,7 @@
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0yG-rH-cdB"/>
+    </inferredMetricsTieBreakers>
 </document>

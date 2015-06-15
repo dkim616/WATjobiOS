@@ -25,6 +25,15 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
 //        self.tableView.registerClass(InfoSessionListCell.self, forCellReuseIdentifier: "FavouriteInfoSessionListCell");
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "sessionToSessionDetail") {
+            var detailVC = segue.destinationViewController as! InfoSessionDetailViewController
+            let list = tableView.indexPathForSelectedRow()
+            var infoSession = self.infoSessionList[(list?.row)!]
+            detailVC.infoSessionId = infoSession.id
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         updateFavouriteList()
