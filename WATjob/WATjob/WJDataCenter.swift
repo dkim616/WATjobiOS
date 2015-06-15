@@ -37,11 +37,12 @@ class DataCenter {
     class func getEmployerInfoList(completionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedEmployerInfo") as? NSDate
         
-        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+        if (true || lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoList(){ (result) -> () in
                 completionHandler(result)
                 
                 let realm = Realm()
+                println(realm.path)
                 realm.beginWrite()
                 
                 if let result = result {
@@ -54,6 +55,7 @@ class DataCenter {
             NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdatedEmployerInfo")
         } else {
             let realm = Realm()
+            println(realm.path)
             var results = realm.objects(EmployerInfo)
             
             completionHandler(arrayFromResultsForEmployerInfo(results))

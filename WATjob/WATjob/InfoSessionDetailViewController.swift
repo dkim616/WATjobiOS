@@ -16,6 +16,14 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
+    @IBOutlet weak var overallRatingLabel: UILabel!
+    @IBOutlet weak var cultureAndValuesLabel: UILabel!
+    @IBOutlet weak var seniorLeadershipLabel: UILabel!
+    @IBOutlet weak var compensationAndBenefitsLabel: UILabel!
+    @IBOutlet weak var careerOpportunitiesLabel: UILabel!
+    @IBOutlet weak var workLifeBalanceLabel: UILabel!
+    @IBOutlet weak var recommendToFriendLabel: UILabel!
+    
     @IBOutlet weak var companyImage: UIImageView!
     
     var infoSessionId: String
@@ -27,7 +35,7 @@ class InfoSessionDetailViewController: UIViewController {
     
     required init(coder aDecoder: NSCoder) {
         dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy"
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
         
         infoSessionId = ""
         employerInfoId = 0
@@ -48,8 +56,7 @@ class InfoSessionDetailViewController: UIViewController {
         
         self.companyNameLabel.text = infoSession.employer
         
-//        if (infoSession.
-//        self.companyImage.image = (
+        load_image(employerInfo!.squareLogo)
         
         self.locationLabel.text = infoSession.location
         if (infoSession.date != nil) {
@@ -60,11 +67,37 @@ class InfoSessionDetailViewController: UIViewController {
         self.startTimeLabel.text = infoSession.startTime
         self.endTimeLabel.text = infoSession.endTime
         
-        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
-            if let result = result {
-                self.employerInfo = result;
-            }
-        }
+        self.overallRatingLabel.text = "\(employerInfo!.overallRating)"
+        self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
+        self.seniorLeadershipLabel.text = employerInfo?.seniorLeadershipRating
+        self.compensationAndBenefitsLabel.text = employerInfo?.compensationAndBenefitsRating
+        self.careerOpportunitiesLabel.text = employerInfo?.careerOpportunitiesRating
+        self.workLifeBalanceLabel.text = employerInfo?.workLifeBalanceRating
+        self.recommendToFriendLabel.text = employerInfo?.recommendToFriendRating
+        
+//        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
+//            if let result = result {
+//                self.employerInfo = result;
+//            }
+//        }
+        
+        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
+    }
+    
+    func load_image(urlString:String)
+    {
+        
+        var imgURL: NSURL = NSURL(string: urlString)!
+        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+        NSURLConnection.sendAsynchronousRequest(
+            request, queue: NSOperationQueue.mainQueue(),
+            completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+                if error == nil {
+                    self.companyImage.image = UIImage(data: data)
+                }
+        })
+        
     }
     
     override func didReceiveMemoryWarning() {

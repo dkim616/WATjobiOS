@@ -32,17 +32,13 @@ class ReviewViewController: UIViewController {
         var stringFromInt:String = String(format:"%d", self.reviewInfo.overall);
         self.ratingLabel.text = stringFromInt
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
         var dateString = dateFormatter.stringFromDate(self.reviewInfo.reviewDateTime!)
         self.dateLabel.text = dateString
         self.locationLabel.text = reviewInfo.location
         self.prosLabel.text = reviewInfo.pros
         self.consLabel.text = reviewInfo.cons
         // Do any additional setup after loading the view.
-        
-        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backItem
     }
     
     override func didReceiveMemoryWarning() {

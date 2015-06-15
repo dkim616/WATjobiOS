@@ -93,7 +93,7 @@ class ObjectUnpacker {
                         employerInfo.squareLogo = employerInfoDictionary["squareLogo"].stringValue
                         employerInfo.overallRating = employerInfoDictionary["overallRating"].doubleValue
                         employerInfo.ratingDescription = employerInfoDictionary["ratingDescription"].stringValue
-                        employerInfo.cultureAndValuesRating = employerInfoDictionary["cultureAndValueRating"].stringValue
+                        employerInfo.cultureAndValuesRating = employerInfoDictionary["cultureAndValuesRating"].stringValue
                         employerInfo.seniorLeadershipRating = employerInfoDictionary["seniorLeadershipRating"].stringValue
                         employerInfo.compensationAndBenefitsRating = employerInfoDictionary["compensationAndBenefitsRating"].stringValue
                         employerInfo.careerOpportunitiesRating = employerInfoDictionary["careerOpportunitiesRating"].stringValue
