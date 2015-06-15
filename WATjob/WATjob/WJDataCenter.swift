@@ -37,7 +37,7 @@ class DataCenter {
     class func getEmployerInfoList(completionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedEmployerInfo") as? NSDate
         
-        if (true || lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoList(){ (result) -> () in
                 completionHandler(result)
                 
@@ -60,30 +60,12 @@ class DataCenter {
         }
     }
     
-    class func getEmployerInfoByCompanyName(companyName: String, completionHandler:(Array<EmployerInfo>?) -> ()) -> Void {
-        let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedEmployerInfo") as? NSDate
+    class func getEmployerInfoById(id: Int) -> EmployerInfo? {
+        let realm = Realm()
+        var result = realm.objectForPrimaryKey(EmployerInfo.self, key: id)
         
-        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
-            WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoListByCompanyName(companyName) { (result) -> () in
-                completionHandler(result)
-                
-                let realm = Realm()
-                realm.beginWrite()
-                
-                if let result = result {
-                    for employerInfo in result {
-                        realm.add(employerInfo, update: true)
-                    }
-                }
-                realm.commitWrite()
-            }
-            NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdatedEmployerInfo")
-        } else {
-            let realm = Realm()
-            var results = realm.objects(EmployerInfo)
-            
-            completionHandler(arrayFromResultsForEmployerInfo(results))
-        }
+        return result
+        
     }
     
     class func getFavouritedInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {

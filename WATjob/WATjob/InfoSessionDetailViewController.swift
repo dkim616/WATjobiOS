@@ -20,6 +20,7 @@ class InfoSessionDetailViewController: UIViewController {
     
     var infoSessionId: String
     var infoSession: InfoSession!
+    var employerInfoId: Int
     var employerInfo: EmployerInfo?
     
     let dateFormatter: NSDateFormatter
@@ -29,6 +30,7 @@ class InfoSessionDetailViewController: UIViewController {
         dateFormatter.dateFormat = "MMM dd, yyyy"
         
         infoSessionId = ""
+        employerInfoId = 0
 
         super.init(coder: aDecoder);
     }
@@ -42,6 +44,7 @@ class InfoSessionDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
+        self.employerInfo = DataCenter.getEmployerInfoById(employerInfoId)
         
         self.companyNameLabel.text = infoSession.employer
         
@@ -74,6 +77,9 @@ class InfoSessionDetailViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "detailToReview") {
             var detailVC = segue.destinationViewController as! ReviewViewController
+            
+//            DataCenter.getEmployerInfoByCompanyName(infoSession.employer)
+            
             detailVC.reviewInfo = employerInfo!.featuredReview
         }
     }

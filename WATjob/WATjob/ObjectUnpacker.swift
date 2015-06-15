@@ -64,7 +64,7 @@ class ObjectUnpacker {
                             review = EmployerInfoFeaturedReview()
                             review.id = employerInfoDictionaryReview["id"]!.intValue
                             review.currentJob = employerInfoDictionaryReview["currentJob"]!.boolValue
-                            review.reviewDateTime = formatter.dateFromString(employerInfoDictionaryReview["reviewDateTime"]!.stringValue)
+                            review.reviewDateTime = NSDate() //formatter.dateFromString(employerInfoDictionaryReview["reviewDateTime"]!.stringValue)
                             review.jobTitle = employerInfoDictionaryReview["jobTitle"]!.stringValue
                             review.location = employerInfoDictionaryReview["location"]!.stringValue
                             review.headline = employerInfoDictionaryReview["headline"]!.stringValue
