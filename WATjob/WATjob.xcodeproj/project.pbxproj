@@ -11,6 +11,10 @@
 		42509FD41B26A0F600562B05 /* EmployerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD31B26A0F600562B05 /* EmployerInfo.swift */; };
 		42509FD61B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD51B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift */; };
 		42509FD81B26A21D00562B05 /* EmployerInfoCEO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD71B26A21D00562B05 /* EmployerInfoCEO.swift */; };
+		646738B01B2E3532009598CD /* CalendarInfosessionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738AF1B2E3532009598CD /* CalendarInfosessionListViewController.swift */; };
+		646738B41B2E3557009598CD /* WJCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738B21B2E3557009598CD /* WJCalendarCell.swift */; };
+		646738B51B2E3557009598CD /* WJCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738B31B2E3557009598CD /* WJCalendarView.swift */; };
+		646738B71B2E3564009598CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738B61B2E3564009598CD /* Constants.swift */; };
 		64A00BD11B28B72B006E1112 /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A00BD01B28B72B006E1112 /* ReviewListViewController.swift */; };
 		9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469CE1A0B1CE1922F6879C38 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C361B2790F4007773A0 /* InfoSession.swift */; };
@@ -45,6 +49,10 @@
 		42509FD51B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerInfoFeaturedReview.swift; sourceTree = "<group>"; };
 		42509FD71B26A21D00562B05 /* EmployerInfoCEO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerInfoCEO.swift; sourceTree = "<group>"; };
 		469CE1A0B1CE1922F6879C38 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		646738AF1B2E3532009598CD /* CalendarInfosessionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInfosessionListViewController.swift; sourceTree = "<group>"; };
+		646738B21B2E3557009598CD /* WJCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJCalendarCell.swift; sourceTree = "<group>"; };
+		646738B31B2E3557009598CD /* WJCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJCalendarView.swift; sourceTree = "<group>"; };
+		646738B61B2E3564009598CD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		64A00BD01B28B72B006E1112 /* ReviewListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
 		6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B90D4C361B2790F4007773A0 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
@@ -95,6 +103,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		646738B11B2E353E009598CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				646738B21B2E3557009598CD /* WJCalendarCell.swift */,
+				646738B31B2E3557009598CD /* WJCalendarView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		64EE3EA345C41A0A1E3AA527 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,8 +146,10 @@
 			children = (
 				B9FA86FB1B24BBA6007E4081 /* REST */,
 				B9FA86FA1B24BB9E007E4081 /* Model */,
+				646738B11B2E353E009598CD /* View */,
 				B9FA86F91B24BB92007E4081 /* ViewController */,
 				B9404B6B1B23A07D00A04E0E /* AppDelegate.swift */,
+				646738B61B2E3564009598CD /* Constants.swift */,
 				B9404B711B23A07E00A04E0E /* Main.storyboard */,
 				B9404B741B23A07E00A04E0E /* Images.xcassets */,
 				B9404B761B23A07E00A04E0E /* LaunchScreen.xib */,
@@ -173,6 +192,7 @@
 				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
 				B90D4C3A1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift */,
 				64A00BD01B28B72B006E1112 /* ReviewListViewController.swift */,
+				646738AF1B2E3532009598CD /* CalendarInfosessionListViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -350,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42509FD61B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift in Sources */,
+				646738B51B2E3557009598CD /* WJCalendarView.swift in Sources */,
 				42509FD41B26A0F600562B05 /* EmployerInfo.swift in Sources */,
 				B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */,
 				B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */,
@@ -357,12 +378,15 @@
 				42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */,
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
+				646738B01B2E3532009598CD /* CalendarInfosessionListViewController.swift in Sources */,
 				64A00BD11B28B72B006E1112 /* ReviewListViewController.swift in Sources */,
+				646738B41B2E3557009598CD /* WJCalendarCell.swift in Sources */,
 				B90D4C3B1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift in Sources */,
 				B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */,
 				B90D4C391B279566007773A0 /* WJDataCenter.swift in Sources */,
 				B9404B6E1B23A07D00A04E0E /* InfoSessionListViewController.swift in Sources */,
 				B9DC87E41B24CDBC00BF9546 /* InfoSessionListCell.swift in Sources */,
+				646738B71B2E3564009598CD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
