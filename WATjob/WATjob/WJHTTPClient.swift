@@ -38,7 +38,8 @@ class WJHTTPClient {
             "useragent": "",
             "format": "json",
             "v": "1",
-            "action": "employers"
+            "action": "employers",
+            "e": "Kik Interactive"
         ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
             completetionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
         }

@@ -15,7 +15,8 @@
 		646738B41B2E3557009598CD /* WJCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738B21B2E3557009598CD /* WJCalendarCell.swift */; };
 		646738B51B2E3557009598CD /* WJCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738B31B2E3557009598CD /* WJCalendarView.swift */; };
 		646738B71B2E3564009598CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738B61B2E3564009598CD /* Constants.swift */; };
-		64A00BD11B28B72B006E1112 /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A00BD01B28B72B006E1112 /* ReviewListViewController.swift */; };
+		646738B91B2E87B8009598CD /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646738B81B2E87B8009598CD /* FavouriteButton.swift */; };
+		64A00BD51B2E3AD1006E1112 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A00BD41B2E3AD1006E1112 /* ReviewViewController.swift */; };
 		9814CAE4A1BDE0EAC6C67577 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469CE1A0B1CE1922F6879C38 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C361B2790F4007773A0 /* InfoSession.swift */; };
 		B90D4C391B279566007773A0 /* WJDataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D4C381B279566007773A0 /* WJDataCenter.swift */; };
@@ -53,7 +54,8 @@
 		646738B21B2E3557009598CD /* WJCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJCalendarCell.swift; sourceTree = "<group>"; };
 		646738B31B2E3557009598CD /* WJCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJCalendarView.swift; sourceTree = "<group>"; };
 		646738B61B2E3564009598CD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		64A00BD01B28B72B006E1112 /* ReviewListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
+		646738B81B2E87B8009598CD /* FavouriteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
+		64A00BD41B2E3AD1006E1112 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B90D4C361B2790F4007773A0 /* InfoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSession.swift; sourceTree = "<group>"; };
 		B90D4C381B279566007773A0 /* WJDataCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJDataCenter.swift; sourceTree = "<group>"; };
@@ -191,8 +193,9 @@
 				B9404B6D1B23A07D00A04E0E /* InfoSessionListViewController.swift */,
 				B9404B6F1B23A07D00A04E0E /* SecondViewController.swift */,
 				B90D4C3A1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift */,
-				64A00BD01B28B72B006E1112 /* ReviewListViewController.swift */,
 				646738AF1B2E3532009598CD /* CalendarInfosessionListViewController.swift */,
+				64A00BD41B2E3AD1006E1112 /* ReviewViewController.swift */,
+				646738B81B2E87B8009598CD /* FavouriteButton.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				TargetAttributes = {
 					B9404B651B23A07D00A04E0E = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 4BR6V2ZKFQ;
 					};
 					B9404B7C1B23A07E00A04E0E = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -369,9 +373,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				646738B91B2E87B8009598CD /* FavouriteButton.swift in Sources */,
 				42509FD61B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift in Sources */,
 				646738B51B2E3557009598CD /* WJCalendarView.swift in Sources */,
 				42509FD41B26A0F600562B05 /* EmployerInfo.swift in Sources */,
+				64A00BD51B2E3AD1006E1112 /* ReviewViewController.swift in Sources */,
 				B9404B701B23A07D00A04E0E /* SecondViewController.swift in Sources */,
 				B9FA86FD1B24BBBC007E4081 /* WJHTTPClient.swift in Sources */,
 				42509FD81B26A21D00562B05 /* EmployerInfoCEO.swift in Sources */,
@@ -379,7 +385,6 @@
 				B9404B6C1B23A07D00A04E0E /* AppDelegate.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,
 				646738B01B2E3532009598CD /* CalendarInfosessionListViewController.swift in Sources */,
-				64A00BD11B28B72B006E1112 /* ReviewListViewController.swift in Sources */,
 				646738B41B2E3557009598CD /* WJCalendarCell.swift in Sources */,
 				B90D4C3B1B27C4F2007773A0 /* FavouriteInfoSessionListViewController.swift in Sources */,
 				B90D4C371B2790F4007773A0 /* InfoSession.swift in Sources */,
@@ -514,6 +519,8 @@
 			baseConfigurationReference = 6AED159FF3D4EBDC8406DC4F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -522,6 +529,7 @@
 				INFOPLIST_FILE = WATjob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -530,6 +538,8 @@
 			baseConfigurationReference = 32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -538,6 +548,7 @@
 				INFOPLIST_FILE = WATjob/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -62,6 +62,10 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "sessionToSessionDetail") {
             var detailVC = segue.destinationViewController as! InfoSessionDetailViewController
+
+//            detailVC.infoSession = infoSessionList[self.tableView.indexPathForSelectedRow()!.row]
+            detailVC.employerInfoId = 673773
+            
             var infoSession = self.sections[(self.tableView.indexPathForSelectedRow()?.section)!][(self.tableView.indexPathForSelectedRow()?.row)!]
             detailVC.infoSessionId = infoSession.id
         }
@@ -86,7 +90,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         cell.startTimeLabel.text = infoSession.startTime;
         cell.endTimeLabel.text = infoSession.endTime;
         cell.locationLabel.text = infoSession.location;
-        cell.favouriteButton.tag = indexPath.row
+        cell.favouriteButton.rowNumber = indexPath.row
+        cell.favouriteButton.sectionNumber = indexPath.section
         cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell;
@@ -104,8 +109,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         }
     }
     
-    func favouriteClicked(sender: UIButton) -> Void {
-        let infoSession = self.infoSessionList[sender.tag]
+    func favouriteClicked(sender: FavouriteButton) -> Void {
+        let infoSession = self.sections[sender.sectionNumber][sender.rowNumber]
         DataCenter.markFavouriteWithInfoSessionId(infoSession.id)
     }
     
