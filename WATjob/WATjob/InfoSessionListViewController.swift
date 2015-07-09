@@ -9,19 +9,24 @@
 import UIKit
 import RealmSwift
 
-class InfoSessionListViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate {
+class InfoSessionListViewController:  UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
     var infoSessionList: Array<InfoSession>;
-    
     var sections: Array<Array<InfoSession>>;
-    
     var employerInfoList: Array<EmployerInfo>;
+    
+    var searchActive: Bool = false
+    var filtered: [InfoSession] = []
+    var employerNameList: Array<String>;
     
     required init(coder aDecoder: NSCoder) {
         self.infoSessionList = [];
         self.employerInfoList = [];
         self.sections = [];
+        self.employerNameList = [];
         super.init(coder: aDecoder);
     }
     
@@ -34,6 +39,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
 //                self.tableView.reloadData();
 //            }
 //        }
+        
+        searchBar.delegate = self
         
         DataCenter.getInfoSessionList { (results) -> () in
             if let results = results {
@@ -66,34 +73,89 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
 //            detailVC.infoSession = infoSessionList[self.tableView.indexPathForSelectedRow()!.row]
             detailVC.employerInfoId = 673773
             
-            var infoSession = self.sections[(self.tableView.indexPathForSelectedRow()?.section)!][(self.tableView.indexPathForSelectedRow()?.row)!]
-            detailVC.infoSessionId = infoSession.id
+            // Syntax error if I move detailVC outside of if-else statement
+            if searchActive {
+                var infoSession = self.filtered[(self.tableView.indexPathForSelectedRow()?.row)!]
+                detailVC.infoSessionId = infoSession.id
+            } else {
+                var infoSession = self.sections[(self.tableView.indexPathForSelectedRow()?.section)!][(self.tableView.indexPathForSelectedRow()?.row)!]
+                detailVC.infoSessionId = infoSession.id
+            }
         }
+    }
+    
+    // Jimmy - Search Bar 
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filtered = self.infoSessionList.filter({ (text) -> Bool in
+            let tmp: NSString = text.employer
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if filtered.count == 0 {
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.tableView.reloadData()
     }
     
     // MARK: TableView Stuff
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchActive {
+            return filtered.count
+        }
         return self.sections[section].count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if searchActive {
+            return 1
+        }
         return self.sections.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("InfoSessionListCell", forIndexPath: indexPath) as! InfoSessionListCell;
-        
-        var infoSession = self.sections[indexPath.section][indexPath.row]
-        cell.employerLabel.text = infoSession.employer;
-        cell.startTimeLabel.text = infoSession.startTime;
-        cell.endTimeLabel.text = infoSession.endTime;
-        cell.locationLabel.text = infoSession.location;
-        cell.favouriteButton.rowNumber = indexPath.row
-        cell.favouriteButton.sectionNumber = indexPath.section
-        cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-        
+
+        // Syntax error for infoSession if I move the cell elements outside of if-else statement
+        if searchActive {
+            var infoSession = self.filtered[indexPath.row]
+            cell.employerLabel.text = infoSession.employer;
+            cell.startTimeLabel.text = infoSession.startTime;
+            cell.endTimeLabel.text = infoSession.endTime;
+            cell.locationLabel.text = infoSession.location;
+            cell.favouriteButton.rowNumber = indexPath.row
+            cell.favouriteButton.sectionNumber = indexPath.section
+            cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        } else {
+            var infoSession = self.sections[indexPath.section][indexPath.row]
+            cell.employerLabel.text = infoSession.employer;
+            cell.startTimeLabel.text = infoSession.startTime;
+            cell.endTimeLabel.text = infoSession.endTime;
+            cell.locationLabel.text = infoSession.location;
+            cell.favouriteButton.rowNumber = indexPath.row
+            cell.favouriteButton.sectionNumber = indexPath.section
+            cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        }
         return cell;
     }
     
@@ -122,6 +184,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         var final = Array<Array<InfoSession>>()
         var currentIndex = 0
         for infoSession in self.infoSessionList {
+            employerNameList.append(infoSession.employer)
             if let date = infoSession.date {
                 if currentDate != date {
                     currentIndex++
