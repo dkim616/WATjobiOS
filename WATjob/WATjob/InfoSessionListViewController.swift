@@ -73,14 +73,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
 //            detailVC.infoSession = infoSessionList[self.tableView.indexPathForSelectedRow()!.row]
             detailVC.employerInfoId = 673773
             
-            // Syntax error if I move detailVC outside of if-else statement
-            if searchActive {
-                var infoSession = self.filtered[(self.tableView.indexPathForSelectedRow()?.row)!]
-                detailVC.infoSessionId = infoSession.id
-            } else {
-                var infoSession = self.sections[(self.tableView.indexPathForSelectedRow()?.section)!][(self.tableView.indexPathForSelectedRow()?.row)!]
-                detailVC.infoSessionId = infoSession.id
-            }
+            var infoSession = self.sections[(self.tableView.indexPathForSelectedRow()?.section)!][(self.tableView.indexPathForSelectedRow()?.row)!]
+            detailVC.infoSessionId = infoSession.id
         }
     }
     
@@ -113,22 +107,17 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         } else {
             searchActive = true;
         }
+        self.processSections()
         self.tableView.reloadData()
     }
     
     // MARK: TableView Stuff
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchActive {
-            return filtered.count
-        }
         return self.sections[section].count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if searchActive {
-            return 1
-        }
         return self.sections.count
     }
     
@@ -136,26 +125,15 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         
         let cell = tableView.dequeueReusableCellWithIdentifier("InfoSessionListCell", forIndexPath: indexPath) as! InfoSessionListCell;
 
-        // Syntax error for infoSession if I move the cell elements outside of if-else statement
-        if searchActive {
-            var infoSession = self.filtered[indexPath.row]
-            cell.employerLabel.text = infoSession.employer;
-            cell.startTimeLabel.text = infoSession.startTime;
-            cell.endTimeLabel.text = infoSession.endTime;
-            cell.locationLabel.text = infoSession.location;
-            cell.favouriteButton.rowNumber = indexPath.row
-            cell.favouriteButton.sectionNumber = indexPath.section
-            cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-        } else {
-            var infoSession = self.sections[indexPath.section][indexPath.row]
-            cell.employerLabel.text = infoSession.employer;
-            cell.startTimeLabel.text = infoSession.startTime;
-            cell.endTimeLabel.text = infoSession.endTime;
-            cell.locationLabel.text = infoSession.location;
-            cell.favouriteButton.rowNumber = indexPath.row
-            cell.favouriteButton.sectionNumber = indexPath.section
-            cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-        }
+        var infoSession = self.sections[indexPath.section][indexPath.row]
+        cell.employerLabel.text = infoSession.employer;
+        cell.startTimeLabel.text = infoSession.startTime;
+        cell.endTimeLabel.text = infoSession.endTime;
+        cell.locationLabel.text = infoSession.location;
+        cell.favouriteButton.rowNumber = indexPath.row
+        cell.favouriteButton.sectionNumber = indexPath.section
+        cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         return cell;
     }
     
@@ -183,20 +161,40 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         var currentDate = NSDate()
         var final = Array<Array<InfoSession>>()
         var currentIndex = 0
-        for infoSession in self.infoSessionList {
-            employerNameList.append(infoSession.employer)
-            if let date = infoSession.date {
-                if currentDate != date {
-                    currentIndex++
-                    var newArray = Array<InfoSession>()
-                    newArray.append(infoSession)
-                    final.append(newArray)
-                    currentDate = date
-                } else {
-                    var currentArray = final.last
-                    currentArray?.append(infoSession)
-                    final.removeLast()
-                    final.append(currentArray!)
+        if searchActive {
+            for infoSession in self.filtered {
+                employerNameList.append(infoSession.employer)
+                if let date = infoSession.date {
+                    if currentDate != date {
+                        currentIndex++
+                        var newArray = Array<InfoSession>()
+                        newArray.append(infoSession)
+                        final.append(newArray)
+                        currentDate = date
+                    } else {
+                        var currentArray = final.last
+                        currentArray?.append(infoSession)
+                        final.removeLast()
+                        final.append(currentArray!)
+                    }
+                }
+            }
+        } else {
+            for infoSession in self.infoSessionList {
+                employerNameList.append(infoSession.employer)
+                if let date = infoSession.date {
+                    if currentDate != date {
+                        currentIndex++
+                        var newArray = Array<InfoSession>()
+                        newArray.append(infoSession)
+                        final.append(newArray)
+                        currentDate = date
+                    } else {
+                        var currentArray = final.last
+                        currentArray?.append(infoSession)
+                        final.removeLast()
+                        final.append(currentArray!)
+                    }
                 }
             }
         }
