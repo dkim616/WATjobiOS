@@ -660,6 +660,7 @@
                                             <outlet property="endTimeLabel" destination="33h-om-6Gg" id="Poi-fc-787"/>
                                             <outlet property="locationLabel" destination="8Ql-oH-UPK" id="fK7-51-ngA"/>
                                             <outlet property="startTimeLabel" destination="L3Y-Fj-qw1" id="Ce6-r0-sdY"/>
+                                            <segue destination="gaf-23-xg2" kind="show" identifier="favouriteToSessionDetail" id="nAz-u4-FHF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -682,7 +683,6 @@
                     <navigationItem key="navigationItem" title="Favourites" id="yTV-yk-J2K"/>
                     <connections>
                         <outlet property="tableView" destination="gSa-Ri-9SQ" id="yOE-iZ-Av4"/>
-                        <segue destination="gaf-23-xg2" kind="show" identifier="favouriteToSessionDetail" id="n7e-WZ-Wz4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="039-Bj-cb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -715,6 +715,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n7e-WZ-Wz4"/>
+        <segue reference="nAz-u4-FHF"/>
     </inferredMetricsTieBreakers>
 </document>
