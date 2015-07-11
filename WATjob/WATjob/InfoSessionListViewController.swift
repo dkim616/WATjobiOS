@@ -69,46 +69,11 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "sessionToSessionDetail") {
             var detailVC = segue.destinationViewController as! InfoSessionDetailViewController
-
-//            detailVC.infoSession = infoSessionList[self.tableView.indexPathForSelectedRow()!.row]
-            detailVC.employerInfoId = 673773
-            
-            var infoSession = self.sections[(self.tableView.indexPathForSelectedRow()?.section)!][(self.tableView.indexPathForSelectedRow()?.row)!]
+            let list = tableView.indexPathForSelectedRow()
+            var infoSession = self.infoSessionList[(list?.row)!]
             detailVC.infoSessionId = infoSession.id
+            detailVC.employerInfoId = 673773
         }
-    }
-    
-    // Jimmy - Search Bar 
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filtered = self.infoSessionList.filter({ (text) -> Bool in
-            let tmp: NSString = text.employer
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            return range.location != NSNotFound
-        })
-        if filtered.count == 0 {
-            searchActive = false;
-        } else {
-            searchActive = true;
-        }
-        self.processSections()
-        self.tableView.reloadData()
     }
     
     // MARK: TableView Stuff
@@ -130,12 +95,33 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         cell.startTimeLabel.text = infoSession.startTime;
         cell.endTimeLabel.text = infoSession.endTime;
         cell.locationLabel.text = infoSession.location;
-        cell.favouriteButton.rowNumber = indexPath.row
-        cell.favouriteButton.sectionNumber = indexPath.section
-        cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+//        cell.favouriteButton.rowNumber = indexPath.row
+//        cell.favouriteButton.sectionNumber = indexPath.section
+//        cell.favouriteButton.addTarget(self, action: "favouriteClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell;
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    // MARK: Cell Options
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
+        var favAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Add to\nFavourite" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            var fav: FavouriteButton = FavouriteButton()
+            fav.rowNumber = indexPath.row
+            fav.sectionNumber = indexPath.section
+            self.favouriteClicked(fav)
+        })
+        favAction.backgroundColor = UIColor(red: 63.0/255.0, green: 146.0/255.0, blue: 198.0/255.0, alpha: 1.0)
+        return [favAction]
+    }
+    
+    // MARK: Sections
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let infoSession = self.sections[section].first
@@ -147,14 +133,6 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             //Error here
             return ""
         }
-    }
-    
-    func favouriteClicked(sender: FavouriteButton) -> Void {
-        let infoSession = self.sections[sender.sectionNumber][sender.rowNumber]
-        DataCenter.markFavouriteWithInfoSessionId(infoSession.id)
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
     
     func processSections() {
@@ -199,6 +177,47 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             }
         }
         self.sections = final;
+    }
+    
+    // MARK: Favourite
+    
+    func favouriteClicked(sender: FavouriteButton) -> Void {
+        let infoSession = self.sections[sender.sectionNumber][sender.rowNumber]
+        DataCenter.markFavouriteWithInfoSessionId(infoSession.id)
+    }
+    
+    // MARK: Search Bar
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filtered = self.infoSessionList.filter({ (text) -> Bool in
+            let tmp: NSString = text.employer
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
+        if filtered.count == 0 {
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.processSections()
+        self.tableView.reloadData()
     }
 }
 
