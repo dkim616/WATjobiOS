@@ -53,27 +53,27 @@ class InfoSessionDetailViewController: UIViewController {
         
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
         self.employerInfo = DataCenter.getEmployerInfoById(employerInfoId)
-        
+//
         self.companyNameLabel.text = infoSession.employer
-        
+//
         load_image(employerInfo!.squareLogo)
-        
-        self.locationLabel.text = infoSession.location
-        if (infoSession.date != nil) {
-            self.dateLabel.text = dateFormatter.stringFromDate(infoSession.date!)
-        } else {
-            self.dateLabel.text = "Location Not Available"
-        }
-        self.startTimeLabel.text = infoSession.startTime
-        self.endTimeLabel.text = infoSession.endTime
-        
-        self.overallRatingLabel.text = "\(employerInfo!.overallRating)"
-        self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
-        self.seniorLeadershipLabel.text = employerInfo?.seniorLeadershipRating
-        self.compensationAndBenefitsLabel.text = employerInfo?.compensationAndBenefitsRating
-        self.careerOpportunitiesLabel.text = employerInfo?.careerOpportunitiesRating
-        self.workLifeBalanceLabel.text = employerInfo?.workLifeBalanceRating
-        self.recommendToFriendLabel.text = employerInfo?.recommendToFriendRating
+//
+//        self.locationLabel.text = infoSession.location
+//        if (infoSession.date != nil) {
+//            self.dateLabel.text = dateFormatter.stringFromDate(infoSession.date!)
+//        } else {
+//            self.dateLabel.text = "Location Not Available"
+//        }
+//        self.startTimeLabel.text = infoSession.startTime
+//        self.endTimeLabel.text = infoSession.endTime
+//        
+//        self.overallRatingLabel.text = "\(employerInfo!.overallRating)"
+//        self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
+//        self.seniorLeadershipLabel.text = employerInfo?.seniorLeadershipRating
+//        self.compensationAndBenefitsLabel.text = employerInfo?.compensationAndBenefitsRating
+//        self.careerOpportunitiesLabel.text = employerInfo?.careerOpportunitiesRating
+//        self.workLifeBalanceLabel.text = employerInfo?.workLifeBalanceRating
+//        self.recommendToFriendLabel.text = employerInfo?.recommendToFriendRating
         
 //        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
 //            if let result = result {
