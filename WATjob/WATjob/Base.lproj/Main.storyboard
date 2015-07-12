@@ -645,13 +645,13 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="Pir-JS-0GS"/>
-                                                    <exclude reference="M4p-NZ-oLM"/>
-                                                    <exclude reference="AI3-Se-0rU"/>
                                                     <exclude reference="5kN-OG-66Y"/>
                                                     <exclude reference="8SL-nd-b80"/>
-                                                    <exclude reference="sMS-MD-rq8"/>
-                                                    <exclude reference="kF2-q6-Fng"/>
+                                                    <exclude reference="AI3-Se-0rU"/>
+                                                    <exclude reference="M4p-NZ-oLM"/>
                                                     <exclude reference="ipj-z1-m3q"/>
+                                                    <exclude reference="kF2-q6-Fng"/>
+                                                    <exclude reference="sMS-MD-rq8"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
