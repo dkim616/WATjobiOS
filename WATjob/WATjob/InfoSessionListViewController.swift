@@ -371,6 +371,10 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
     }
 }
 
+extension InfoSessionListViewController:CVCalendarMenuViewDelegate {
+    
+}
+
 extension InfoSessionListViewController:CVCalendarViewAppearanceDelegate {
     func dayLabelPresentWeekdayInitallyBold() -> Bool {
         return false
