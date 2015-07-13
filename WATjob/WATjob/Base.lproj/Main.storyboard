@@ -19,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gvv-uc-kOn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gvv-uc-kOn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="HQo-NF-e8Y">
                                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
@@ -135,18 +135,18 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="XlW-Dr-bwV"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FeT-W1-cHM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FeT-W1-cHM">
                                 <rect key="frame" x="0.0" y="64" width="375" height="400"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLR-oo-mBI" customClass="CVCalendarMenuView" customModule="WATjob" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLR-oo-mBI" customClass="CVCalendarMenuView" customModule="WATjob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="menuViewDelegate" destination="9pv-A4-QxB" id="6aS-Rv-fwk"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQt-GL-2La" customClass="CVCalendarView" customModule="WATjob" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="375" height="300"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQt-GL-2La" customClass="CVCalendarView" customModule="WATjob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="Ejh-Wn-Rae"/>
@@ -166,16 +166,23 @@
                                     <constraint firstItem="uQt-GL-2La" firstAttribute="top" secondItem="jLR-oo-mBI" secondAttribute="bottom" constant="8" symbolic="YES" id="XJS-Nl-vVU"/>
                                     <constraint firstItem="jLR-oo-mBI" firstAttribute="top" secondItem="FeT-W1-cHM" secondAttribute="top" id="aEo-N6-vGa"/>
                                     <constraint firstAttribute="trailing" secondItem="uQt-GL-2La" secondAttribute="trailing" id="hGd-hi-3k8"/>
+                                    <constraint firstAttribute="height" constant="400" id="p5R-pE-WvU"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="centerX" secondItem="Gvv-uc-kOn" secondAttribute="centerX" id="2v1-ox-nw3"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="5U9-v7-72h"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="ETx-sr-WSF"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="centerX" secondItem="jLR-oo-mBI" secondAttribute="centerX" id="Ejs-nf-dgT"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="top" secondItem="Gvv-uc-kOn" secondAttribute="top" constant="64" id="JAE-RG-ivl"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="trailing" secondItem="Gvv-uc-kOn" secondAttribute="trailing" id="MQi-9T-jbJ"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="Svg-kN-p4q"/>
                             <constraint firstAttribute="trailing" secondItem="Gvv-uc-kOn" secondAttribute="trailing" id="WCG-fc-7sE"/>
+                            <constraint firstItem="uQt-GL-2La" firstAttribute="centerX" secondItem="Gvv-uc-kOn" secondAttribute="centerX" id="ew8-uR-YDi"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="leading" secondItem="Gvv-uc-kOn" secondAttribute="leading" id="vE7-nu-nk3"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="width" secondItem="Gvv-uc-kOn" secondAttribute="width" id="w04-II-T8x"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="height" secondItem="tsR-hK-woN" secondAttribute="height" id="wOr-TI-jRB"/>
                         </constraints>
                     </view>
@@ -813,6 +820,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nAz-u4-FHF"/>
+        <segue reference="YyH-UV-elU"/>
     </inferredMetricsTieBreakers>
 </document>
