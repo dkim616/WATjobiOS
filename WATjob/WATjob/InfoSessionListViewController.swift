@@ -16,7 +16,6 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     
     @IBOutlet weak var calendarContainerView: UIView!
     
-    
     @IBOutlet weak var calendarMenuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
     
@@ -214,6 +213,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     }
 }
 
+//MARK: calendarView stuff
+
 extension InfoSessionListViewController:CVCalendarViewDelegate {
     func preliminaryView(viewOnDayView dayView: DayView) -> UIView
     {
@@ -270,10 +271,14 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
     
     func supplementaryView(shouldDisplayOnDayView dayView: DayView) -> Bool
     {
-        if (Int(arc4random_uniform(3)) == 1)
-        {
-            return true
+        for infoSession in infoSessionList {
+            if var date1 = infoSession.date, date2 = dayView.date {
+                if date1 == date2.convertedDate() {
+                    return true
+                }
+            }
         }
+
         return false
     }
     
@@ -290,6 +295,19 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
     }
     
     func didSelectDayView(dayView: CVCalendarDayView) {
+        var section = 0
+        
+        for sessionList in sections {
+            if var infoSession = sessionList.first, date = dayView.date {
+                if infoSession.date == date.convertedDate() {
+                    var indexPath:NSIndexPath = NSIndexPath(forRow: 0, inSection: section)
+                    tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+                }
+            }
+            
+            section++
+        }
+        
         let date = dayView.date
         println("\(calendarView.presentedDate.commonDescription) is selected!")
     }
@@ -308,15 +326,15 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
     }
     
     func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
-        return true
+        return false
     }
     
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
-        let day = dayView.date.day
-        let randomDay = Int(arc4random_uniform(31))
-        if day == randomDay {
-            return true
-        }
+//        let day = dayView.date.day
+//        let randomDay = Int(arc4random_uniform(31))
+//        if day == randomDay {
+//            return true
+//        }
         
         return false
     }
@@ -342,7 +360,7 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
     }
     
     func dotMarker(shouldMoveOnHighlightingOnDayView dayView: CVCalendarDayView) -> Bool {
-        return true
+        return false
     }
 }
 
