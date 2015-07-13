@@ -57,7 +57,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             }
         }
         
-        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
     }
     

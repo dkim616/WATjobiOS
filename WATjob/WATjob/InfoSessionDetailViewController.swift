@@ -10,6 +10,9 @@ import UIKit
 
 class InfoSessionDetailViewController: UIViewController {
     
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var contentView: UIView!
+    
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -57,6 +60,17 @@ class InfoSessionDetailViewController: UIViewController {
         self.companyNameLabel.text = infoSession.employer
 //
         load_image(employerInfo!.squareLogo)
+        
+        // TODO: Make content view height dynamic
+        
+        var scroll = self.contentView
+        var lastItem = scroll.subviews.last as! UIView
+        var lastOriginY = lastItem.frame.origin.y
+        var lastHeight = lastItem.frame.size.height
+        var finalHeight = lastOriginY+lastHeight
+        
+        scroll.frame = CGRectMake(0, 0, lastItem.frame.size.width, finalHeight)
+        self.scrollView.contentSize = CGSizeMake(lastItem.frame.size.width, finalHeight)
 //
 //        self.locationLabel.text = infoSession.location
 //        if (infoSession.date != nil) {
