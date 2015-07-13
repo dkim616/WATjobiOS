@@ -22,6 +22,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     var shouldShowDaysOut = true
     var animationFinished = true
     
+    var layoutSubviewCalled = false
+    
     let infoSessionListTitle = "Info Session List"
     let calendarViewCentreHeight:CGFloat = 64 + 200
     let tableViewInsetHeight:CGFloat = 400
@@ -71,7 +73,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         self.calendarButton.title = "Calendar"
         self.navigationItem.title = infoSessionListTitle
         
-        self.calendarContainerView.center = CGPointMake(self.screenWidth/2, -self.calendarViewCentreHeight)
+        
         
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -82,6 +84,11 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         
         calendarView.commitCalendarViewUpdate()
         calendarMenuView.commitMenuViewUpdate()
+        
+        if !layoutSubviewCalled {
+            self.calendarContainerView.center = CGPointMake(self.screenWidth/2, -self.calendarViewCentreHeight)
+            layoutSubviewCalled = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
