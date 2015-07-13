@@ -77,14 +77,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLR-oo-mBI" customClass="CVCalendarMenuView" customModule="WATjob" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="menuViewDelegate" destination="9pv-A4-QxB" id="6aS-Rv-fwk"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQt-GL-2La" customClass="CVCalendarView" customModule="WATjob" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="24" width="375" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="Ejh-Wn-Rae"/>
