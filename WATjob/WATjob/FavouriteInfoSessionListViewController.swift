@@ -57,15 +57,14 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
         cell.startTimeLabel.text = infoSession.startTime;
         cell.endTimeLabel.text = infoSession.endTime;
         cell.locationLabel.text = infoSession.location;
-        cell.favouriteButton.enabled = false;
-        cell.favouriteButton.userInteractionEnabled = false;
-        cell.favouriteButton.hidden = true;
+//        cell.favouriteButton.enabled = false;
+//        cell.favouriteButton.userInteractionEnabled = false;
+//        cell.favouriteButton.hidden = true;
         
         return cell;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
     
     // MARK: Helpers
