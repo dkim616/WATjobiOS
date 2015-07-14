@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                    <view key="view" contentMode="scaleAspectFit" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -75,12 +76,6 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhM-7T-G0M" customClass="FavouriteButton" customModule="WATjob" customModuleProvider="target">
-                                                    <rect key="frame" x="337" y="15" width="30" height="30"/>
-                                                    <state key="normal" title="F">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Jyp-bV-Hn7" firstAttribute="baseline" secondItem="xKO-PL-USJ" secondAttribute="baseline" id="3Lf-8e-LfZ"/>
@@ -141,6 +136,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLR-oo-mBI" customClass="CVCalendarMenuView" customModule="WATjob" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="XTg-dR-dwm"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="menuViewDelegate" destination="9pv-A4-QxB" id="6aS-Rv-fwk"/>
                                         </connections>
@@ -149,8 +147,18 @@
                                         <rect key="frame" x="0.0" y="40" width="375" height="300"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" secondItem="uQt-GL-2La" secondAttribute="height" multiplier="5:4" id="5Na-Qa-cMq"/>
                                             <constraint firstAttribute="height" constant="300" id="Ejh-Wn-Rae"/>
+                                            <constraint firstAttribute="height" constant="300" id="Ypw-Vg-Nfw"/>
+                                            <constraint firstAttribute="height" priority="750" constant="300" id="yaR-97-ZPb"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="5Na-Qa-cMq"/>
+                                                <exclude reference="Ejh-Wn-Rae"/>
+                                                <exclude reference="Ypw-Vg-Nfw"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <outlet property="calendarAppearanceDelegate" destination="9pv-A4-QxB" id="f9I-42-N2H"/>
                                             <outlet property="calendarDelegate" destination="9pv-A4-QxB" id="Odi-HE-BNi"/>
@@ -161,13 +169,29 @@
                                 <constraints>
                                     <constraint firstItem="uQt-GL-2La" firstAttribute="leading" secondItem="FeT-W1-cHM" secondAttribute="leading" id="55n-ma-DoP"/>
                                     <constraint firstItem="jLR-oo-mBI" firstAttribute="leading" secondItem="FeT-W1-cHM" secondAttribute="leading" id="6K5-U7-NSy"/>
+                                    <constraint firstAttribute="width" secondItem="FeT-W1-cHM" secondAttribute="height" multiplier="15:16" id="9yI-he-UUL"/>
                                     <constraint firstItem="uQt-GL-2La" firstAttribute="top" secondItem="FeT-W1-cHM" secondAttribute="top" constant="40" id="G79-RE-j6H"/>
                                     <constraint firstAttribute="trailing" secondItem="jLR-oo-mBI" secondAttribute="trailing" id="GQ2-by-d5x"/>
                                     <constraint firstItem="uQt-GL-2La" firstAttribute="top" secondItem="jLR-oo-mBI" secondAttribute="bottom" constant="8" symbolic="YES" id="XJS-Nl-vVU"/>
                                     <constraint firstItem="jLR-oo-mBI" firstAttribute="top" secondItem="FeT-W1-cHM" secondAttribute="top" id="aEo-N6-vGa"/>
+                                    <constraint firstAttribute="bottom" secondItem="uQt-GL-2La" secondAttribute="bottom" constant="60" id="bh1-Sw-oVv"/>
                                     <constraint firstAttribute="trailing" secondItem="uQt-GL-2La" secondAttribute="trailing" id="hGd-hi-3k8"/>
                                     <constraint firstAttribute="height" constant="400" id="p5R-pE-WvU"/>
+                                    <constraint firstItem="uQt-GL-2La" firstAttribute="width" secondItem="FeT-W1-cHM" secondAttribute="width" id="s8f-JU-yzM"/>
+                                    <constraint firstAttribute="height" constant="400" id="xF0-c8-M90"/>
+                                    <constraint firstItem="jLR-oo-mBI" firstAttribute="width" secondItem="FeT-W1-cHM" secondAttribute="width" id="y3W-PB-bwk"/>
+                                    <constraint firstAttribute="centerX" secondItem="jLR-oo-mBI" secondAttribute="centerX" id="yu8-1L-Re0"/>
+                                    <constraint firstAttribute="centerX" secondItem="uQt-GL-2La" secondAttribute="centerX" id="zvz-CC-mRR"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9yI-he-UUL"/>
+                                        <exclude reference="p5R-pE-WvU"/>
+                                        <exclude reference="y3W-PB-bwk"/>
+                                        <exclude reference="G79-RE-j6H"/>
+                                        <exclude reference="s8f-JU-yzM"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -176,15 +200,35 @@
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="5U9-v7-72h"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="ETx-sr-WSF"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="centerX" secondItem="jLR-oo-mBI" secondAttribute="centerX" id="Ejs-nf-dgT"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="FHn-IZ-lxc"/>
                             <constraint firstItem="FeT-W1-cHM" firstAttribute="top" secondItem="Gvv-uc-kOn" secondAttribute="top" constant="64" id="JAE-RG-ivl"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="Kgt-os-ulw"/>
                             <constraint firstItem="FeT-W1-cHM" firstAttribute="trailing" secondItem="Gvv-uc-kOn" secondAttribute="trailing" id="MQi-9T-jbJ"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="Svg-kN-p4q"/>
                             <constraint firstAttribute="trailing" secondItem="Gvv-uc-kOn" secondAttribute="trailing" id="WCG-fc-7sE"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="ayN-tL-zkf"/>
                             <constraint firstItem="uQt-GL-2La" firstAttribute="centerX" secondItem="Gvv-uc-kOn" secondAttribute="centerX" id="ew8-uR-YDi"/>
+                            <constraint firstItem="FeT-W1-cHM" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="qRv-j4-XzY"/>
+                            <constraint firstAttribute="trailing" secondItem="FeT-W1-cHM" secondAttribute="trailing" id="tog-yN-fDW"/>
                             <constraint firstItem="FeT-W1-cHM" firstAttribute="leading" secondItem="Gvv-uc-kOn" secondAttribute="leading" id="vE7-nu-nk3"/>
                             <constraint firstItem="FeT-W1-cHM" firstAttribute="width" secondItem="Gvv-uc-kOn" secondAttribute="width" id="w04-II-T8x"/>
                             <constraint firstItem="Gvv-uc-kOn" firstAttribute="height" secondItem="tsR-hK-woN" secondAttribute="height" id="wOr-TI-jRB"/>
+                            <constraint firstAttribute="centerX" secondItem="FeT-W1-cHM" secondAttribute="centerX" id="zc1-R1-Bot"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5U9-v7-72h"/>
+                                <exclude reference="Ejs-nf-dgT"/>
+                                <exclude reference="2v1-ox-nw3"/>
+                                <exclude reference="FHn-IZ-lxc"/>
+                                <exclude reference="JAE-RG-ivl"/>
+                                <exclude reference="Kgt-os-ulw"/>
+                                <exclude reference="MQi-9T-jbJ"/>
+                                <exclude reference="vE7-nu-nk3"/>
+                                <exclude reference="w04-II-T8x"/>
+                                <exclude reference="ew8-uR-YDi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info Session" image="first" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="Gwe-KM-hzA">

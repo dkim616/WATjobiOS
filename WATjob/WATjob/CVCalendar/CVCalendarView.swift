@@ -171,7 +171,7 @@ extension CVCalendarView {
             let contentViewSize = contentController.bounds.size
             let selfSize = bounds.size
             
-            if !validated {
+            if !validated || selfSize.width != contentViewSize.width {
                 let width = selfSize.width
                 let height: CGFloat
                 let countOfWeeks = CGFloat(5)
