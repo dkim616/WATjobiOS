@@ -85,6 +85,8 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        var width = self.view.bounds.width
+        
         calendarView.commitCalendarViewUpdate()
         calendarMenuView.commitMenuViewUpdate()
         
@@ -300,6 +302,14 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
 extension InfoSessionListViewController:CVCalendarViewDelegate {
     func preliminaryView(viewOnDayView dayView: DayView) -> UIView
     {
+        for subview in dayView.subviews {
+            if let view = subview as? CVAuxiliaryView {
+                if view.fillColor == UIColor.colorFromCode(0xCCCCCC) {
+                    view.removeFromSuperview()
+                }
+            }
+        }
+        
         let circleView = CVAuxiliaryView(dayView: dayView, rect: dayView.bounds, shape: CVShape.Circle)
         circleView.fillColor = .colorFromCode(0xCCCCCC)
         return circleView
@@ -332,6 +342,13 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
         let rect = CGRectMake(newView.frame.midX-radius, newView.frame.midY-radius-ringVerticalOffset, diameter, diameter)
         
         ringLayer = CAShapeLayer()
+        
+        for subview in dayView.subviews {
+            if var layers = subview.layer.sublayers {
+                subview.removeFromSuperview()
+            }
+        }
+        
         newView.layer.addSublayer(ringLayer)
         
         ringLayer.fillColor = nil
