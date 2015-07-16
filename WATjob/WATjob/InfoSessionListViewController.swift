@@ -78,7 +78,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         self.calendarButton.title = "Calendar"
         self.navigationItem.title = infoSessionListTitle
         
-        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
     }
     
@@ -137,6 +137,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        view.endEditing(true)
     }
     
     // MARK: Cell Options

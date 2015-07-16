@@ -10,6 +10,9 @@ import UIKit
 
 class InfoSessionDetailViewController: UIViewController {
     
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var contentView: UIView!
+    
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -53,27 +56,38 @@ class InfoSessionDetailViewController: UIViewController {
         
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
         self.employerInfo = DataCenter.getEmployerInfoById(employerInfoId)
-        
+//
         self.companyNameLabel.text = infoSession.employer
-        
+//
         load_image(employerInfo!.squareLogo)
         
-        self.locationLabel.text = infoSession.location
-        if (infoSession.date != nil) {
-            self.dateLabel.text = dateFormatter.stringFromDate(infoSession.date!)
-        } else {
-            self.dateLabel.text = "Location Not Available"
-        }
-        self.startTimeLabel.text = infoSession.startTime
-        self.endTimeLabel.text = infoSession.endTime
+        // TODO: Make content view height dynamic
         
-        self.overallRatingLabel.text = "\(employerInfo!.overallRating)"
-        self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
-        self.seniorLeadershipLabel.text = employerInfo?.seniorLeadershipRating
-        self.compensationAndBenefitsLabel.text = employerInfo?.compensationAndBenefitsRating
-        self.careerOpportunitiesLabel.text = employerInfo?.careerOpportunitiesRating
-        self.workLifeBalanceLabel.text = employerInfo?.workLifeBalanceRating
-        self.recommendToFriendLabel.text = employerInfo?.recommendToFriendRating
+        var scroll = self.contentView
+        var lastItem = scroll.subviews.last as! UIView
+        var lastOriginY = lastItem.frame.origin.y
+        var lastHeight = lastItem.frame.size.height
+        var finalHeight = lastOriginY+lastHeight
+        
+        scroll.frame = CGRectMake(0, 0, lastItem.frame.size.width, finalHeight)
+        self.scrollView.contentSize = CGSizeMake(lastItem.frame.size.width, finalHeight)
+//
+//        self.locationLabel.text = infoSession.location
+//        if (infoSession.date != nil) {
+//            self.dateLabel.text = dateFormatter.stringFromDate(infoSession.date!)
+//        } else {
+//            self.dateLabel.text = "Location Not Available"
+//        }
+//        self.startTimeLabel.text = infoSession.startTime
+//        self.endTimeLabel.text = infoSession.endTime
+//        
+//        self.overallRatingLabel.text = "\(employerInfo!.overallRating)"
+//        self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
+//        self.seniorLeadershipLabel.text = employerInfo?.seniorLeadershipRating
+//        self.compensationAndBenefitsLabel.text = employerInfo?.compensationAndBenefitsRating
+//        self.careerOpportunitiesLabel.text = employerInfo?.careerOpportunitiesRating
+//        self.workLifeBalanceLabel.text = employerInfo?.workLifeBalanceRating
+//        self.recommendToFriendLabel.text = employerInfo?.recommendToFriendRating
         
 //        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
 //            if let result = result {
