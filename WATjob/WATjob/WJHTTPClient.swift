@@ -84,4 +84,9 @@ class WJHTTPClient {
         }
     }
     
+    func getLatestGitEmployerInfoById(gitEmployerInfoId: String, completionHandler:(GitEmployerInfo?) -> ()) -> Void {
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions/" + gitEmployerInfoId + ".json", parameters: nil, encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+            completionHandler(ObjectUnpacker.unpackGitEmployerInfoArray(JSON));
+        }
+    }
 }

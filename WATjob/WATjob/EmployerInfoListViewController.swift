@@ -23,21 +23,21 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
+        
         WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList { (result) -> () in
             if let result = result {
                 self.gitEmployerInfoList = result;
                 self.tableView.reloadData();
             }
-        }*/
-        
+        }
+        /*
         DataCenter.getGitEmployerInfoList { (results) -> () in
             if let results = results {
                 self.gitEmployerInfoList = results
                 //self.processSections()
                 self.tableView.reloadData()
             }
-        }
+        }*/
 
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -49,6 +49,15 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     }
     
     // MARK: TableView Stuff
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "employerToEmployerDetail") {
+            var detailVC = segue.destinationViewController as! EmployerInfoDetailViewController
+            let list = tableView.indexPathForSelectedRow()
+            var gitEmployerInfo = self.gitEmployerInfoList[(list?.row)!]
+            detailVC.gitEmployerInfoId = gitEmployerInfo.id
+        }
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.gitEmployerInfoList.count;
