@@ -9,7 +9,7 @@
 import UIKit
 
 class EmployerInfoDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -41,30 +41,27 @@ class EmployerInfoDetailViewController: UIViewController {
         super.viewDidLoad()
         
         WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoById(gitEmployerInfoId) { (result) -> () in
-                    if let result = result {
-                        self.gitEmployerInfo = result;
-                        
-                        
-                        self.companyNameLabel.text = self.gitEmployerInfo.company
-                        self.titleLabel.text = self.gitEmployerInfo.title
-                        self.typeLabel.text = self.gitEmployerInfo.type
-                        //load_image(employerInfo!.squareLogo)
-                        
-                        self.locationLabel.text = self.gitEmployerInfo.location
-                        if (self.gitEmployerInfo.createdAt != nil) {
-                            self.dateLabel.text = self.dateFormatter.stringFromDate(self.gitEmployerInfo.createdAt!)
-                        } else {
-                            self.dateLabel.text = "Date Not Available"
-                        }
-                        
-                        self.applyLabel.text = self.gitEmployerInfo.companyUrl
-                        self.descriptionLabel.text = self.gitEmployerInfo.jobDescription
-                   }
+            if let result = result {
+                self.gitEmployerInfo = result;
+                
+                self.companyNameLabel.text = self.gitEmployerInfo.company
+                self.titleLabel.text = self.gitEmployerInfo.title
+                self.typeLabel.text = self.gitEmployerInfo.type
+                //load_image(employerInfo!.squareLogo)
+                
+                self.locationLabel.text = self.gitEmployerInfo.location
+                if (self.gitEmployerInfo.createdAt != nil) {
+                    self.dateLabel.text = self.dateFormatter.stringFromDate(self.gitEmployerInfo.createdAt!)
+                } else {
+                    self.dateLabel.text = "Date Not Available"
                 }
+                
+                self.applyLabel.text = self.gitEmployerInfo.companyUrl
+                self.descriptionLabel.text = self.gitEmployerInfo.jobDescription
+            }
+        }
         //self.gitEmployerInfo = DataCenter.getGitEmployerInfoList();
         
-
-
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
     }

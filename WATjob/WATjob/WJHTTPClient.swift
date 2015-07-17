@@ -42,8 +42,8 @@ class WJHTTPClient {
             "v": "1",
             "action": "employers",
             "e": "Kik Interactive"
-        ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
-            completetionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
+            ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+                completetionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON));
         }
     }
     
@@ -63,20 +63,20 @@ class WJHTTPClient {
     }
     
     func getLatestEmployerInfoByCompanyName(companyName: String, completionHandler:(EmployerInfo?) -> ()) -> Void {
-            Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
-                "t.p": glassdoorAPIID,
-                "t.k": glassdoorAPIKey,
-                "userip": userIP,
-                "useragent": "",
-                "format": "json",
-                "v": "1",
-                "action": "employers",
-                "e": companyName
-                ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
-                    completionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON).last);
+        Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
+            "t.p": glassdoorAPIID,
+            "t.k": glassdoorAPIKey,
+            "userip": userIP,
+            "useragent": "",
+            "format": "json",
+            "v": "1",
+            "action": "employers",
+            "e": companyName
+            ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
+                completionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON).last);
         }
     }
-
+    
     //Github jobs
     func getLatestGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
         Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: nil, encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
@@ -85,8 +85,10 @@ class WJHTTPClient {
     }
     
     func getLatestGitEmployerInfoById(gitEmployerInfoId: String, completionHandler:(GitEmployerInfo?) -> ()) -> Void {
-        Alamofire.request(.GET, githubAPIBaseUrl + "positions/" + gitEmployerInfoId + ".json", parameters: nil, encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
-            completionHandler(ObjectUnpacker.unpackGitEmployerInfoArray(JSON));
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions/" + gitEmployerInfoId + ".json", parameters: [
+            "markdown": "true"
+            ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+                completionHandler(ObjectUnpacker.unpackGitEmployerInfoArray(JSON));
         }
     }
 }

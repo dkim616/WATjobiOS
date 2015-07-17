@@ -12,7 +12,7 @@ import RealmSwift
 class DataCenter {
     class func getInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdated") as? NSDate
-       
+        
         if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList({ (result) -> () in
                 completionHandler(result)
@@ -61,7 +61,7 @@ class DataCenter {
             completionHandler(arrayFromResultsForEmployerInfo(results))
         }
     }
-
+    
     class func getGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedGitEmployerInfo") as? NSDate
         
@@ -80,11 +80,11 @@ class DataCenter {
             
         })
         //NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdated")
-
+        
         //} else {
-          /*  let realm = Realm()
-            var results = realm.objects(GitEmployerInfo)
-            completionHandler(arrayFromResultsForGitEmployerInfo(results))
+        /*  let realm = Realm()
+        var results = realm.objects(GitEmployerInfo)
+        completionHandler(arrayFromResultsForGitEmployerInfo(results))
         }*/
     }
     
@@ -107,7 +107,7 @@ class DataCenter {
         let result = realm.objectForPrimaryKey(InfoSession.self, key: id);
         return result;
     }
-
+    
     class func arrayFromResults(results: Results<InfoSession>) -> Array<InfoSession> {
         var infoSessionList = Array<InfoSession>()
         for infoS in results {
@@ -126,7 +126,7 @@ class DataCenter {
         
         return employerInfoList
     }
-   
+    
     class func arrayFromResultsForGitEmployerInfo(results: Results<GitEmployerInfo>) -> Array<GitEmployerInfo> {
         var gitEmployerInfoList = Array<GitEmployerInfo>()
         

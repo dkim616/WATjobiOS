@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class EmployerInfoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var gitEmployerInfoList: Array<GitEmployerInfo>;
@@ -32,13 +32,13 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
         }
         /*
         DataCenter.getGitEmployerInfoList { (results) -> () in
-            if let results = results {
-                self.gitEmployerInfoList = results
-                //self.processSections()
-                self.tableView.reloadData()
-            }
+        if let results = results {
+        self.gitEmployerInfoList = results
+        //self.processSections()
+        self.tableView.reloadData()
+        }
         }*/
-
+        
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
     }
@@ -49,7 +49,7 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     }
     
     // MARK: TableView Stuff
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "employerToEmployerDetail") {
             var detailVC = segue.destinationViewController as! EmployerInfoDetailViewController
@@ -70,21 +70,11 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("EmployerInfoListCell", forIndexPath: indexPath) as! EmployerInfoListCell
- 
+        
         var gitEmployerInfo = self.gitEmployerInfoList[indexPath.row];
         cell.companyNameLabel.text = gitEmployerInfo.company;
         cell.titleLabel.text = gitEmployerInfo.title;
         cell.locationLabel.text = gitEmployerInfo.location;
-        
-        var imgURL: NSURL = NSURL(string: gitEmployerInfo.companyUrl)!
-        let request: NSURLRequest = NSURLRequest(URL: imgURL)
-        NSURLConnection.sendAsynchronousRequest(
-            request, queue: NSOperationQueue.mainQueue(),
-            completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-                if error == nil {
-                    cell.companyImage.image = UIImage(data: data);
-                }
-        })
         
         return cell;
         
