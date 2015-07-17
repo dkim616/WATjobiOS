@@ -66,25 +66,26 @@ class DataCenter {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedGitEmployerInfo") as? NSDate
         
         //if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
-        if true {
-            WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList({ (result) -> () in
-                completionHandler(result)
-                let realm = Realm()
-                realm.beginWrite()
-                if let result = result {
-                    for gitEmployerInfo in result {
-                        realm.add(gitEmployerInfo, update: true)
-                    }
-                }
-                realm.commitWrite()
-                
-            })
-            NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdatedGitEmployerInfo")
-        } else {
+        //if true {
+        WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList({ (result) -> () in
+            completionHandler(result)
             let realm = Realm()
+            realm.beginWrite()
+            if let result = result {
+                for infoSession in result {
+                    realm.add(infoSession, update: true)
+                }
+            }
+            realm.commitWrite()
+            
+        })
+        //NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdated")
+
+        //} else {
+          /*  let realm = Realm()
             var results = realm.objects(GitEmployerInfo)
             completionHandler(arrayFromResultsForGitEmployerInfo(results))
-        }
+        }*/
     }
     
     class func getEmployerInfoById(id: Int) -> EmployerInfo? {
