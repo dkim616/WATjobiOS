@@ -149,17 +149,17 @@
             
             if let data: AnyObject = data {
                 let json = JSON(data);
-                gitEmployerInfo.id = json[0]["id"].stringValue
-                gitEmployerInfo.createdAt = formatter.dateFromString(json[0]["created_at"].stringValue)
-                gitEmployerInfo.title = json[0]["title"].stringValue
-                gitEmployerInfo.location = json[0]["location"].stringValue
-                gitEmployerInfo.type = json[0]["type"].stringValue
-                gitEmployerInfo.jobDescription = json[0]["description"].stringValue
-                gitEmployerInfo.howToApply = json[0]["how_to_apply"].stringValue
-                gitEmployerInfo.company = json[0]["company"].stringValue
-                gitEmployerInfo.companyUrl = json[0]["company_url"].stringValue
-                gitEmployerInfo.companyLogo = json[0]["company_logo"].stringValue
-                gitEmployerInfo.companyUrl = json[0]["url"].stringValue
+                gitEmployerInfo.id = json["id"].stringValue
+                gitEmployerInfo.createdAt = formatter.dateFromString(json["created_at"].stringValue)
+                gitEmployerInfo.title = json["title"].stringValue
+                gitEmployerInfo.location = json["location"].stringValue
+                gitEmployerInfo.type = json["type"].stringValue
+                gitEmployerInfo.jobDescription = json["description"].stringValue
+                gitEmployerInfo.howToApply = json["how_to_apply"].stringValue
+                gitEmployerInfo.company = json["company"].stringValue
+                gitEmployerInfo.companyUrl = json["company_url"].stringValue
+                gitEmployerInfo.companyLogo = json["company_logo"].stringValue
+                gitEmployerInfo.companyUrl = json["url"].stringValue
             }
             return gitEmployerInfo;
         }

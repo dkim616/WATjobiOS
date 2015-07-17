@@ -926,6 +926,7 @@
                                             <outlet property="companyNameLabel" destination="KPN-hE-LKg" id="xQr-VI-aax"/>
                                             <outlet property="locationLabel" destination="Kf0-AL-hSE" id="Bhb-b7-YDC"/>
                                             <outlet property="titleLabel" destination="OkC-cd-ASu" id="TyR-aN-ALS"/>
+                                            <segue destination="PPi-dU-ybF" kind="show" identifier="employerToEmployerDetail" id="Gen-y8-Imi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -942,7 +943,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="nww-YQ-VrJ" id="ATR-At-CSm"/>
-                        <segue destination="PPi-dU-ybF" kind="show" identifier="employerToEmployerDetail" id="kTF-fE-by7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UgN-Fn-ndV" userLabel="First Responder" sceneMemberID="firstResponder"/>
