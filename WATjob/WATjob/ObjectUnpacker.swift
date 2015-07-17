@@ -110,6 +110,36 @@ class ObjectUnpacker {
         
         return employerInfoList
     }
+
+    // Github jobs
+    class func unpackGitEmployerInfoListDictionary(data: AnyObject?) -> Array<GitEmployerInfo> {
+        var gitEmployerInfoList = Array<GitEmployerInfo>();
+        let formatter = NSDateFormatter()
+        //created_at": "Thu Jul 16 19:57:36 UTC 2015"
+        formatter.dateFormat = "E MMM dd H:mm:ss z yyyy"
+
+        if let data: AnyObject = data {
+            let json = JSON(data);
+            for index in 1...json.count {
+                var gitEmployerInfo = GitEmployerInfo();
+                gitEmployerInfo.id = json[index]["id"].stringValue
+                gitEmployerInfo.createdAt = formatter.dateFromString(json[index]["created_at"].stringValue)
+                gitEmployerInfo.title = json[index]["title"].stringValue
+                gitEmployerInfo.location = json[index]["location"].stringValue
+                gitEmployerInfo.type = json[index]["type"].stringValue
+                gitEmployerInfo.jobDescription = json[index]["description"].stringValue
+                gitEmployerInfo.howToApply = json[index]["how_to_apply"].stringValue
+                gitEmployerInfo.company = json[index]["company"].stringValue
+                gitEmployerInfo.companyUrl = json[index]["company_url"].stringValue
+                gitEmployerInfo.companyLogo = json[index]["company_logo"].stringValue
+                gitEmployerInfo.companyUrl = json[index]["url"].stringValue
+                gitEmployerInfoList.append(gitEmployerInfo);
+            }
+            return gitEmployerInfoList;
+        }
+        
+        return [];
+    }
     
 }
 

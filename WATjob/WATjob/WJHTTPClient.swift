@@ -17,6 +17,8 @@ let glassdoorAPIID = "36943"
 let glassdoorAPIKey = "dnJJ5zpvHW7"
 let userIP = "0.0.0.0"
 
+var githubAPIBaseUrl = "https://jobs.github.com/"
+
 class WJHTTPClient {
     static let sharedHTTPClient = WJHTTPClient()
     
@@ -60,7 +62,7 @@ class WJHTTPClient {
         }
     }
     
-        func getLatestEmployerInfoByCompanyName(companyName: String, completionHandler:(EmployerInfo?) -> ()) -> Void {
+    func getLatestEmployerInfoByCompanyName(companyName: String, completionHandler:(EmployerInfo?) -> ()) -> Void {
             Alamofire.request(.GET, glassdoorAPIBaseUrl + "api.htm", parameters: [
                 "t.p": glassdoorAPIID,
                 "t.k": glassdoorAPIKey,
@@ -74,6 +76,12 @@ class WJHTTPClient {
                     completionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON).last);
         }
     }
-    
+
+    //Github jobs
+    func getLatestGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: nil).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+            completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
+        }
+    }
     
 }
