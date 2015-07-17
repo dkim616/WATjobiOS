@@ -12,7 +12,7 @@ import RealmSwift
 class DataCenter {
     class func getInfoSessionList(completionHandler:(Array<InfoSession>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdated") as? NSDate
-       
+        
         if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
             WJHTTPClient.sharedHTTPClient.getLatestInfoSessionList({ (result) -> () in
                 completionHandler(result)
@@ -62,6 +62,32 @@ class DataCenter {
         }
     }
     
+    class func getGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+        let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedGitEmployerInfo") as? NSDate
+        
+        //if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+        //if true {
+        WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList({ (result) -> () in
+            completionHandler(result)
+            let realm = Realm()
+            realm.beginWrite()
+            if let result = result {
+                for infoSession in result {
+                    realm.add(infoSession, update: true)
+                }
+            }
+            realm.commitWrite()
+            
+        })
+        //NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdated")
+        
+        //} else {
+        /*  let realm = Realm()
+        var results = realm.objects(GitEmployerInfo)
+        completionHandler(arrayFromResultsForGitEmployerInfo(results))
+        }*/
+    }
+    
     class func getEmployerInfoById(id: Int) -> EmployerInfo? {
         let realm = Realm()
         var result = realm.objectForPrimaryKey(EmployerInfo.self, key: id)
@@ -81,7 +107,7 @@ class DataCenter {
         let result = realm.objectForPrimaryKey(InfoSession.self, key: id);
         return result;
     }
-
+    
     class func arrayFromResults(results: Results<InfoSession>) -> Array<InfoSession> {
         var infoSessionList = Array<InfoSession>()
         for infoS in results {
@@ -99,6 +125,16 @@ class DataCenter {
         }
         
         return employerInfoList
+    }
+    
+    class func arrayFromResultsForGitEmployerInfo(results: Results<GitEmployerInfo>) -> Array<GitEmployerInfo> {
+        var gitEmployerInfoList = Array<GitEmployerInfo>()
+        
+        for gitEmployerInfo in results {
+            gitEmployerInfoList.append(gitEmployerInfo)
+        }
+        
+        return gitEmployerInfoList
     }
     
     class func markFavouriteWithInfoSessionId(id: String) -> Void {
