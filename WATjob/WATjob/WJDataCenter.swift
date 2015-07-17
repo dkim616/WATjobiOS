@@ -63,9 +63,10 @@ class DataCenter {
     }
 
     class func getGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
-        let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdated") as? NSDate
+        let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedGitEmployerInfo") as? NSDate
         
-        if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+        //if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+        if true {
             WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList({ (result) -> () in
                 completionHandler(result)
                 let realm = Realm()
@@ -78,7 +79,7 @@ class DataCenter {
                 realm.commitWrite()
                 
             })
-            NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdated")
+            NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdatedGitEmployerInfo")
         } else {
             let realm = Realm()
             var results = realm.objects(GitEmployerInfo)
@@ -124,8 +125,7 @@ class DataCenter {
         
         return employerInfoList
     }
-
-    // Github jobs
+   
     class func arrayFromResultsForGitEmployerInfo(results: Results<GitEmployerInfo>) -> Array<GitEmployerInfo> {
         var gitEmployerInfoList = Array<GitEmployerInfo>()
         

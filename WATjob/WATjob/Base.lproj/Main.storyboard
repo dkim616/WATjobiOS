@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -859,10 +859,10 @@
             </objects>
             <point key="canvasLocation" x="-6.5" y="-38.5"/>
         </scene>
-        <!--Jobs-->
+        <!--Employer Info-->
         <scene sceneID="8MU-Ac-0Rx">
             <objects>
-                <navigationController title="Jobs" id="u3b-av-ihK" sceneMemberID="viewController">
+                <navigationController title="Jobs" id="u3b-av-ihK" userLabel="Employer Info" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Jobs" id="u2m-8j-UYt"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ulb-23-MKb">
@@ -893,7 +893,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="EmployerInfoListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmployerInfoListCell" rowHeight="70" id="0lL-cP-P7f" customClass="EmployerInfoListCell" customModule="WATjob" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="EmployerInfoListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmployerInfoListCell" rowHeight="70" id="0lL-cP-P7f" userLabel="EmployerInfoListCell" customClass="EmployerInfoListCell" customModule="WATjob" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="299" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0lL-cP-P7f" id="qJs-UR-Vvg">
@@ -922,8 +922,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="companyImage" destination="Udr-Em-pe3" id="nz6-mZ-1xc"/>
                                             <outlet property="companyNameLabel" destination="KPN-hE-LKg" id="xQr-VI-aax"/>
-                                            <outlet property="employerLabel" destination="KPN-hE-LKg" id="BbF-Qq-qBp"/>
                                             <outlet property="locationLabel" destination="Kf0-AL-hSE" id="Bhb-b7-YDC"/>
                                             <outlet property="titleLabel" destination="OkC-cd-ASu" id="TyR-aN-ALS"/>
                                         </connections>
@@ -954,6 +954,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nAz-u4-FHF"/>
+        <segue reference="YyH-UV-elU"/>
     </inferredMetricsTieBreakers>
 </document>

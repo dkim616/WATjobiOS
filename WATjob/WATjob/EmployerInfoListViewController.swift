@@ -14,7 +14,7 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var tableView: UITableView!
     
     var gitEmployerInfoList: Array<GitEmployerInfo>;
-
+    
     required init(coder aDecoder: NSCoder) {
         self.gitEmployerInfoList = [];
         super.init(coder: aDecoder);
@@ -22,14 +22,13 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         /*
         WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList { (result) -> () in
-            if let gitEmployerInfoList = result {
-                self.gitEmployerInfoList = gitEmployerInfoList;
+            if let result = result {
+                self.gitEmployerInfoList = result;
+                self.tableView.reloadData();
             }
-
-            self.tableView.reloadData();
-            
         }*/
         
         DataCenter.getGitEmployerInfoList { (results) -> () in
@@ -37,7 +36,6 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
                 self.gitEmployerInfoList = results
                 //self.processSections()
                 self.tableView.reloadData()
-                
             }
         }
     }
@@ -50,17 +48,31 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     // MARK: TableView Stuff
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gitEmployerInfoList.count;
+        return self.gitEmployerInfoList.count;
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("EmployerInfoListCell", forIndexPath: indexPath) as! EmployerInfoListCell;
-        
-        var gitEmployerInfo = gitEmployerInfoList[indexPath.row];
+        let cell = tableView.dequeueReusableCellWithIdentifier("EmployerInfoListCell", forIndexPath: indexPath) as! EmployerInfoListCell
+ 
+        var gitEmployerInfo = self.gitEmployerInfoList[indexPath.row];
         cell.companyNameLabel.text = gitEmployerInfo.company;
         cell.titleLabel.text = gitEmployerInfo.title;
         cell.locationLabel.text = gitEmployerInfo.location;
+        
+        var imgURL: NSURL = NSURL(string: gitEmployerInfo.companyUrl)!
+        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+        NSURLConnection.sendAsynchronousRequest(
+            request, queue: NSOperationQueue.mainQueue(),
+            completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                if error == nil {
+                    cell.companyImage.image = UIImage(data: data);
+                }
+        })
         
         return cell;
         
