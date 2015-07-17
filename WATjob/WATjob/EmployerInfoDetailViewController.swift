@@ -57,8 +57,8 @@ class EmployerInfoDetailViewController: UIViewController {
                             self.dateLabel.text = "Date Not Available"
                         }
                         
-                        self.applyLabel.text = self.gitEmployerInfo.howToApply
-                        self.descriptionLabel.text = self.gitEmployerInfo.description
+                        self.applyLabel.text = self.gitEmployerInfo.companyUrl
+                        self.descriptionLabel.text = self.gitEmployerInfo.jobDescription
                    }
                 }
         //self.gitEmployerInfo = DataCenter.getGitEmployerInfoList();
