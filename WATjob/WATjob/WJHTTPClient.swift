@@ -91,4 +91,19 @@ class WJHTTPClient {
                 completionHandler(ObjectUnpacker.unpackGitEmployerInfoArray(JSON));
         }
     }
+    
+    func getLatestGitEmployerInfoByParameters(keyword: String!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+        var parameters: [String: String!]!;
+        if keyword != nil {
+            parameters = ["description": keyword];
+        } /*else if keyword != nil {
+            parameters = ["description": keyword];
+        } else if location != nil {
+            parameters = ["location": location];
+        }*/
+        
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: parameters, encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+                completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
+        }
+    }
 }

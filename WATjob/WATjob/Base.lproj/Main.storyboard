@@ -624,8 +624,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCQ-vV-S0U">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nww-YQ-VrJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="EmployerInfoListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmployerInfoListCell" rowHeight="70" id="0lL-cP-P7f" userLabel="EmployerInfoListCell" customClass="EmployerInfoListCell" customModule="WATjob" customModuleProvider="target">
@@ -673,6 +677,7 @@
                     <navigationItem key="navigationItem" title="Jobs" id="R48-uJ-w2O" userLabel="Jobs"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="searchBar" destination="cCQ-vV-S0U" id="pSx-ze-7nh"/>
                         <outlet property="tableView" destination="nww-YQ-VrJ" id="ATR-At-CSm"/>
                     </connections>
                 </viewController>

@@ -9,11 +9,14 @@
 import UIKit
 import RealmSwift
 
-class EmployerInfoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EmployerInfoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var searchBar: UISearchBar!
+
     var gitEmployerInfoList: Array<GitEmployerInfo>;
+    
+    var searchActive: Bool = false
     
     required init(coder aDecoder: NSCoder) {
         self.gitEmployerInfoList = [];
@@ -23,6 +26,7 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.delegate = self
         
         WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList { (result) -> () in
             if let result = result {
@@ -83,4 +87,31 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // when selected do something
     }
+    
+    // MARK: Search Bar
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked( searchBar: UISearchBar!)
+    {
+        WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoByParameters(searchBar.text) { (result) -> () in
+            if let result = result {
+                self.gitEmployerInfoList = result;
+                self.tableView.reloadData();
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+
 }
