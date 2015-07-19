@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		423A6BAB1B5B9D3800345FB6 /* InfoSessionWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423A6BAA1B5B9D3800345FB6 /* InfoSessionWebViewController.swift */; };
 		42509FC81B24E39C00562B05 /* InfoSessionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */; };
 		42509FD41B26A0F600562B05 /* EmployerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD31B26A0F600562B05 /* EmployerInfo.swift */; };
 		42509FD61B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42509FD51B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift */; };
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		32635634BBBEADDD0BE09695 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		423A6BAA1B5B9D3800345FB6 /* InfoSessionWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionWebViewController.swift; sourceTree = "<group>"; };
 		42509FC71B24E39B00562B05 /* InfoSessionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSessionDetailViewController.swift; sourceTree = "<group>"; };
 		42509FD31B26A0F600562B05 /* EmployerInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerInfo.swift; sourceTree = "<group>"; };
 		42509FD51B26A1EF00562B05 /* EmployerInfoFeaturedReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerInfoFeaturedReview.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				64F9F3A71B574F990011CE57 /* EmployerInfoListCell.swift */,
 				64F9F3A91B57548D0011CE57 /* EmployerInfoListViewController.swift */,
 				6474C7721B59775D005CF0C1 /* EmployerInfoDetailViewController.swift */,
+				423A6BAA1B5B9D3800345FB6 /* InfoSessionWebViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				644CE3221B4886660002075A /* CVCalendarMonthView.swift in Sources */,
 				644CE31C1B4886660002075A /* CVCalendarDayView.swift in Sources */,
 				644CE3241B4886660002075A /* CVCalendarView.swift in Sources */,
+				423A6BAB1B5B9D3800345FB6 /* InfoSessionWebViewController.swift in Sources */,
 				644CE3201B4886660002075A /* CVCalendarMenuViewDelegate.swift in Sources */,
 				6474C7731B59775D005CF0C1 /* EmployerInfoDetailViewController.swift in Sources */,
 				B9DC87E21B24C53D00BF9546 /* ObjectUnpacker.swift in Sources */,

@@ -151,6 +151,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             fav.rowNumber = indexPath.row
             fav.sectionNumber = indexPath.section
             self.favouriteClicked(fav)
+            tableView.setEditing(false, animated: true)
         })
         favAction.backgroundColor = UIColor(red: 63.0/255.0, green: 146.0/255.0, blue: 198.0/255.0, alpha: 1.0)
         return [favAction]
