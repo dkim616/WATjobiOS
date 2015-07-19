@@ -154,4 +154,15 @@ class DataCenter {
             })
         }
     }
+    
+    class func deleteFavouriteWithInfoSessionID(id: String) -> Void {
+        let realm = Realm()
+        var infoSession = realm.objectForPrimaryKey(InfoSession.self, key: id)
+        
+        if let infoSession = infoSession {
+            realm.write({ () -> Void in
+                infoSession.isFavourited = false;
+            })
+        }
+    }
 }
