@@ -120,24 +120,23 @@
             
             if let data: AnyObject = data {
                 let json = JSON(data);
-                if json.count != 0 {
-                    for index in 1...json.count {
-                        var gitEmployerInfo = GitEmployerInfo();
-                        gitEmployerInfo.id = json[index - 1]["id"].stringValue
-                        gitEmployerInfo.createdAt = formatter.dateFromString(json[index - 1]["created_at"].stringValue)
-                        gitEmployerInfo.title = json[index - 1]["title"].stringValue
-                        gitEmployerInfo.location = json[index - 1]["location"].stringValue
-                        gitEmployerInfo.type = json[index - 1]["type"].stringValue
-                        gitEmployerInfo.jobDescription = json[index - 1]["description"].stringValue
-                        gitEmployerInfo.howToApply = json[index - 1]["how_to_apply"].stringValue
-                        gitEmployerInfo.company = json[index - 1]["company"].stringValue
-                        gitEmployerInfo.companyUrl = json[index - 1]["company_url"].stringValue
-                        gitEmployerInfo.companyLogo = json[index - 1]["company_logo"].stringValue
-                        gitEmployerInfo.companyUrl = json[index - 1]["url"].stringValue
-                        gitEmployerInfoList.append(gitEmployerInfo);
-                    }
-                } else {
-                    return [];
+                
+                let jobArray = json.arrayValue
+                
+                for jobDict in jobArray {
+                    var gitEmployerInfo = GitEmployerInfo()
+                    gitEmployerInfo.id = jobDict["id"].stringValue
+                    gitEmployerInfo.createdAt = formatter.dateFromString(jobDict["created_at"].stringValue)
+                    gitEmployerInfo.title = jobDict["title"].stringValue
+                    gitEmployerInfo.location = jobDict["location"].stringValue
+                    gitEmployerInfo.type = jobDict["type"].stringValue
+                    gitEmployerInfo.jobDescription = jobDict["description"].stringValue
+                    gitEmployerInfo.howToApply = jobDict["how_to_apply"].stringValue
+                    gitEmployerInfo.company = jobDict["company"].stringValue
+                    gitEmployerInfo.companyUrl = jobDict["company_url"].stringValue
+                    gitEmployerInfo.companyLogo = jobDict["company_logo"].stringValue
+                    gitEmployerInfo.companyUrl = jobDict["url"].stringValue
+                    gitEmployerInfoList.append(gitEmployerInfo);
                 }
                 return gitEmployerInfoList;
             }
