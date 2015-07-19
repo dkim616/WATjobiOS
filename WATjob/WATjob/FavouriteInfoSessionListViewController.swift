@@ -67,6 +67,22 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
+        var favAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Delete" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            var fav: FavouriteButton = FavouriteButton()
+            fav.rowNumber = indexPath.row
+            fav.sectionNumber = indexPath.section
+            self.favouriteClicked(fav)
+            tableView.setEditing(false, animated: true)
+        })
+        favAction.backgroundColor = UIColor(red: 255.0/255.0, green: 23.1/255.0, blue: 18.8/255.0, alpha: 1.0)
+        
+        return [favAction]
+    }
+    
     // MARK: Helpers
     
     func updateFavouriteList() -> Void {
@@ -76,5 +92,13 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    //MARK: delete button clicked
+    func favouriteClicked(sender: FavouriteButton) -> Void {
+        let infoSession = self.infoSessionList[sender.rowNumber]
+        DataCenter.deleteFavouriteWithInfoSessionID(infoSession.id)
+        
+        updateFavouriteList()
     }
 }
