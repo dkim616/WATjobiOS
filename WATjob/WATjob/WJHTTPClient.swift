@@ -78,8 +78,8 @@ class WJHTTPClient {
     }
     
     //Github jobs
-    func getLatestGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
-        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: nil, encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+    func getLatestGitEmployerInfoList(page: Int!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: ["page": page], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
             completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
         }
     }
@@ -92,18 +92,9 @@ class WJHTTPClient {
         }
     }
     
-    func getLatestGitEmployerInfoByParameters(keyword: String!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
-        var parameters: [String: String!]!;
-        if keyword != nil {
-            parameters = ["description": keyword];
-        } /*else if keyword != nil {
-            parameters = ["description": keyword];
-        } else if location != nil {
-            parameters = ["location": location];
-        }*/
-        
-        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: parameters, encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
-                completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
+    func getLatestGitEmployerInfoListByParameters(keyword: String!,page: Int!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: ["description": keyword, "page": page], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+            completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
         }
     }
 }

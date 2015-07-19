@@ -62,35 +62,42 @@ class DataCenter {
         }
     }
     
-    class func getGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+    class func getGitEmployerInfoList(page: Int!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
         let lastUpdated = NSUserDefaults.standardUserDefaults().valueForKey("lastUpdatedGitEmployerInfo") as? NSDate
         
-        //if (lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
-        //if true {
-        WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList({ (result) -> () in
-            completionHandler(result)
-            let realm = Realm()
-            realm.beginWrite()
-            if let result = result {
-                for infoSession in result {
-                    realm.add(infoSession, update: true)
+        // Temporary workaround for pages
+        if (true || lastUpdated == nil || (lastUpdated?.dateByAddingTimeInterval(60 * 60 * 24).timeIntervalSinceReferenceDate < NSDate().timeIntervalSinceReferenceDate)) {
+            WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList(page) { (result) -> () in
+                completionHandler(result)
+                let realm = Realm()
+                realm.beginWrite()
+                if let result = result {
+                    for infoSession in result {
+                        realm.add(infoSession, update: true)
+                    }
                 }
+                realm.commitWrite()
             }
-            realm.commitWrite()
+            NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdated")
             
-        })
-        //NSUserDefaults.standardUserDefaults().setValue(NSDate(), forKey: "lastUpdated")
-        
-        //} else {
-        /*  let realm = Realm()
-        var results = realm.objects(GitEmployerInfo)
-        completionHandler(arrayFromResultsForGitEmployerInfo(results))
-        }*/
+        } else {
+            let realm = Realm()
+            var results = realm.objects(GitEmployerInfo)
+            completionHandler(arrayFromResultsForGitEmployerInfo(results))
+        }
     }
     
     class func getEmployerInfoById(id: Int) -> EmployerInfo? {
         let realm = Realm()
         var result = realm.objectForPrimaryKey(EmployerInfo.self, key: id)
+        
+        return result
+        
+    }
+    
+    class func getGitEmployerInfoById(id: String) -> GitEmployerInfo? {
+        let realm = Realm()
+        var result = realm.objectForPrimaryKey(GitEmployerInfo.self, key: id)
         
         return result
         

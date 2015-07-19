@@ -120,20 +120,24 @@
             
             if let data: AnyObject = data {
                 let json = JSON(data);
-                for index in 1...json.count {
-                    var gitEmployerInfo = GitEmployerInfo();
-                    gitEmployerInfo.id = json[index - 1]["id"].stringValue
-                    gitEmployerInfo.createdAt = formatter.dateFromString(json[index - 1]["created_at"].stringValue)
-                    gitEmployerInfo.title = json[index - 1]["title"].stringValue
-                    gitEmployerInfo.location = json[index - 1]["location"].stringValue
-                    gitEmployerInfo.type = json[index - 1]["type"].stringValue
-                    gitEmployerInfo.jobDescription = json[index - 1]["description"].stringValue
-                    gitEmployerInfo.howToApply = json[index - 1]["how_to_apply"].stringValue
-                    gitEmployerInfo.company = json[index - 1]["company"].stringValue
-                    gitEmployerInfo.companyUrl = json[index - 1]["company_url"].stringValue
-                    gitEmployerInfo.companyLogo = json[index - 1]["company_logo"].stringValue
-                    gitEmployerInfo.companyUrl = json[index - 1]["url"].stringValue
-                    gitEmployerInfoList.append(gitEmployerInfo);
+                if json.count != 0 {
+                    for index in 1...json.count {
+                        var gitEmployerInfo = GitEmployerInfo();
+                        gitEmployerInfo.id = json[index - 1]["id"].stringValue
+                        gitEmployerInfo.createdAt = formatter.dateFromString(json[index - 1]["created_at"].stringValue)
+                        gitEmployerInfo.title = json[index - 1]["title"].stringValue
+                        gitEmployerInfo.location = json[index - 1]["location"].stringValue
+                        gitEmployerInfo.type = json[index - 1]["type"].stringValue
+                        gitEmployerInfo.jobDescription = json[index - 1]["description"].stringValue
+                        gitEmployerInfo.howToApply = json[index - 1]["how_to_apply"].stringValue
+                        gitEmployerInfo.company = json[index - 1]["company"].stringValue
+                        gitEmployerInfo.companyUrl = json[index - 1]["company_url"].stringValue
+                        gitEmployerInfo.companyLogo = json[index - 1]["company_logo"].stringValue
+                        gitEmployerInfo.companyUrl = json[index - 1]["url"].stringValue
+                        gitEmployerInfoList.append(gitEmployerInfo);
+                    }
+                } else {
+                    return [];
                 }
                 return gitEmployerInfoList;
             }
