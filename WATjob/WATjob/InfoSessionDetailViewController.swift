@@ -44,7 +44,7 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     var infoSessionId: String
     var infoSession: InfoSession!
     var employerInfoId: Int
-    var employerInfo: EmployerInfo?
+    var employerInfo: EmployerInfo!
     
     let dateFormatter: NSDateFormatter
     
@@ -79,22 +79,19 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         
         // Getting data from DataCenter
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
-        self.employerInfo = DataCenter.getEmployerInfoById(employerInfoId)
-        
-        // Company Name and Image
-        self.companyNameLabel.text = infoSession.employer
-        load_image(employerInfo!.squareLogo)
-        
-        // Programmatically setup views
-        setSessionInfo()
-        setEmployerInfo()
-        setReviewInfo()
-        
-//        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
-//            if let result = result {
-//                self.employerInfo = result;
-//            }
-//        }
+        DataCenter.getEmployerInfoByCompanyName(self.infoSession.employer, completionHandler: { (employerInfo) -> () in
+            if let employerInfo = employerInfo {
+                self.employerInfo = employerInfo
+                // Company Name and Image
+                self.companyNameLabel.text = self.infoSession.employer
+                self.load_image(self.employerInfo.squareLogo)
+                
+                // Programmatically setup views
+                self.setSessionInfo()
+                self.setEmployerInfo()
+                self.setReviewInfo()
+            }
+        })
     }
     
     // MARK: - Segmented Controls
