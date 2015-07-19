@@ -8,16 +8,24 @@
 
 import UIKit
 
-class InfoSessionDetailViewController: UIViewController {
+class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var floatingView: UINavigationBar!
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var view1: UIView!
+    @IBOutlet var view2: UIView!
+    @IBOutlet var view3: UIView!
     
     @IBOutlet weak var companyNameLabel: UILabel!
+    
+    @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UIButton!
     
     @IBOutlet weak var overallRatingLabel: UILabel!
     @IBOutlet weak var cultureAndValuesLabel: UILabel!
@@ -28,6 +36,8 @@ class InfoSessionDetailViewController: UIViewController {
     @IBOutlet weak var recommendToFriendLabel: UILabel!
     
     @IBOutlet weak var companyImage: UIImageView!
+    
+    var originalFloatingY: CGFloat
     
     var infoSessionId: String
     var infoSession: InfoSession!
@@ -42,6 +52,8 @@ class InfoSessionDetailViewController: UIViewController {
         
         infoSessionId = ""
         employerInfoId = 0
+        
+        self.originalFloatingY = CGFloat.min
 
         super.init(coder: aDecoder);
     }
@@ -54,54 +66,128 @@ class InfoSessionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back button label
+        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backItem
+        
+        // Segmented Control
+        self.originalFloatingY = self.floatingView.frame.origin.y
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "segmentedControlTapped:", name: "SCTapped", object: nil)
+        
+        // Getting data from DataCenter
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
         self.employerInfo = DataCenter.getEmployerInfoById(employerInfoId)
-//
+        
+        // Company Name and Image
         self.companyNameLabel.text = infoSession.employer
-//
         load_image(employerInfo!.squareLogo)
         
-        // TODO: Make content view height dynamic
-        
-        var scroll = self.contentView
-        var lastItem = scroll.subviews.last as! UIView
-        var lastOriginY = lastItem.frame.origin.y
-        var lastHeight = lastItem.frame.size.height
-        var finalHeight = lastOriginY+lastHeight
-        
-        scroll.frame = CGRectMake(0, 0, lastItem.frame.size.width, finalHeight)
-        self.scrollView.contentSize = CGSizeMake(lastItem.frame.size.width, finalHeight)
-//
-//        self.locationLabel.text = infoSession.location
-//        if (infoSession.date != nil) {
-//            self.dateLabel.text = dateFormatter.stringFromDate(infoSession.date!)
-//        } else {
-//            self.dateLabel.text = "Location Not Available"
-//        }
-//        self.startTimeLabel.text = infoSession.startTime
-//        self.endTimeLabel.text = infoSession.endTime
-//        
-//        self.overallRatingLabel.text = "\(employerInfo!.overallRating)"
-//        self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
-//        self.seniorLeadershipLabel.text = employerInfo?.seniorLeadershipRating
-//        self.compensationAndBenefitsLabel.text = employerInfo?.compensationAndBenefitsRating
-//        self.careerOpportunitiesLabel.text = employerInfo?.careerOpportunitiesRating
-//        self.workLifeBalanceLabel.text = employerInfo?.workLifeBalanceRating
-//        self.recommendToFriendLabel.text = employerInfo?.recommendToFriendRating
+        // Programmatically setup views
+        setSessionInfo()
+        setEmployerInfo()
+        setReviewInfo()
         
 //        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
 //            if let result = result {
 //                self.employerInfo = result;
 //            }
 //        }
+    }
+    
+    @IBAction func segmentedControlTapped(sender: UISegmentedControl) {
+        let index = self.segmentedControl.selectedSegmentIndex
+        if index == 0 {
+            view1.hidden = false
+            view2.hidden = true
+            view3.hidden = true
+        }
+        else if index == 1 {
+            view1.hidden = true
+            view2.hidden = false
+            view3.hidden = true
+        }
+        else if index == 2 {
+            view1.hidden = true
+            view2.hidden = true
+            view3.hidden = false
+        }
+    }
+    
+    func setSessionInfo() {
+        self.companyLabel.text = infoSession.employer
+        self.locationLabel.text = infoSession.location
+        if let date = infoSession.date {
+            self.dateLabel.text = self.dateFormatter.stringFromDate(date)
+        }
+        self.startTimeLabel.text = infoSession.startTime
+        self.endTimeLabel.text = infoSession.endTime
+        if let website = infoSession?.website {
+            self.websiteLabel.setTitle(
+                website.substringWithRange(
+                    Range<String.Index>(
+                        start: advance(website.startIndex, 7),
+                        end: website.endIndex)
+                ),
+                forState: UIControlState.Normal
+            )
+        }
+//        var informationLabel = UILabel(frame: CGRectMake(19, 20, 200, 20))
+//        informationLabel.text = "Information"
+//        self.view1.addSubview(informationLabel)
+//        
+//        var employerLabel = UILabel(frame: CGRectMake(15, 50, 90, 20))
+//        employerLabel.text = "Employer"
+//        employerLabel.textAlignment = NSTextAlignment.Right
+//        employerLabel.textColor = UIColor.grayColor()
+//        employerLabel.font = employerLabel.font.fontWithSize(15)
+//        self.view1.addSubview(employerLabel)
+//        
+//        var dateLabel = UILabel(frame: CGRectMake(15, 75, 90, 20))
+//        dateLabel.text = "Date"
+//        dateLabel.textAlignment = NSTextAlignment.Right
+//        dateLabel.textColor = UIColor.grayColor()
+//        dateLabel.font = dateLabel.font.fontWithSize(15)
+//        self.view1.addSubview(dateLabel)
+//        
+//        var locationLabel = UILabel(frame: CGRectMake(15, 100, 90, 20))
+//        locationLabel.text = "Location"
+//        locationLabel.textAlignment = NSTextAlignment.Right
+//        locationLabel.textColor = UIColor.grayColor()
+//        locationLabel.font = locationLabel.font.fontWithSize(15)
+//        self.view1.addSubview(locationLabel)
+//        
+//        var startLabel = UILabel(frame: CGRectMake(15, 125, 90, 20))
+//        startLabel.text = "Start Time"
+//        startLabel.textAlignment = NSTextAlignment.Right
+//        startLabel.textColor = UIColor.grayColor()
+//        startLabel.font = startLabel.font.fontWithSize(15)
+//        self.view1.addSubview(startLabel)
+//        
+//        var endLabel = UILabel(frame: CGRectMake(15, 150, 90, 20))
+//        endLabel.text = "End Time"
+//        endLabel.textAlignment = NSTextAlignment.Right
+//        endLabel.textColor = UIColor.grayColor()
+//        endLabel.font = endLabel.font.fontWithSize(15)
+//        self.view1.addSubview(endLabel)
+//        
+//        var webLabel = UILabel(frame: CGRectMake(15, 175, 90, 20))
+//        webLabel.text = "Website"
+//        webLabel.textAlignment = NSTextAlignment.Right
+//        webLabel.textColor = UIColor.grayColor()
+//        webLabel.font = webLabel.font.fontWithSize(15)
+//        self.view1.addSubview(webLabel)
+    }
+    
+    func setEmployerInfo() {
         
-        let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backItem
+    }
+    
+    func setReviewInfo() {
+        
     }
     
     func load_image(urlString:String)
     {
-        
         var imgURL: NSURL = NSURL(string: urlString)!
         let request: NSURLRequest = NSURLRequest(URL: imgURL)
         NSURLConnection.sendAsynchronousRequest(
@@ -111,7 +197,21 @@ class InfoSessionDetailViewController: UIViewController {
                     self.companyImage.image = UIImage(data: data)
                 }
         })
-        
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.updateFloatingViewFrame()
+    }
+    
+    // Offset starts from -64 for some reason
+    func updateFloatingViewFrame() {
+        var contentOffset = self.scrollView.contentOffset
+        var y = max(contentOffset.y + 64, self.originalFloatingY)
+        var frame = self.floatingView.frame
+        if (y != frame.origin.y) {
+            frame.origin.y = y
+            self.floatingView.frame = frame
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,13 +222,6 @@ class InfoSessionDetailViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "detailToReview") {
-            var detailVC = segue.destinationViewController as! ReviewViewController
-            
-//            DataCenter.getEmployerInfoByCompanyName(infoSession.employer)
-            
-            detailVC.reviewInfo = employerInfo!.featuredReview
-        }
     }
     
 }
