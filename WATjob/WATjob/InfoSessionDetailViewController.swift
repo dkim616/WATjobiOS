@@ -129,14 +129,19 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         self.startTimeLabel.text = infoSession.startTime
         self.endTimeLabel.text = infoSession.endTime
         if let website = infoSession?.website {
-            self.websiteLabel.setTitle(
-                website.substringWithRange(
-                    Range<String.Index>(
-                        start: advance(website.startIndex, 7),
-                        end: website.endIndex)
-                ),
-                forState: UIControlState.Normal
-            )
+            if count(website) > 0 {
+                self.websiteLabel.setTitle(
+                    website,
+//                    website.substringWithRange(
+//                        Range<String.Index>(
+//                            start: advance(website.startIndex, 7),
+//                            end: website.endIndex)
+//                    ),
+                    forState: UIControlState.Normal
+                )
+            } else {
+                self.websiteLabel.hidden = true
+            }
         }
 //        var informationLabel = UILabel(frame: CGRectMake(19, 20, 200, 20))
 //        informationLabel.text = "Information"
@@ -240,12 +245,12 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
             webVC.URLPath = infoSession.website
             
             if let website = infoSession?.website {
-                webVC.webTitle = website.substringWithRange(
-                        Range<String.Index>(
-                            start: advance(website.startIndex, 7),
-                            end: website.endIndex
-                    )
-                )
+                webVC.webTitle = website//.substringWithRange(
+//                        Range<String.Index>(
+//                            start: advance(website.startIndex, 7),
+//                            end: website.endIndex
+//                    )
+//                )
             }
         }
         
