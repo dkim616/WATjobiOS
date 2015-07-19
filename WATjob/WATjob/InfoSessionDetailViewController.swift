@@ -8,10 +8,11 @@
 
 import UIKit
 
-class InfoSessionDetailViewController: UIViewController {
+class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet var floatingView: UINavigationBar!
     
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -29,6 +30,8 @@ class InfoSessionDetailViewController: UIViewController {
     
     @IBOutlet weak var companyImage: UIImageView!
     
+    var originalFloatingY: CGFloat
+    
     var infoSessionId: String
     var infoSession: InfoSession!
     var employerInfoId: Int
@@ -42,6 +45,8 @@ class InfoSessionDetailViewController: UIViewController {
         
         infoSessionId = ""
         employerInfoId = 0
+        
+        self.originalFloatingY = CGFloat.min
 
         super.init(coder: aDecoder);
     }
@@ -53,6 +58,8 @@ class InfoSessionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.originalFloatingY = self.floatingView.frame.origin.y
         
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
         self.employerInfo = DataCenter.getEmployerInfoById(employerInfoId)
@@ -112,6 +119,20 @@ class InfoSessionDetailViewController: UIViewController {
                 }
         })
         
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.updateFloatingViewFrame()
+    }
+    
+    func updateFloatingViewFrame() {
+        var contentOffset = self.scrollView.contentOffset
+        var y = max(contentOffset.y, self.originalFloatingY)
+        var frame = self.floatingView.frame
+        if (y != frame.origin.y) {
+            frame.origin.y = y
+            self.floatingView.frame = frame
+        }
     }
     
     override func didReceiveMemoryWarning() {

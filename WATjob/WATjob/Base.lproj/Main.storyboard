@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -266,10 +266,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lxM-ND-NrQ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxM-ND-NrQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zPw-NF-C1c" userLabel="Content View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPw-NF-C1c" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbb-aJ-uVx">
@@ -285,36 +285,34 @@
                                                     <constraint firstAttribute="width" constant="80" id="W1a-fT-ucc"/>
                                                 </constraints>
                                             </imageView>
-                                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpR-Qy-pWK">
-                                                <rect key="frame" x="0.0" y="152" width="375" height="44"/>
-                                                <items>
-                                                    <navigationItem id="Z7o-9c-LTy">
-                                                        <nil key="title"/>
-                                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Cia-ng-QyZ">
-                                                            <rect key="frame" x="8" y="7" width="359" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <segments>
-                                                                <segment title="Details"/>
-                                                                <segment title="Employer"/>
-                                                                <segment title="Review"/>
-                                                            </segments>
-                                                        </segmentedControl>
-                                                    </navigationItem>
-                                                </items>
-                                            </navigationBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="hpR-Qy-pWK" firstAttribute="top" secondItem="l1B-xy-zId" secondAttribute="bottom" constant="15" id="COf-cv-oYH"/>
+                                            <constraint firstAttribute="height" constant="667" id="GbA-Y9-gSb"/>
                                             <constraint firstAttribute="trailing" secondItem="lbb-aJ-uVx" secondAttribute="trailing" constant="8" id="IVA-yc-wC6"/>
-                                            <constraint firstAttribute="trailing" secondItem="hpR-Qy-pWK" secondAttribute="trailing" id="UAj-Rq-hGz"/>
                                             <constraint firstItem="l1B-xy-zId" firstAttribute="top" secondItem="lbb-aJ-uVx" secondAttribute="bottom" constant="15" id="UKc-oM-P0H"/>
                                             <constraint firstAttribute="centerX" secondItem="l1B-xy-zId" secondAttribute="centerX" constant="0.5" id="VrH-se-hKX"/>
                                             <constraint firstItem="lbb-aJ-uVx" firstAttribute="top" secondItem="zPw-NF-C1c" secondAttribute="top" constant="15" id="XUf-wo-dtO"/>
-                                            <constraint firstItem="hpR-Qy-pWK" firstAttribute="leading" secondItem="zPw-NF-C1c" secondAttribute="leading" id="ats-Ts-KhZ"/>
                                             <constraint firstItem="lbb-aJ-uVx" firstAttribute="leading" secondItem="zPw-NF-C1c" secondAttribute="leading" constant="8" id="cSw-Gs-7MA"/>
                                         </constraints>
                                     </view>
+                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpR-Qy-pWK">
+                                        <rect key="frame" x="0.0" y="150" width="375" height="44"/>
+                                        <items>
+                                            <navigationItem id="Z7o-9c-LTy">
+                                                <nil key="title"/>
+                                                <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Cia-ng-QyZ">
+                                                    <rect key="frame" x="8" y="7" width="359" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Details"/>
+                                                        <segment title="Employer"/>
+                                                        <segment title="Review"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="zPw-NF-C1c" firstAttribute="leading" secondItem="lxM-ND-NrQ" secondAttribute="leading" id="0yz-q3-j3H"/>
@@ -323,7 +321,7 @@
                                     <constraint firstAttribute="bottom" secondItem="zPw-NF-C1c" secondAttribute="bottom" id="UKc-61-VhT"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="delegate" destination="gaf-23-xg2" id="zUO-mj-WKc"/>
+                                    <outlet property="delegate" destination="gaf-23-xg2" id="8xJ-MP-lco"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -341,6 +339,7 @@
                         <outlet property="companyImage" destination="l1B-xy-zId" id="46q-B4-9yb"/>
                         <outlet property="companyNameLabel" destination="lbb-aJ-uVx" id="Uk9-cW-hHJ"/>
                         <outlet property="contentView" destination="zPw-NF-C1c" id="xMk-MK-dWA"/>
+                        <outlet property="floatingView" destination="hpR-Qy-pWK" id="hWf-30-HI4"/>
                         <outlet property="scrollView" destination="lxM-ND-NrQ" id="q0M-KA-YIP"/>
                     </connections>
                 </viewController>
