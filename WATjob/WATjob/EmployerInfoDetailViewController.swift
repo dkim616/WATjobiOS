@@ -10,6 +10,7 @@ import UIKit
 
 class EmployerInfoDetailViewController: UIViewController {
     
+    
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -17,6 +18,8 @@ class EmployerInfoDetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var applyLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet var scrollView: UIScrollView!
     
     var gitEmployerInfoId: String
     var gitEmployerInfo: GitEmployerInfo!
@@ -39,6 +42,26 @@ class EmployerInfoDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Temporary fix - DataCenter gives description with <p>, etc.. - Looks ugly
+        /*
+        self.gitEmployerInfo = DataCenter.getGitEmployerInfoById(gitEmployerInfoId)
+        
+        self.companyNameLabel.text = self.gitEmployerInfo.company
+        self.titleLabel.text = self.gitEmployerInfo.title
+        self.typeLabel.text = self.gitEmployerInfo.type
+        //load_image(employerInfo!.squareLogo)
+        
+        self.locationLabel.text = self.gitEmployerInfo.location
+        if (self.gitEmployerInfo.createdAt != nil) {
+        self.dateLabel.text = self.dateFormatter.stringFromDate(self.gitEmployerInfo.createdAt!)
+        } else {
+        self.dateLabel.text = "Date Not Available"
+        }
+        
+        self.applyLabel.text = self.gitEmployerInfo.companyUrl
+        self.descriptionLabel.text = self.gitEmployerInfo.jobDescription
+        */
         
         WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoById(gitEmployerInfoId) { (result) -> () in
             if let result = result {
@@ -56,11 +79,14 @@ class EmployerInfoDetailViewController: UIViewController {
                     self.dateLabel.text = "Date Not Available"
                 }
                 
-                self.applyLabel.text = self.gitEmployerInfo.companyUrl
+                self.applyLabel.text = self.gitEmployerInfo.howToApply
                 self.descriptionLabel.text = self.gitEmployerInfo.jobDescription
             }
+            
+            
+            // Calculate size needed for scrolling
+            self.scrollView.contentSize = CGSizeMake(350, 10000)
         }
-        //self.gitEmployerInfo = DataCenter.getGitEmployerInfoList();
         
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem

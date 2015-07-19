@@ -78,8 +78,8 @@ class WJHTTPClient {
     }
     
     //Github jobs
-    func getLatestGitEmployerInfoList(completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
-        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: nil, encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+    func getLatestGitEmployerInfoList(page: Int!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: ["page": page], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
             completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
         }
     }
@@ -89,6 +89,12 @@ class WJHTTPClient {
             "markdown": "true"
             ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
                 completionHandler(ObjectUnpacker.unpackGitEmployerInfoArray(JSON));
+        }
+    }
+    
+    func getLatestGitEmployerInfoListByParameters(keyword: String!,page: Int!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
+        Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: ["description": keyword, "page": page], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
+            completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
         }
     }
 }
