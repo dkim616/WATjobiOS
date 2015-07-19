@@ -98,7 +98,7 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // when selected do something
+        view.endEditing(true)
     }
     
     // MARK: Search Bar
@@ -127,6 +127,7 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     }
     
     @IBAction func nextButton(sender: AnyObject) {
+        view.endEditing(true)
         self.page = self.page + 1;
         
         if searchActive {
@@ -150,6 +151,7 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     }
     
     @IBAction func previousButton(sender: AnyObject) {
+        view.endEditing(true)
         self.page = self.page - 1;
         
         if searchActive {
