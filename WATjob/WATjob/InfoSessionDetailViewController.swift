@@ -10,6 +10,8 @@ import UIKit
 
 class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     
+    // MARK: - Variables
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
     @IBOutlet var floatingView: UINavigationBar!
@@ -46,6 +48,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     
     let dateFormatter: NSDateFormatter
     
+    // MARK: - Functions
+    
     required init(coder aDecoder: NSCoder) {
         dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM dd, yyyy"
@@ -72,7 +76,6 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         
         // Segmented Control
         self.originalFloatingY = self.floatingView.frame.origin.y
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "segmentedControlTapped:", name: "SCTapped", object: nil)
         
         // Getting data from DataCenter
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
@@ -94,6 +97,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
 //        }
     }
     
+    // MARK: - Segmented Controls
+    
     @IBAction func segmentedControlTapped(sender: UISegmentedControl) {
         let index = self.segmentedControl.selectedSegmentIndex
         if index == 0 {
@@ -112,6 +117,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
             view3.hidden = false
         }
     }
+    
+    // MARK: - Load Content
     
     func setSessionInfo() {
         self.companyLabel.text = infoSession.employer
@@ -186,6 +193,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    // MARK: - Image
+    
     func load_image(urlString:String)
     {
         var imgURL: NSURL = NSURL(string: urlString)!
@@ -198,6 +207,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
                 }
         })
     }
+    
+    // MARK: - Floating Element
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.updateFloatingViewFrame()
@@ -214,6 +225,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    // MARK: - Memory
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -222,6 +235,20 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "detailToWebView") {
+            var webVC = segue.destinationViewController as! InfoSessionWebViewController
+            webVC.URLPath = infoSession.website
+            
+            if let website = infoSession?.website {
+                webVC.webTitle = website.substringWithRange(
+                        Range<String.Index>(
+                            start: advance(website.startIndex, 7),
+                            end: website.endIndex
+                    )
+                )
+            }
+        }
+        
     }
     
 }
