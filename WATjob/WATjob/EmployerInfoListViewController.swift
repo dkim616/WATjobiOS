@@ -9,11 +9,17 @@
 import UIKit
 import RealmSwift
 
-class EmployerInfoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EmployerInfoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
     
+    @IBOutlet weak var previousButton: UIBarButtonItem!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var gitEmployerInfoList: Array<GitEmployerInfo>;
+    
+    var page: Int = 0
+    var searchActive: Bool = false
     
     required init(coder aDecoder: NSCoder) {
         self.gitEmployerInfoList = [];
@@ -23,21 +29,26 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList { (result) -> () in
-            if let result = result {
-                self.gitEmployerInfoList = result;
-                self.tableView.reloadData();
-            }
-        }
+        searchBar.delegate = self
         /*
-        DataCenter.getGitEmployerInfoList { (results) -> () in
-        if let results = results {
-        self.gitEmployerInfoList = results
-        //self.processSections()
-        self.tableView.reloadData()
+        WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoList { (result) -> () in
+        if let result = result {
+        self.gitEmployerInfoList = result;
+        self.tableView.reloadData();
         }
         }*/
+        
+        DataCenter.getGitEmployerInfoList(page) { (results) -> () in
+            if let results = results {
+                self.gitEmployerInfoList = results
+                //self.processSections()
+                self.tableView.reloadData()
+            }
+        }
+        
+        if self.page == 0 {
+            self.previousButton.enabled = false;
+        }
         
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -69,6 +80,12 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        if self.page != 0 {
+            self.previousButton.enabled = true;
+        } else {
+            self.previousButton.enabled = false;
+        }
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("EmployerInfoListCell", forIndexPath: indexPath) as! EmployerInfoListCell
         
         var gitEmployerInfo = self.gitEmployerInfoList[indexPath.row];
@@ -82,5 +99,76 @@ class EmployerInfoListViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // when selected do something
+    }
+    
+    // MARK: Search Bar
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = true;
+        self.page = 0;
+        WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoListByParameters(searchBar.text, page: self.page) { (result) -> () in
+            if let result = result {
+                self.gitEmployerInfoList = result;
+                self.tableView.reloadData();
+            }
+        }
+    }
+    
+    @IBAction func nextButton(sender: AnyObject) {
+        self.page = self.page + 1;
+        
+        if searchActive {
+            WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoListByParameters(searchBar.text, page: self.page) { (result) -> () in
+                if let result = result {
+                    self.gitEmployerInfoList = result;
+                    self.tableView.reloadData();
+                }
+            }
+        } else {
+            DataCenter.getGitEmployerInfoList(self.page) { (results) -> () in
+                if let results = results {
+                    self.gitEmployerInfoList = results
+                    //self.processSections()
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func previousButton(sender: AnyObject) {
+        self.page = self.page - 1;
+        
+        if searchActive {
+            WJHTTPClient.sharedHTTPClient.getLatestGitEmployerInfoListByParameters(searchBar.text, page: self.page) { (result) -> () in
+                if let result = result {
+                    self.gitEmployerInfoList = result;
+                    self.tableView.reloadData();
+                }
+            }
+        } else {
+            DataCenter.getGitEmployerInfoList(self.page) { (results) -> () in
+                if let results = results {
+                    self.gitEmployerInfoList = results
+                    //self.processSections()
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
     }
 }
