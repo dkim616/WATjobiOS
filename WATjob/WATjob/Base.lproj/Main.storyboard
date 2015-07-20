@@ -666,27 +666,28 @@
                                     <constraint firstItem="zPw-NF-C1c" firstAttribute="leading" secondItem="lxM-ND-NrQ" secondAttribute="leading" id="0yz-q3-j3H"/>
                                     <constraint firstAttribute="trailing" secondItem="xmW-S8-euL" secondAttribute="trailing" id="1We-hu-bsB"/>
                                     <constraint firstItem="xmW-S8-euL" firstAttribute="top" secondItem="zPw-NF-C1c" secondAttribute="bottom" id="31V-Ls-Wuj"/>
-                                    <constraint firstAttribute="width" secondItem="ipZ-fb-jsJ" secondAttribute="width" id="CRf-tF-Wlf"/>
-                                    <constraint firstItem="ipZ-fb-jsJ" firstAttribute="leading" secondItem="lxM-ND-NrQ" secondAttribute="leading" id="Gec-R1-AIx"/>
+                                    <constraint firstItem="ipZ-fb-jsJ" firstAttribute="leading" secondItem="lxM-ND-NrQ" secondAttribute="leading" id="4cR-vC-5nO"/>
+                                    <constraint firstItem="ipZ-fb-jsJ" firstAttribute="top" secondItem="lxM-ND-NrQ" secondAttribute="top" id="JzJ-ey-nv1"/>
                                     <constraint firstAttribute="trailing" secondItem="zPw-NF-C1c" secondAttribute="trailing" id="N2O-oV-536"/>
                                     <constraint firstItem="zPw-NF-C1c" firstAttribute="top" secondItem="lxM-ND-NrQ" secondAttribute="top" id="PCv-8u-5YI"/>
                                     <constraint firstAttribute="width" secondItem="xmW-S8-euL" secondAttribute="width" id="Suk-Od-alq"/>
                                     <constraint firstAttribute="bottom" secondItem="zPw-NF-C1c" secondAttribute="bottom" id="UKc-61-VhT"/>
-                                    <constraint firstAttribute="bottom" secondItem="ipZ-fb-jsJ" secondAttribute="bottom" id="Vah-Vn-YL4"/>
+                                    <constraint firstItem="ipZ-fb-jsJ" firstAttribute="top" secondItem="zPw-NF-C1c" secondAttribute="bottom" id="WE1-JX-R5K"/>
                                     <constraint firstItem="DCa-bY-EeA" firstAttribute="width" secondItem="lxM-ND-NrQ" secondAttribute="width" id="XFy-B4-aAj"/>
+                                    <constraint firstAttribute="trailing" secondItem="ipZ-fb-jsJ" secondAttribute="trailing" id="XdZ-hm-wDc"/>
                                     <constraint firstItem="xmW-S8-euL" firstAttribute="leading" secondItem="lxM-ND-NrQ" secondAttribute="leading" id="bev-OE-l47"/>
                                     <constraint firstAttribute="bottom" secondItem="xmW-S8-euL" secondAttribute="bottom" id="bq6-Lx-MVx"/>
+                                    <constraint firstAttribute="width" secondItem="ipZ-fb-jsJ" secondAttribute="width" id="c5s-pm-krq"/>
                                     <constraint firstItem="zPw-NF-C1c" firstAttribute="width" secondItem="lxM-ND-NrQ" secondAttribute="width" id="eha-fL-Avd"/>
                                     <constraint firstItem="DCa-bY-EeA" firstAttribute="top" secondItem="zPw-NF-C1c" secondAttribute="bottom" id="h4s-iV-7Fs"/>
-                                    <constraint firstAttribute="trailing" secondItem="ipZ-fb-jsJ" secondAttribute="trailing" id="jwF-ZO-KcZ"/>
                                     <constraint firstItem="DCa-bY-EeA" firstAttribute="leading" secondItem="lxM-ND-NrQ" secondAttribute="leading" id="s4s-QN-fdF"/>
                                     <constraint firstAttribute="bottom" secondItem="DCa-bY-EeA" secondAttribute="bottom" id="tfI-pg-PW6"/>
-                                    <constraint firstItem="ipZ-fb-jsJ" firstAttribute="top" secondItem="zPw-NF-C1c" secondAttribute="bottom" id="uEm-zH-CgF"/>
                                     <constraint firstAttribute="trailing" secondItem="DCa-bY-EeA" secondAttribute="trailing" id="wgW-rr-o2Z"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="UKc-61-VhT"/>
+                                        <exclude reference="JzJ-ey-nv1"/>
                                     </mask>
                                 </variation>
                                 <connections>
