@@ -29,6 +29,7 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var websiteLabel: UIButton!
     
+    @IBOutlet weak var employerLabel: UILabel!
     @IBOutlet weak var industryLabel: UILabel!
     @IBOutlet weak var numberOfRatingsLabel: UILabel!
     @IBOutlet weak var overallRatingLabel: UILabel!
@@ -202,6 +203,7 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func setEmployerInfo() {
+        self.employerLabel.text = infoSession.employer
         self.industryLabel.text = employerInfo?.industry
         if let numberOfRatings = employerInfo?.numberOfRatings {
             self.numberOfRatingsLabel.text = String(numberOfRatings)
