@@ -69,23 +69,23 @@ class EmployerInfoDetailViewController: UIViewController {
                 
                 self.companyNameLabel.text = self.gitEmployerInfo.company
                 self.titleLabel.text = self.gitEmployerInfo.title
-                self.typeLabel.text = self.gitEmployerInfo.type
+//                self.typeLabel.text = self.gitEmployerInfo.type
                 //load_image(employerInfo!.squareLogo)
                 
-                self.locationLabel.text = self.gitEmployerInfo.location
-                if (self.gitEmployerInfo.createdAt != nil) {
-                    self.dateLabel.text = self.dateFormatter.stringFromDate(self.gitEmployerInfo.createdAt!)
-                } else {
-                    self.dateLabel.text = "Date Not Available"
-                }
+//                self.locationLabel.text = self.gitEmployerInfo.location
+//                if (self.gitEmployerInfo.createdAt != nil) {
+//                    self.dateLabel.text = self.dateFormatter.stringFromDate(self.gitEmployerInfo.createdAt!)
+//                } else {
+//                    self.dateLabel.text = "Date Not Available"
+//                }
                 
-                self.applyLabel.text = self.gitEmployerInfo.howToApply
-                self.descriptionLabel.text = self.gitEmployerInfo.jobDescription
+//                self.applyLabel.text = self.gitEmployerInfo.howToApply
+//                self.descriptionLabel.text = self.gitEmployerInfo.jobDescription
             }
             
             
             // Calculate size needed for scrolling
-            self.scrollView.contentSize = CGSizeMake(350, 10000)
+//            self.scrollView.contentSize = CGSizeMake(350, 10000)
         }
         
         let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
