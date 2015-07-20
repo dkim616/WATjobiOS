@@ -92,7 +92,7 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
             if let employerInfo = employerInfo {
                 self.employerInfo = employerInfo
                 // Company Name and Image
-                self.companyNameLabel.text = self.infoSession.employer
+                self.title = self.infoSession.employer
                 self.load_image(self.employerInfo.squareLogo)
                 
                 // Programmatically setup views
