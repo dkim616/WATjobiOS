@@ -47,7 +47,7 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     var infoSessionId: String
     var infoSession: InfoSession!
     var employerInfoId: Int
-    var employerInfo: EmployerInfo?
+    var employerInfo: EmployerInfo!
     
     let dateFormatter: NSDateFormatter
     
@@ -80,28 +80,29 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         // Segmented Control
         self.originalFloatingY = self.floatingView.frame.origin.y
         
-        // Getting data from DataCenter
-        self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
-        self.employerInfo = DataCenter.getEmployerInfoById(employerInfoId)
-        
-        // Company Name and Image
-        self.companyNameLabel.text = infoSession.employer
-        load_image(employerInfo!.squareLogo)
-        
-        // Programmatically setup views
-        setSessionInfo()
-        setEmployerInfo()
-        setReviewInfo()
-        
+        // Initially hide some views
         self.view1.hidden = false
         self.view2.hidden = true
         self.view3.hidden = true
         
-//        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName("") { (result) -> () in
-//            if let result = result {
-//                self.employerInfo = result;
-//            }
-//        }
+        // Getting data from DataCenter
+        self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
+        DataCenter.getEmployerInfoByCompanyName(self.infoSession.employer, completionHandler: { (employerInfo) -> () in
+            if let employerInfo = employerInfo {
+                self.employerInfo = employerInfo
+                // Company Name and Image
+                self.companyNameLabel.text = self.infoSession.employer
+                self.load_image(self.employerInfo.squareLogo)
+                
+                // Programmatically setup views
+                self.setSessionInfo()
+                self.setEmployerInfo()
+                self.setReviewInfo()
+            } else {
+                // Remove if we don't want it
+                self.navigationController?.popViewControllerAnimated(true);
+            }
+        })
     }
     
     // MARK: - Segmented Controls

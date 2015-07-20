@@ -80,7 +80,8 @@ class WJHTTPClient {
     //Github jobs
     func getLatestGitEmployerInfoList(page: Int!, completionHandler:(Array<GitEmployerInfo>?) -> ()) -> Void {
         Alamofire.request(.GET, githubAPIBaseUrl + "positions.json", parameters: ["page": page], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, response, JSON, error) -> Void in
-            completionHandler(ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON));
+            var stuff = ObjectUnpacker.unpackGitEmployerInfoListDictionary(JSON)
+            completionHandler(stuff);
         }
     }
     

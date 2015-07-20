@@ -87,6 +87,12 @@ class DataCenter {
         }
     }
     
+    class func getEmployerInfoByCompanyName(companyName: String, completionHandler:(EmployerInfo?) -> ()) -> Void {
+        WJHTTPClient.sharedHTTPClient.getLatestEmployerInfoByCompanyName(companyName, completionHandler: { (employerInfo) -> () in
+            completionHandler(employerInfo)
+        })
+    }
+    
     class func getEmployerInfoById(id: Int) -> EmployerInfo? {
         let realm = Realm()
         var result = realm.objectForPrimaryKey(EmployerInfo.self, key: id)
