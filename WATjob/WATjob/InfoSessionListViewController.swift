@@ -137,6 +137,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         view.endEditing(true)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     // MARK: Cell Options
