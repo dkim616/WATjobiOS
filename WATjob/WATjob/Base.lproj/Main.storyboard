@@ -727,11 +727,12 @@
                         <outlet property="careerOpportunitiesLabel" destination="xZL-MO-J0z" id="L6Q-5E-GMx"/>
                         <outlet property="companyImage" destination="l1B-xy-zId" id="46q-B4-9yb"/>
                         <outlet property="companyLabel" destination="xDM-PE-DmE" id="VQw-NV-pYY"/>
-                        <outlet property="companyNameLabel" destination="LhY-Ig-HHf" id="T1u-TU-sWM"/>
+                        <outlet property="companyNameLabel" destination="lbb-aJ-uVx" id="qfM-3Z-xqb"/>
                         <outlet property="compensationAndBenefitsLabel" destination="gQd-i2-oia" id="pgm-sK-IHh"/>
                         <outlet property="contentView" destination="zPw-NF-C1c" id="xMk-MK-dWA"/>
                         <outlet property="cultureAndValuesLabel" destination="CM7-8s-RPh" id="ZUp-ch-PRh"/>
                         <outlet property="dateLabel" destination="KHh-c6-kMR" id="M76-mK-0s0"/>
+                        <outlet property="employerLabel" destination="LhY-Ig-HHf" id="UQZ-PC-TFH"/>
                         <outlet property="endTimeLabel" destination="bZv-Bs-5M6" id="XBK-nh-0t4"/>
                         <outlet property="floatingView" destination="hpR-Qy-pWK" id="hWf-30-HI4"/>
                         <outlet property="industryLabel" destination="Jqd-5Y-kUQ" id="gvw-56-4mn"/>
@@ -767,7 +768,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-S1-ns9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-S1-ns9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-RZ-7Zg">
@@ -784,15 +785,24 @@
                                     </navigationBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="paS-JY-NMz"/>
+                                </constraints>
                             </view>
-                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfg-fG-oUJ">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfg-fG-oUJ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kfg-fG-oUJ" firstAttribute="top" secondItem="Tig-S1-ns9" secondAttribute="bottom" constant="5" id="tuP-4J-5pL"/>
+                            <constraint firstItem="Tig-S1-ns9" firstAttribute="leading" secondItem="YDz-HI-ekc" secondAttribute="leading" id="HaG-sa-3Cb"/>
+                            <constraint firstItem="Kfg-fG-oUJ" firstAttribute="leading" secondItem="YDz-HI-ekc" secondAttribute="leading" id="PLN-RD-Kwy"/>
+                            <constraint firstItem="0sO-Bi-Za9" firstAttribute="top" secondItem="Kfg-fG-oUJ" secondAttribute="bottom" id="StL-D7-azL"/>
+                            <constraint firstItem="Tig-S1-ns9" firstAttribute="top" secondItem="YDz-HI-ekc" secondAttribute="top" id="Ws9-mj-uVS"/>
+                            <constraint firstItem="Kfg-fG-oUJ" firstAttribute="top" secondItem="Tig-S1-ns9" secondAttribute="bottom" id="cL7-B1-BE7"/>
+                            <constraint firstAttribute="trailing" secondItem="Kfg-fG-oUJ" secondAttribute="trailing" id="ctW-xk-N8H"/>
+                            <constraint firstAttribute="trailing" secondItem="Tig-S1-ns9" secondAttribute="trailing" id="e2u-iE-pLt"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1319,7 +1329,7 @@
                         <viewControllerLayoutGuide type="top" id="5La-XV-tzx"/>
                         <viewControllerLayoutGuide type="bottom" id="HXS-Me-7ds"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="ho9-fi-Ynt">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ho9-fi-Ynt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
