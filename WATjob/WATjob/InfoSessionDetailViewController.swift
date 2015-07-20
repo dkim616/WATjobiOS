@@ -90,6 +90,9 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
                 self.setSessionInfo()
                 self.setEmployerInfo()
                 self.setReviewInfo()
+            } else {
+                // Remove if we don't want it
+                self.navigationController?.popViewControllerAnimated(true);
             }
         })
     }
