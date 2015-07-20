@@ -29,7 +29,10 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var websiteLabel: UIButton!
     
+    @IBOutlet weak var industryLabel: UILabel!
+    @IBOutlet weak var numberOfRatingsLabel: UILabel!
     @IBOutlet weak var overallRatingLabel: UILabel!
+    @IBOutlet weak var ratingDescription: UILabel!
     @IBOutlet weak var cultureAndValuesLabel: UILabel!
     @IBOutlet weak var seniorLeadershipLabel: UILabel!
     @IBOutlet weak var compensationAndBenefitsLabel: UILabel!
@@ -76,6 +79,11 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         
         // Segmented Control
         self.originalFloatingY = self.floatingView.frame.origin.y
+        
+        // Initially hide some views
+        self.view1.hidden = false
+        self.view2.hidden = true
+        self.view3.hidden = true
         
         // Getting data from DataCenter
         self.infoSession = DataCenter.getInfoSessionForId(infoSessionId)
@@ -125,6 +133,9 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
         self.locationLabel.text = infoSession.location
         if let date = infoSession.date {
             self.dateLabel.text = self.dateFormatter.stringFromDate(date)
+        }
+        else {
+            self.dateLabel.text = ""
         }
         self.startTimeLabel.text = infoSession.startTime
         self.endTimeLabel.text = infoSession.endTime
@@ -191,7 +202,26 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func setEmployerInfo() {
-        
+        self.industryLabel.text = employerInfo?.industry
+        if let numberOfRatings = employerInfo?.numberOfRatings {
+            self.numberOfRatingsLabel.text = String(numberOfRatings)
+        }
+        else {
+            self.numberOfRatingsLabel.text = ""
+        }
+        if let overallRating = employerInfo?.overallRating {
+            self.overallRatingLabel.text = String(format: "%.1f", overallRating)
+        }
+        else {
+            self.overallRatingLabel.text = ""
+        }
+        self.ratingDescription.text = employerInfo?.ratingDescription
+        self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
+        self.seniorLeadershipLabel.text = employerInfo?.seniorLeadershipRating
+        self.compensationAndBenefitsLabel.text = employerInfo?.compensationAndBenefitsRating
+        self.careerOpportunitiesLabel.text = employerInfo?.careerOpportunitiesRating
+        self.workLifeBalanceLabel.text = employerInfo?.workLifeBalanceRating
+        self.recommendToFriendLabel.text = employerInfo?.recommendToFriendRating
     }
     
     func setReviewInfo() {
