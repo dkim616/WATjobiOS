@@ -20,7 +20,7 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var view2: UIView!
     @IBOutlet var view3: UIView!
     
-    @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet weak var companyImage: UIImageView!
     
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -28,6 +28,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var websiteLabel: UIButton!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
     
     @IBOutlet weak var employerLabel: UILabel!
     @IBOutlet weak var industryLabel: UILabel!
@@ -41,7 +43,20 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var workLifeBalanceLabel: UILabel!
     @IBOutlet weak var recommendToFriendLabel: UILabel!
     
-    @IBOutlet weak var companyImage: UIImageView!
+    @IBOutlet weak var reviewDateLabel: UILabel!
+    @IBOutlet weak var currentJobLabel: UILabel!
+    @IBOutlet weak var jobTitleLabel: UILabel!
+    @IBOutlet weak var reviewlocationLabel: UILabel!
+    @IBOutlet weak var reviewRatingLabel:UILabel!
+    @IBOutlet weak var headlineLabel:UILabel!
+    @IBOutlet weak var prosLabel:UILabel!
+    @IBOutlet weak var consLabel:UILabel!
+    
+    @IBOutlet var prosView: UIView!
+    @IBOutlet var consView: UIView!
+    
+    @IBOutlet weak var prosViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var consViewHeight: NSLayoutConstraint!
     
     var originalFloatingY: CGFloat
     
@@ -136,7 +151,7 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
             self.dateLabel.text = self.dateFormatter.stringFromDate(date)
         }
         else {
-            self.dateLabel.text = ""
+            self.dateLabel.text = " "
         }
         self.startTimeLabel.text = infoSession.startTime
         self.endTimeLabel.text = infoSession.endTime
@@ -155,6 +170,16 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
                 self.websiteLabel.hidden = true
             }
         }
+        
+        println(infoSession.website)
+        println(infoSession.infoSessionDescription)
+        println("Done")
+        var descLabelLen = Double(count(infoSession.infoSessionDescription))
+        var descLineCount = Int(ceil(descLabelLen / 55.0))
+        self.descriptionLabel.text = infoSession.infoSessionDescription
+        self.descriptionLabel.numberOfLines = descLineCount
+        self.descriptionHeight.constant = CGFloat(20 * descLineCount)
+        
 //        var informationLabel = UILabel(frame: CGRectMake(19, 20, 200, 20))
 //        informationLabel.text = "Information"
 //        self.view1.addSubview(informationLabel)
@@ -209,13 +234,13 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
             self.numberOfRatingsLabel.text = String(numberOfRatings)
         }
         else {
-            self.numberOfRatingsLabel.text = ""
+            self.numberOfRatingsLabel.text = " "
         }
         if let overallRating = employerInfo?.overallRating {
             self.overallRatingLabel.text = String(format: "%.1f", overallRating)
         }
         else {
-            self.overallRatingLabel.text = ""
+            self.overallRatingLabel.text = " "
         }
         self.ratingDescription.text = employerInfo?.ratingDescription
         self.cultureAndValuesLabel.text = employerInfo?.cultureAndValuesRating
@@ -227,7 +252,42 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func setReviewInfo() {
-        
+        if let review = employerInfo.featuredReview {
+            if let date = review.reviewDateTime {
+                self.reviewDateLabel.text = self.dateFormatter.stringFromDate(date)
+            } else {
+                self.reviewDateLabel.text = " "
+            }
+            if review.currentJob {
+                self.currentJobLabel.text = "Yes"
+            }
+            else {
+                self.currentJobLabel.text = "No"
+            }
+            self.jobTitleLabel.text = review.jobTitle
+            if review.location == "" {
+                self.reviewlocationLabel.text = " "
+            }
+            else {
+                self.reviewlocationLabel.text = review.location
+            }
+            self.headlineLabel.text = review.headline
+            self.reviewRatingLabel.text = String(review.overall)
+            
+            var prosLabelLen = Double(count(review.pros))
+            var prosLineCount = Int(ceil(prosLabelLen / 55.0))
+            self.prosLabel.text = review.pros
+            self.prosLabel.numberOfLines = prosLineCount
+            self.prosViewHeight.constant = CGFloat(20 * prosLineCount)
+            
+            var consLabelLen = Double(count(review.cons))
+            var consLineCount = Int(ceil(consLabelLen / 55.0))
+            self.consLabel.text = review.cons
+            self.consLabel.numberOfLines = consLineCount
+            self.consViewHeight.constant = CGFloat(20 * consLineCount)
+            
+            
+        }
     }
     
     // MARK: - Image
