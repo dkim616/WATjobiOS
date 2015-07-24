@@ -1297,7 +1297,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nww-YQ-VrJ">
-                                <rect key="frame" x="0.0" y="108" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="EmployerInfoListCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmployerInfoListCell" rowHeight="65" id="0lL-cP-P7f" userLabel="EmployerInfoListCell" customClass="EmployerInfoListCell" customModule="WATjob" customModuleProvider="target">
@@ -1524,6 +1524,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YyH-UV-elU"/>
+        <segue reference="nAz-u4-FHF"/>
     </inferredMetricsTieBreakers>
 </document>
