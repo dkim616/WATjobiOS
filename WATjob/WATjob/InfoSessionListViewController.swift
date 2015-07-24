@@ -288,10 +288,10 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
             let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
-        if filtered.count == 0 {
-            searchActive = false;
-        } else {
+        if searchText != "" {
             searchActive = true;
+        } else {
+            searchActive = false;
         }
         self.processSections()
         self.tableView.reloadData()
