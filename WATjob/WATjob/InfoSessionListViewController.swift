@@ -371,13 +371,13 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
     
     func supplementaryView(shouldDisplayOnDayView dayView: DayView) -> Bool
     {
-        for infoSession in infoSessionList {
-            if var date1 = infoSession.date, date2 = dayView.date {
-                if date1 == date2.convertedDate() {
-                    return true
-                }
-            }
-        }
+//        for infoSession in infoSessionList {
+//            if var date1 = infoSession.date, date2 = dayView.date {
+//                if date1 == date2.convertedDate() {
+//                    return true
+//                }
+//            }
+//        }
 
         return false
     }
@@ -430,26 +430,40 @@ extension InfoSessionListViewController:CVCalendarViewDelegate {
     }
     
     func dotMarker(shouldShowOnDayView dayView: CVCalendarDayView) -> Bool {
-//        let day = dayView.date.day
-//        let randomDay = Int(arc4random_uniform(31))
-//        if day == randomDay {
-//            return true
-//        }
+        for infoSession in infoSessionList {
+            if var date1 = infoSession.date, date2 = dayView.date {
+                if date1 == date2.convertedDate() {
+                    return true
+                }
+            }
+        }
         
         return false
     }
     
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
+        
+        var dotNum = 0;
+        
+        for infoSession in infoSessionList {
+            if var date1 = infoSession.date, date2 = dayView.date {
+                if date1 == date2.convertedDate() {
+                    dotNum++;
+                }
+            }
+        }
+        
         let day = dayView.date.day
         
-        let red = CGFloat(arc4random_uniform(600) / 255)
-        let green = CGFloat(arc4random_uniform(600) / 255)
-        let blue = CGFloat(arc4random_uniform(600) / 255)
+        let red = CGFloat(250.0 / 255.0)
+        let green = CGFloat(175.0 / 255.0)
+        let blue = CGFloat(75.0 / 255.0)
         
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
         
-        let numberOfDots = Int(arc4random_uniform(3) + 1)
-        switch(numberOfDots) {
+        if dotNum > 3 { dotNum = 3 }
+        
+        switch(dotNum) {
         case 2:
             return [color, color]
         case 3:
