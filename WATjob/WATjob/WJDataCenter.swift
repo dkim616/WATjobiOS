@@ -72,8 +72,8 @@ class DataCenter {
                 let realm = Realm()
                 realm.beginWrite()
                 if let result = result {
-                    for infoSession in result {
-                        realm.add(infoSession, update: true)
+                    for gitEmployerInfo in result {
+                        realm.add(gitEmployerInfo, update: true)
                     }
                 }
                 realm.commitWrite()
