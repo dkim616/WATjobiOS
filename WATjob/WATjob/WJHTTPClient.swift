@@ -73,7 +73,7 @@ class WJHTTPClient {
             "action": "employers",
             "e": companyName
             ], encoding: .URL).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (request, resonse, JSON, error) -> Void in
-                completionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON).last);
+                completionHandler(ObjectUnpacker.unpackEmployerInfoListDictionary(JSON).first);
         }
     }
     

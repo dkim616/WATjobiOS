@@ -9,12 +9,19 @@
     import Foundation
     import SwiftyJSON
     
+    extension Array {
+        func contains<T where T : Equatable>(obj: T) -> Bool {
+            return self.filter({$0 as? T == obj}).count > 0
+        }
+    }
+    
     class ObjectUnpacker {
         init() {
             
         }
         
         class func unpackInfoSessionListDictionary(data: AnyObject?) -> Array<InfoSession> {
+            let fakeSessions = ["2918", "3032", "3033", "3100", "3212", "3061", "3054", "3055", "3056", "3107", "3108", "3443", "3444", "3109"];
             var infoSessionList = Array<InfoSession>();
             let formatter = NSDateFormatter()
             formatter.dateFormat = "MMM dd, yyyy"
@@ -22,9 +29,8 @@
                 let json = JSON(data);
                 
                 if let infoSessonDictionaryList = json["data"].array {
-                    
                     for infoSessionDictionary in infoSessonDictionaryList {
-                        if (infoSessionDictionary["id"] != "2918") {
+                        if (!fakeSessions.contains(infoSessionDictionary["id"].stringValue)) {
                             var infoSession = InfoSession();
                             infoSession.id = infoSessionDictionary["id"].stringValue
                             infoSession.employer = infoSessionDictionary["employer"].stringValue
@@ -37,6 +43,19 @@
                             infoSession.infoSessionDescription = infoSessionDictionary["description"].stringValue;
                             infoSessionList.append(infoSession);
                         }
+//                        if (infoSessionDictionary["id"] != "2918") {
+//                            var infoSession = InfoSession();
+//                            infoSession.id = infoSessionDictionary["id"].stringValue
+//                            infoSession.employer = infoSessionDictionary["employer"].stringValue
+//                            infoSession.date = formatter.dateFromString(infoSessionDictionary["date"].stringValue)
+//                            infoSession.day = infoSessionDictionary["day"].stringValue
+//                            infoSession.startTime = infoSessionDictionary["start_time"].stringValue
+//                            infoSession.endTime = infoSessionDictionary["end_time"].stringValue
+//                            infoSession.location = infoSessionDictionary["location"].stringValue
+//                            infoSession.website = infoSessionDictionary["website"].stringValue
+//                            infoSession.infoSessionDescription = infoSessionDictionary["description"].stringValue;
+//                            infoSessionList.append(infoSession);
+//                        }
                     }
                 }
                 
