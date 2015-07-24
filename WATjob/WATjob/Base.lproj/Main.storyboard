@@ -232,11 +232,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="CalendarButton" destination="gCx-Jd-Y7L" id="lNT-nX-iFS"/>
+                        <outlet property="calendarButton" destination="gCx-Jd-Y7L" id="rfu-PX-mgy"/>
                         <outlet property="calendarContainerView" destination="FeT-W1-cHM" id="rIY-8Z-V0y"/>
                         <outlet property="calendarMenuView" destination="jLR-oo-mBI" id="36Z-77-3AO"/>
                         <outlet property="calendarView" destination="uQt-GL-2La" id="89X-Vr-vqF"/>
-                        <outlet property="navigationItem" destination="Gwe-KM-hzA" id="uvR-Bx-peP"/>
                         <outlet property="searchBar" destination="HQo-NF-e8Y" id="Zb8-la-X1X"/>
                         <outlet property="tableView" destination="Gvv-uc-kOn" id="7aj-cx-2zL"/>
                     </connections>
