@@ -36,7 +36,6 @@ class FavouriteInfoSessionListViewController: UIViewController, UITableViewDataS
             let list = tableView.indexPathForSelectedRow()
             var infoSession = self.infoSessionList[(list?.row)!]
             detailVC.infoSessionId = infoSession.id
-            detailVC.employerInfoId = 673773
         }
     }
     
