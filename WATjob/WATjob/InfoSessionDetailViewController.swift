@@ -117,6 +117,8 @@ class InfoSessionDetailViewController: UIViewController, UIScrollViewDelegate {
             } else {
                 // Remove if we don't want it
                 self.navigationController?.popViewControllerAnimated(true);
+                let stuff = UIAlertView(title: "Ooops...", message: "Unable to fetch company detail", delegate: nil, cancelButtonTitle: "Confirm");
+                stuff.show()
             }
         })
     }

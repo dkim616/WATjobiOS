@@ -24,7 +24,6 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
     var shouldShowDaysOut = true
     var animationFinished = true
     
-    let infoSessionListTitle = "Info Session List"
     let calendarViewCentreHeight:CGFloat = 64 + 200
     let tableViewInsetHeight:CGFloat = 400
     let screenWidth = UIScreen.mainScreen().bounds.width
@@ -76,7 +75,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
         }
         
         self.calendarButton.title = "Calendar"
-        self.navigationItem.title = infoSessionListTitle
+        self.navigationItem.title = "Info Sessions"
         
         let backItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backItem
@@ -228,7 +227,7 @@ class InfoSessionListViewController:  UIViewController, UITableViewDataSource, U
                 }
                 
                 self.tableView.contentOffset = offsetPoint
-                self.navigationItem.title = self.infoSessionListTitle
+                self.navigationItem.title = "Info Sessions"
             }, completion: { (Bool) -> Void in
                 self.calendarContainerView.hidden = true
                 self.calendarMenuView.hidden = true
