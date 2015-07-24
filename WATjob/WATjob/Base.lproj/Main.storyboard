@@ -1037,7 +1037,7 @@
         <scene sceneID="bj7-ud-TDf">
             <objects>
                 <navigationController id="4YM-qU-r7k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Info Session" id="lOZ-yV-Q8Y"/>
+                    <tabBarItem key="tabBarItem" title="Info Session" image="List-50" id="lOZ-yV-Q8Y"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ILG-ks-RpG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1102,7 +1102,7 @@
         <scene sceneID="hla-nm-MqT">
             <objects>
                 <navigationController id="iBG-Se-bYk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favourites" id="4T7-U9-Vmb"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="Star-50" id="4T7-U9-Vmb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KjX-dW-AHq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1268,7 +1268,7 @@
         <scene sceneID="8MU-Ac-0Rx">
             <objects>
                 <navigationController title="Jobs" id="u3b-av-ihK" userLabel="Employer Info" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Jobs" id="u2m-8j-UYt"/>
+                    <tabBarItem key="tabBarItem" title="Jobs" image="Work-50" id="u2m-8j-UYt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ulb-23-MKb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1518,6 +1518,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="List-50" width="25" height="25"/>
+        <image name="Star-50" width="25" height="25"/>
+        <image name="Work-50" width="25" height="25"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
